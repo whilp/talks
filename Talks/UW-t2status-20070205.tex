@@ -1,0 +1,48 @@
+% vim: set tw=0:
+\documentclass{beamer}
+\usepackage{graphicx}
+
+% Reasonable themes:
+% Antibes Bergen Berkeley Berlin Frankfurt Goettingen Ilmenau Luebeck Malmoe
+% Montpellier PaloAlto Rochester Singapore Szeged Warsaw bars boxes
+% compatibility default lined plain shadow sidebar split tree
+% And these ones include the author's name on every slide:
+% Berkeley
+
+% Declare themes.
+\mode<presentation>
+\usefonttheme[onlysmall]{structurebold}
+\useinnertheme{default}
+\useoutertheme[footline=institutetitle]{miniframes}
+\usecolortheme{dolphin}
+\usecolortheme{whale}
+
+% Personal macros.
+\newcommand{\email}[1]{{\texttt #1}}
+\newcommand{\newframe}[1]{\section{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\subframe}[1]{\subsection{#1}
+    \frametitle{\sc{#1}}}
+
+% Author information.
+\title{Wisconsin T2 Status}
+\author[Will Maier]{Will Maier \\ \email{wcmaier@hep.wisc.edu}}
+\date{2007.02.05}
+
+\begin{document}
+
+% Print author information
+\begin{frame}
+% \begin{frame}[plain]
+\titlepage
+\end{frame}
+
+\begin{frame}
+\newframe{Facilities}
+\end{frame}
+
+\begin{frame}
+\newframe{Services}
+\end{frame}
+
+\end{document}
