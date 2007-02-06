@@ -45,10 +45,33 @@
 \end{frame}
 
 \begin{frame}
-\newframe{SL4}
+\newframe{Path to SL4}
+
 \begin{itemize}
-    \item test
-    \item test2
+    \item All nodes will be upgraded by the end of February
+    \item Most dCache pools (75T) are already running SL4
+    \item Begun to work with GLOW to upgrade opportunistic resources as well
+    \item Current status
+    \begin{itemize}
+        \item {\bf SL4}: 78 CPUs, 77T
+        \item {\bf SL3}: 234 CPUS, 45T
+    \end{itemize}
 \end{itemize}
+
+\begin{center}
+\begin{tabular}[c]{|c|c|c|c|}
+\hline
+\bf{Generation} & \bf{CPUs}     & \bf{Storage}  & \bf{OS} \\
+\hline
+g3              & 54            &  -            & SL3 \\
+s5              & 18            & 45T           & SL4 \\
+g7              & 48            & 26T           & SL4 \\
+g8              & 12            & 6T            & SL4 \\
+g9              & 180           & 45T           & SL3 \\
+\hline
+\end{tabular}
+\end{center}
+
 \end{frame}
+
 \end{document}
