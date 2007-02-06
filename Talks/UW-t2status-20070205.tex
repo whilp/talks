@@ -39,13 +39,13 @@
 \begin{frame}
 \newframe{Load Test}
 \begin{itemize}
-    \item Peaked at 15T/day (30 January)
-    \item Currently transferring 10T/day
-    \item Dropped out due to several problems
+    \item Peaked at 15T/day (30 January); currently transferring 10T/day
+    \item Problems encountered during load test:
     \begin{itemize}
         \item PNFS server had mysteriously hung (Dan and I are still investigating)
         \item Other operations not affected until Monday morning
         \item After restarting PNFS, quickly resumed load test
+        \item PoolManager ran out of memory; resulted in several short outages
     \end{itemize}
 
     \begin{center}
