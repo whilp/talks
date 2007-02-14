@@ -3,6 +3,7 @@
 TEX=	*.tex
 PDF=	*.pdf
 LATEX=	pdflatex
+TEXMF=	../latex/
 
 all:
 	$(LATEX) $(TEX)
