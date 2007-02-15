@@ -5,6 +5,8 @@ PDF=	*.pdf
 LATEX=	pdflatex
 
 all:
+	# Run latex twice so that we get tables of contents, etc.
+	$(LATEX) $(TEX)
 	$(LATEX) $(TEX)
 
 clean:
