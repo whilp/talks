@@ -29,6 +29,14 @@
 
 \begin{document}
 
+% http://indico.cern.ch/conferenceDisplay.py?confId=12832
+% The modification password is "uscmst2".  In site reports, it would be
+% interesting to hear about what our difficulties are in getting up to
+% speed in the new version of the load test.  I'll tell you as much as
+% I know about the whole thing (which, alas, isn't as much as I wish I
+% knew), and also the status of our plans for the T2 workshop, which is
+% just two weeks away.
+
 %\begin{frame}
 %    \titlepage
 %\end{frame}
@@ -38,9 +46,35 @@
 %    \tableofcontents
 %\end{frame}
 
-\section{BLAH}
+\section{Operations}
 \begin{frame}
-    \frametitle{BLAH!}
+    \frametitle{Disaster Recovery}
+    \begin{itemize}
+        \item Lost RAID 14 February, which badly corrupted an important AFS partition.
+        \item Began immediate recovery as well as reconstruction.
+        \begin{itemize}
+            \item Steve began long process of restoring from (non-native) AFS backups.
+            \item Bockjoo reinstalled several CMSSW releases.
+            \item Dan and I restored and reconfigured PhEDEx and other software.
+        \end{itemize}
+        \item We reconstructed most of our lost data within 24 hours; the backup took more than 72 hours to recover.
+        \item We used the outage to work to avoid this single point of failure:
+        \begin{itemize}
+            \item All OSG apps are now mirrored on a different server.
+            \item The backup volume can be brought online instantly in case of failure.
+        \end{itemize}
+    \end{itemize}
 \end{frame}
+
+\section{Load Test}
+\begin{frame}
+    \frametitle{Successful Transfers}
+\end{frame}
+
+\section{Production}
+\begin{frame}
+    \frametitle{}
+\end{frame}
+
 
 \end{document}
