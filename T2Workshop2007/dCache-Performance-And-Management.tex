@@ -19,6 +19,8 @@
     \frametitle{\sc{#1}}}
 \newcommand{\subframe}[1]{\subsection{#1}
     \frametitle{\sc{#1}}}
+\newcommand{\supers}[1]{\ensuremath{^\textrm{#1}}}
+\newcommand{\subs}[1]{\ensuremath{_\textrm{#1}}}
 
 % Author information.
 \title{dCache Performance and Management}
@@ -37,7 +39,7 @@
 \subsection{A Pareto Problem}
 
 \begin{frame}
-\frametitle{The "Trivial Many"...}
+\frametitle{The "Trivial Many"\dots{}}
 \begin{columns}[t]
 \begin{column}{.25\textwidth}
     \begin{figure}
@@ -62,7 +64,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{...and the "Vital Few"}
+\frametitle{\dots{}and the "Vital Few"}
 The remaining bits of dCache pose vital problems for site administrators.
 
 \begin{itemize}
@@ -91,43 +93,137 @@ The remaining bits of dCache pose vital problems for site administrators.
 \subsection{Pool Availability}
 \begin{frame}
 \frametitle{Pool Availability}
+\begin{itemize}
+    \item Status is listed on the 'cellInfo' page of the HTTP monitor
+    \begin{itemize}
+        \item \dots{}but web scraping is dumb
+    \end{itemize}
+    \item The admin interface can be scripted with {\tt sh(1)}
+    \begin{itemize}
+        \item \dots{}but this can be tedious and slow
+    \end{itemize}
+    \item The {\tt replicas} database has a {\tt pools} table
+    \begin{itemize}
+        \item Most convenient method for querying availability?
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \subsection{File Replication}
 \begin{frame}
 \frametitle{File Replication}
+\begin{itemize}
+    \item PNFS makes all files available in a neat, unified namespace
+    \begin{itemize}
+        \item \dots{}but you can't get replication information from it
+        \item \dots{}and it's awfully expensive to read the magic {\tt .(use)(2)(\$ID)} files
+        \item \dots{}but we do get access to metadata via {\tt stat(2)}
+    \end{itemize}
+    \item Via the admin interface, we can ask each pool for its file catalog
+    \begin{itemize}
+        \item \dots{}but this can be tedious and slow
+    \end{itemize}
+    \item The PNFS {\tt companion} database has a {\tt cacheinfo} table
+    \begin{itemize}
+        \item This is great, but we don't get any metadata information
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \subsection{Log Processing}
 \begin{frame}
 \frametitle{Log Processing}
+\begin{itemize}
+    \item At what level do we get useful info (not backtraces)?
+    \item At what level do we avoid multi-GB log files?
+    \item How can we centralize our logging?
+    \begin{itemize}
+        \item Especially important at sites which spread the core services across multiple servers
+    \end{itemize}
+    \item How do we monitor our logs for important events?
+    \begin{itemize}
+        \item What {\emph are} the important events?
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \subsection[Testing]{Full-system and Regression Tests}
 \begin{frame}
 \frametitle{Full-system and Regression Tests}
+\begin{itemize}
+    \item How do we check for configuration or upgrade regressions?
+    \item Test for:
+    \begin{itemize}
+        \item Performance
+        \item Sanity
+    \end{itemize}
+    \item How do we test the full storage stack?
+    \begin{itemize}
+        \item Replication
+        \item Pool-to-pool transfers
+        \item Site-to-site transfers
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \section{Reliability}
 \subsection{cron-kicking}
 \begin{frame}
 \frametitle{cron-kicking}
-\end{frame}
-
-\subsection{PNFS Registration}
-\begin{frame}
-\frametitle{PNFS Registration}
+\begin{itemize}
+    \item Some elements require periodic kickage to function properly
+    \begin{itemize}
+        \item Pools?
+        \begin{itemize}
+            \item Nightly restarts via cron?
+            \item Regular re-registration of files (via the admin interface)?
+        \end{itemize}
+        \item Doors?
+        \item Core services?
+        \begin{itemize}
+            \item ReplicaManager?
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \section{Community}
-\subsection{Documentation}
+\subsection{Documentation and Coordination}
 \begin{frame}
-\frametitle{}
+\frametitle{Documentation and Coordination}
+\begin{itemize}
+    \item dCache.org provides The Book and other docs
+    \item But {\emph we} don't centrally document our dCache experiences
+    \begin{itemize}
+        \item Some of our problems are specific to our project and dataflows
+        \item dCache.org can't document every bizarre quirk we've stumbled across
+    \end{itemize}
+    \item A wiki would allow us to:
+    \begin{itemize}
+        \item Share previously undocumented solutions to common problems
+        \item Document known bugs
+        \item Coordinate effort between the sites
+    \end{itemize}
+\end{itemize}
+
+% insert picture.
+
 \end{frame}
 
-\subsection{Coordination}
 \begin{frame}
-\frametitle{Coordination}
+\frametitle{A common scenario}
+\begin{itemize}
+    \item[1] Admin\ensuremath{_A} discovers Bug\ensuremath{_M}
+    \item[2] Admin\ensuremath{_A} curses Bug\ensuremath{_M}
+    \item[3] Admin\ensuremath{_A} resolves Bug\ensuremath{_M}
+    \item[4] Admin\ensuremath{_A} tells the world about Bug\ensuremath{_M}
+    \item[5] Admin\ensuremath{_A} learns that Admins\ensuremath{_{[B-H]}} have already discovered, cursed and resolved Bug\ensuremath{_M}
+    \item[6] Admin\ensuremath{_A} discovers Bug\ensuremath{_{M+1}}\dots{}
+    \item[7] Admin\ensuremath{_{A+1}} discovers Bug\ensuremath{_M}\dots{}
+\end{itemize}
+
+% Insert diagram.
+
 \end{frame}
 
 \end{document}
