@@ -34,21 +34,60 @@
 \end{frame}
 
 \section{Overview}
+\subsection{A Pareto Problem}
+
 \begin{frame}
-    \tableofcontents
+\frametitle{The "Trivial Many"...}
+\begin{columns}[t]
+\begin{column}{.25\textwidth}
+    \begin{figure}
+        \includegraphics*[width=.8\textwidth]{Graphics/Pareto.jpg}
+        % \caption{The 80/20 guy.}
+    \end{figure}
+\end{column}
+\begin{column}{.75\textwidth}
+    \large{Most aspects of dCache function very, very well:}
+    \begin{itemize}
+        \item Most data is replicated efficiently and quickly
+        \item Most transfers occur on a reasonable timescale
+        \item Developers promise drool-inducing features (Chimera, PNFS 4.1; 
+        see Patrick's talk)
+        \item Many bugs have been fixed upstream
+        \item More aspects of the system have been exposed in the database
+        \item Strong community and patient experts resolve site problems
+    \end{itemize}
+    For site administrators, most of dCache requires little or no fiddling.
+\end{column}
+\end{columns}
 \end{frame}
 
-\subsection{dCache at Wisconsin}
 \begin{frame}
-\frametitle{dCache at Wisconsin}
+\frametitle{...and the "Vital Few"}
+The remaining bits of dCache pose vital problems for site administrators.
+
+\begin{itemize}
+    \item What are these problems like?
+    \begin{itemize}
+        \item Monitoring and Accounting
+        \item Reliability
+        \item Community
+    \end{itemize}
+    \item Who is working on these problems?
+    \begin{itemize}
+        \item The busy dCache developers?
+        \item The busy site admins?
+        \item Someone else (who's probably busy, too)?
+    \end{itemize}
+    \item What can we do to improve this situation at our T2s?
+\end{itemize}
 \end{frame}
 
-\subsection[80/20?]{An 80/20 Problem?}
 \begin{frame}
-\frametitle{80/20? 90/10?}
+% \setcounter{tocdepth}{1}
+\tableofcontents
 \end{frame}
 
-\section{Monitoring}
+\section{Monitoring and Accounting}
 \subsection{Pool Availability}
 \begin{frame}
 \frametitle{Pool Availability}
@@ -80,15 +119,22 @@
 \frametitle{PNFS Registration}
 \end{frame}
 
-\section{Community/Coordination}
-\subsection{Problem Tracking}
+\section{Community}
+\subsection{Documentation}
 \begin{frame}
-\frametitle{Problem Tracking}
+\frametitle{}
 \end{frame}
 
-\subsection{Wiki}
+\subsection{Coordination}
 \begin{frame}
-\frametitle{Wiki}
+\frametitle{Coordination}
 \end{frame}
 
 \end{document}
+
+% Patrick's talk:
+% Create a VDT/OSG -> dcache liason (GOC? -> VDT Ticket system @ UW)
+% Use CMS-T2 list? (~VOs)
+% FAQ?
+% Neha's talk:
+% dcache test suite? wtf? @ vdt.cs.wisc.edu?
