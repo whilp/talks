@@ -10,4 +10,4 @@ all:
 	$(LATEX) $(TEX)
 
 clean:
-	@-rm -f *.aux *.log *.out *.toc *.snm *.nav
+	@-rm -f *.aux *.log *.out *.toc *.snm *.nav *.vrb
