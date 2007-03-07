@@ -65,9 +65,48 @@
 
 \subsection{Newly Redundant AFS service}
 \begin{frame}
-\frametitle{AFS}
+\frametitle{AFS Load Balancing}
 \begin{itemize}
+    \item OSG volumes pose some annoying problems in AFS-land:
+    \begin{itemize}
+        \item Large units
+        \item Read/write activity
+    \end{itemize}
+    \item We can't use AFS' native replication to provide redundant copies of  
+    much of this data
+    \item We cooked up a hack using AFS' {\tt @sysname}:
+    \begin{itemize}
+        \item A copy of the main OSG volume is stored on a separate server
+        \item The backup is regularly synced (using {\tt rsync}) with the main copy
+        \item The volumes are then made available through a nest of magic symlinks
+        \item We can segregate access to the volumes by setting the {\tt sysname} on cluster hosts
+        \begin{itemize}
+            \item By architecture
+            \item By task (interactive submit machine, compute node, head node)
+            \item By priority
+        \end{itemize}
+    \end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Link Hierarchy}
+\begin{verbatim}
+    $ ls -ld /afs/hep.wisc.edu/osg/app*
+    app_rw/
+    app_ro/
+    app -> app_links/@sys
+
+    $ ls -l /afs/hep.wisc.edu/osg/app_links
+    amd64_linux24 -> ../app_rw
+    amd64_linux26 -> ../app_rw
+    i386_linux24 -> ../app_rw
+    i386_linux26 -> ../app_rw
+    amd64_linux24_users -> ../app_ro
+    amd64_linux26_users -> ../app_ro
+    i386_linux24_users -> ../app_ro
+    linux26_users -> ../app_ro
+\end{verbatim}
 \end{frame}
 
 \subsection[dCache Load Balancing]{Effective Balancing of Files in dCache}
