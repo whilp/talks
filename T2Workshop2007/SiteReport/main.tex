@@ -110,6 +110,25 @@
 \end{frame}
 
 \subsection[dCache Load Balancing]{Effective Balancing of Files in dCache}
+\begin{frame}[fragile]
+\frametitle{dCache met a node...}
+\begin{itemize}
+    \item For a long, long time, dCache had fallen in love with a handful of nodes
+    \begin{itemize}
+        \item Nodes low on the list of pools sorted alphanumerically
+        \item Produced a very pretty curve on the usageInfo page
+    \end{itemize}
+    \item dCache redirected its affections when we added new nodes lower on the list
+    \item It's not clear why this was the case
+    \item With 1.7.0, we were able to use {\tt costfactors} to cool dCache's 
+    heels
+    \item In {\tt PoolManager.conf}:
+\end{itemize}
+\begin{verbatim}
+    set pool decision -spacecostfactor=0 -cpucostfactor=0
+\end{verbatim}
+\end{frame}
+
 \subsection{Added more dCache GridFTP doors}
 
 \section{Management and Support}
