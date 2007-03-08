@@ -21,6 +21,7 @@
     \frametitle{\sc{#1}}}
 \newcommand{\supers}[1]{\ensuremath{^\textrm{#1}}}
 \newcommand{\subs}[1]{\ensuremath{_\textrm{#1}}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 % Author information.
 \title{Site Report}
@@ -48,9 +49,48 @@
 \end{frame}
 
 \section{Site Architecture}
+\subsection{Overview}
+\begin{frame}
+\frametitle{Compute Facilities}
+We provide 547kSI2k of dedicated compute facilities; we host another 110kSI2k 
+of high-priority opportunistic resources.
+\begin{tabular}[c]{|c|c|c|c|c|}
+\hline
+{\bf Name}   & {\bf CPU Type/NR} & {\bf Total CPUs}  & {\bf KSi2k}   & {\bf OS} \\
+\hline
+g3  & 2 x 2.4 GHz Xeon      & 54    & 64.80     & SL4/x86 \\
+g4  & 2 x 2.8 GHz Xeon      & 38    & 52.20     & SL3/x86 \\
+g5  & 2 x 2.8 GHz Xeon      & 36    & 50.40     & SL3/x86 \\
+g6  & 2 x 2.8 GHz Xeon      & 40    & 56.00     & SL3/x86 \\
+g7  & 2 x 3.0 GHz Xeon      & 50    & 80.00     & SL4/x86 \\
+g8  & 2 x 3.0 GHz Xeon      & 12    & 19.20     & SL4/x86 \\
+g9  & 4 x 1.8 GHz Opteron   & 180   & 207.00    & SL4/x86-64 \\
+g10 & 4 x 1.8 GHz Opteron   & 96    & 110.00    & SL3/x86-64\footnotemark[1] \\
+\hline
+\end{tabular}
+\footnotetext[1]{Opportunistic resources}
+\end{frame}
+
+\begin{frame}
+\frametitle{Storage Facilities}
+We have a total capacity of 120TB of raw storage and 80TB is available through 
+resilient dCache.
+\begin{tabular}[c]{|c|c|c|c|c|}
+\hline
+{\bf Name}   & {\bf Disk Type/NR} & {\bf Total GB}  & {\bf Pool Group}  & {\bf OS} \\
+s5  & Xserve RAID   & 40.50GB   & Read              & SL4 \\
+g7  & 2 x 500G SATA & 27.00GB   & ResilientPools    & SL4 \\
+g8  & 2 x 500G IDE  & 6.00GB    & ResilientPools    & SL4 \\
+g9  & 2 x 500G IDE  & 45.00GB   & ResilientPools    & SL4 \\
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Basketball Facilities}
+\end{frame}
+
 \subsection{Submit Machines}
-\subsection{OE/SE}
-% Tucker/Landry
 
 \section{Storage Architecture}
 \subsection{Transition to 500G SATA}
@@ -150,8 +190,8 @@
 % \subsection{Added more dCache GridFTP doors}
 
 \section{Management and Support}
-\subsection{Overview}
 \begin{frame}
+\frametitle{Overview}
 \begin{itemize}
     \item Internal and public documentation in a wiki
     \begin{itemize}
