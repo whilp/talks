@@ -50,6 +50,28 @@
 \section{Site Architecture}
 \subsection{Overview}
 \begin{frame}
+\frametitle{Overview}
+\begin{itemize}
+    \item Two gatekeepers provide load balancing and redundancy
+    \item AFS provides a local network filesystem
+    \begin{itemize}
+        \item Ideal for interoperating with GLOW (campus grid)
+    \end{itemize}
+    \item Compute resources are also shared through GLOW
+    \begin{itemize}
+        \item Ready access to lots and lots of opportunistic resources
+        \item Use Condor flocking, AFS, and a modified jobmanager script
+        \begin{itemize}
+            \item Grid credentials and job stdio are pushed around using Condor
+            \item All other data stored and made available via AFS
+            \item Somewhat similar to the NFS-lite modifications
+        \end{itemize}
+    \end{itemize}
+    \item All resources are monitored (Nagios) and measured (rrd, SNMP, etc)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
 \frametitle{Compute Facilities}
 We provide 547kSI2k of dedicated compute facilities; we host another 110kSI2k 
 of high-priority opportunistic resources.
