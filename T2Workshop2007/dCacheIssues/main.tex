@@ -36,6 +36,11 @@
 \end{frame}
 
 \section{Overview}
+\begin{frame}
+% \setcounter{tocdepth}{1}
+\tableofcontents
+\end{frame}
+
 \subsection{A Pareto Problem}
 
 \begin{frame}
@@ -85,35 +90,8 @@ The remaining bits of dCache pose vital problems for site administrators.
 \end{frame}
 
 \begin{frame}
-% \setcounter{tocdepth}{1}
-\tableofcontents
-\end{frame}
-
-\section{Community}
-\subsection{Documentation and Coordination}
-\begin{frame}
-\frametitle{Documentation and Coordination}
-\begin{itemize}
-    \item dCache.org provides The Book and other docs
-    \item But {\emph we} don't centrally document our dCache experiences
-    \begin{itemize}
-        \item Some of our problems are specific to our project and dataflows
-        \item dCache.org can't document every bizarre quirk we've stumbled across
-    \end{itemize}
-    \item A wiki would allow us to:
-    \begin{itemize}
-        \item Share previously undocumented solutions to common problems
-        \item Document known bugs
-        \item Coordinate effort between the sites
-    \end{itemize}
-\end{itemize}
-
-% insert picture.
-
-\end{frame}
-
-\begin{frame}
 \frametitle{A common scenario}
+{\large {\bf Massively parallel reinvention of the wheel}.}
 \begin{itemize}
     \item[1] Admin\ensuremath{_A} discovers Bug\ensuremath{_M}
     \item[2] Admin\ensuremath{_A} curses Bug\ensuremath{_M}
@@ -128,11 +106,12 @@ The remaining bits of dCache pose vital problems for site administrators.
 
 \end{frame}
 
-
-\section{Monitoring and Accounting}
+\section{Monitoring}
 \subsection{Pool Availability}
 \begin{frame}
 \frametitle{Pool Availability}
+{\large {\bf Problem}: we need a non-HTML interface that we can easily plug into existing monitoring infrastructure.}
+\vspace{1 cm}
 \begin{itemize}
     \item Status is listed on the 'cellInfo' page of the HTTP monitor
     \begin{itemize}
@@ -152,6 +131,8 @@ The remaining bits of dCache pose vital problems for site administrators.
 \subsection{File Replication}
 \begin{frame}
 \frametitle{File Replication}
+{\large {\bf Problem}: we need a tool to monitor and track files within dCache.}
+\vspace{1 cm}
 \begin{itemize}
     \item PNFS makes all files available in a neat, unified namespace
     \begin{itemize}
@@ -170,46 +151,50 @@ The remaining bits of dCache pose vital problems for site administrators.
 \end{itemize}
 \end{frame}
 
-\subsection{Log Processing}
-\begin{frame}
-\frametitle{Log Processing}
-\begin{itemize}
-    \item At what level do we get useful info (not backtraces)?
-    \item At what level do we avoid multi-GB log files?
-    \item How can we centralize our logging?
-    \begin{itemize}
-        \item Especially important at sites which spread the core services across multiple servers
-    \end{itemize}
-    \item How do we monitor our logs for important events?
-    \begin{itemize}
-        \item What {\emph are} the important events?
-    \end{itemize}
-\end{itemize}
-\end{frame}
-
-\subsection[Testing]{Full-system and Regression Tests}
-\begin{frame}
-\frametitle{Full-system and Regression Tests}
-\begin{itemize}
-    \item How do we check for configuration or upgrade regressions?
-    \item Test for:
-    \begin{itemize}
-        \item Performance
-        \item Sanity
-    \end{itemize}
-    \item How do we test the full storage stack?
-    \begin{itemize}
-        \item Replication
-        \item Pool-to-pool transfers
-        \item Site-to-site transfers
-    \end{itemize}
-\end{itemize}
-\end{frame}
+% \section{Accounting}
+% \subsection{Log Processing}
+% \begin{frame}
+% \frametitle{Log Processing}
+% \begin{itemize}
+%     \item At what level do we get useful info (not backtraces)?
+%     \item At what level do we avoid multi-GB log files?
+%     \item How can we centralize our logging?
+%     \begin{itemize}
+%         \item Especially important at sites which spread the core services across multiple servers
+%     \end{itemize}
+%     \item How do we monitor our logs for important events?
+%     \begin{itemize}
+%         \item What {\emph are} the important events?
+%     \end{itemize}
+% \end{itemize}
+% \end{frame}
+% 
+% \subsection[Testing]{Full-system and Regression Tests}
+% \begin{frame}
+% \frametitle{Full-system and Regression Tests}
+% \begin{itemize}
+%     \item How do we check for configuration or upgrade regressions?
+%     \item Test for:
+%     \begin{itemize}
+%         \item Performance
+%         \item Sanity
+%     \end{itemize}
+%     \item How do we test the full storage stack?
+%     \begin{itemize}
+%         \item Replication
+%         \item Pool-to-pool transfers
+%         \item Site-to-site transfers
+%     \end{itemize}
+% \end{itemize}
+% \end{frame}
 
 \section{Reliability}
-\subsection{cron-kicking}
+\subsection{Common Problems}
+\subsection{Large site configuration}
 \begin{frame}
-\frametitle{cron-kicking}
+\frametitle{Common Reliability Problems}
+{\large {\bf Problem}: there are several tweaks required to make dCache fit at a large T2.}
+\vspace{1 cm}
 \begin{itemize}
     \item Some elements require periodic kickage to function properly
     \begin{itemize}
@@ -224,8 +209,33 @@ The remaining bits of dCache pose vital problems for site administrators.
             \item ReplicaManager?
         \end{itemize}
     \end{itemize}
+    \item Some default dCache settings don't make sense at large sites like T2s
 \end{itemize}
 \end{frame}
+
+\section{Community}
+\subsection{Documentation and Coordination}
+\begin{frame}
+\frametitle{Documentation and Coordination}
+{\large {\bf Problem}: we have lots of experience and expertise, but we don't share enough of it.}
+\vspace{1 cm}
+\begin{itemize}
+    \item dCache.org provides The Book and other docs
+    \item But {\emph we} don't centrally document our dCache experiences
+    \begin{itemize}
+        \item Some of our problems are specific to our project and dataflows
+        \item dCache.org can't document every bizarre quirk we've stumbled across
+    \end{itemize}
+    \item It would help if we would
+    \begin{itemize}
+        \item \dots{}share previously undocumented solutions to common problems
+        \item \dots{}document known bugs
+        \item \dots{}coordinate effort between the sites
+    \end{itemize}
+\end{itemize}
+% insert picture.
+\end{frame}
+
 \end{document}
 
 % Patrick's talk:
