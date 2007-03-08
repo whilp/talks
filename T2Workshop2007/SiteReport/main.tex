@@ -128,14 +128,14 @@ g9  & 2 x 500G IDE  & 45.00GB   & ResilientPools    & SL4 \\
 \begin{frame}
 \frametitle{AFS Load Balancing}
 \begin{itemize}
-    \item OSG volumes pose some annoying problems in AFS-land:
+    \item OSG volumes pose some annoying problems in AFS-land
     \begin{itemize}
         \item Large units
         \item Read/write activity
     \end{itemize}
     \item We can't use AFS' native replication to provide redundant copies of  
     much of this data
-    \item We cooked up a hack using AFS' {\tt @sysname}:
+    \item We cooked up a hack using AFS' {\tt @sysname}
     \begin{itemize}
         \item A copy of the main OSG volume is stored on a separate server
         \item The backup is regularly synced (using {\tt rsync}) with the main copy
@@ -193,12 +193,12 @@ g9  & 2 x 500G IDE  & 45.00GB   & ResilientPools    & SL4 \\
 \begin{frame}
 \frametitle{Results}
 \begin{itemize}
-    \item The Good:
+    \item The Good
     \begin{itemize}
         \item Very flat distribution of files
         \item Correctly shuffled files around after the affair
     \end{itemize}
-    \item The (Potentially) Bad:
+    \item The (Potentially) Bad
     \begin{itemize}
         \item If disks begin to fill up, the ReplicaManager will happily send more data down the pipe
         \item Most pools in {\tt ResilientPools} are also compute nodes, but the ReplicaManager doesn't care if the CPU's busy
@@ -216,13 +216,13 @@ g9  & 2 x 500G IDE  & 45.00GB   & ResilientPools    & SL4 \\
 \begin{itemize}
     \item Internal and public documentation in a wiki
     \begin{itemize}
-        \item Running MoinMoin ({\tt http://moinmoin.wikiwikiweb.de/})
-        \item Documenting all local CMS operations and production
+        \item MoinMoin ({\tt http://moinmoin.wikiwikiweb.de/})
+        \item Documents all local CMS operations and production
     \end{itemize}
     \item User support provided with a problem tracker
     \begin{itemize}
-        \item Running Roundup ({\tt http://roundup.sf.net/})
-        \item Coordinating support of all Wisconsin activities:
+        \item Roundup ({\tt http://roundup.sf.net/})
+        \item Coordinates support of all Wisconsin CMS operations
         \begin{itemize}
             \item Analysis
             \item Production
