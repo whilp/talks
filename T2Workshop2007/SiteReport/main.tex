@@ -129,9 +129,49 @@
 \end{verbatim}
 \end{frame}
 
-\subsection{Added more dCache GridFTP doors}
+\begin{frame}
+\frametitle{Results}
+\begin{itemize}
+    \item The Good:
+    \begin{itemize}
+        \item Very flat distribution of files
+        \item Correctly shuffled files around after the affair
+    \end{itemize}
+    \item The (Potentially) Bad:
+    \begin{itemize}
+        \item If disks begin to fill up, the ReplicaManager will happily send more data down the pipe
+        \item Most pools in {\tt ResilientPools} are also compute nodes, but the ReplicaManager doesn't care if the CPU's busy
+    \end{itemize}
+    \item We add more disk regularly, so we don't expect to run into the first condition
+    \item CPU overload hasn't appeared to be problematic yet
+\end{itemize}
+\end{frame}
+
+% \subsection{Added more dCache GridFTP doors}
 
 \section{Management and Support}
+\subsection{Overview}
+\begin{frame}
+\begin{itemize}
+    \item Internal and public documentation in a wiki
+    \begin{itemize}
+        \item Running MoinMoin ({\tt http://moinmoin.wikiwikiweb.de/})
+        \item Documenting all local CMS operations and production
+    \end{itemize}
+    \item User support provided with a problem tracker
+    \begin{itemize}
+        \item Running Roundup ({\tt http://roundup.sf.net/})
+        \item Coordinating support of all Wisconsin activities:
+        \begin{itemize}
+            \item Analysis
+            \item Production
+            \item Hardware
+            \item Systems and network
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
 \subsection{Wiki}
 \begin{frame}
 \frametitle{Wiki}
