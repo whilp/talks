@@ -19,10 +19,16 @@
     \frametitle{\sc{#1}}}
 \newcommand{\subframe}[1]{\subsection{#1}
     \frametitle{\sc{#1}}}
+\newcommand{\supers}[1]{\ensuremath{^\textrm{#1}}}
+\newcommand{\subs}[1]{\ensuremath{_\textrm{#1}}}
+\newcommand{\ca}{\ensuremath{\sim}}
 
 % Author information.
 \title{T2 Status}
-\author[Will Maier]{Will Maier \\ \texttt{wcmaier@hep.wisc.edu}}
+\author[Maier, Mohapatra]{
+    Will Maier \and Ajit Mohapatra\\ 
+    {\tt wcmaier@hep.wisc.edu}\\
+    {\tt ajit@hep.wisc.edu}}
 \institute[Wisconsin]{University of Wisconsin - High Energy Physics}
 \date{2007.03.20}
 \logo{\includegraphics*[height=0.6cm]{../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics*[height=0.75cm]{../../Graphics/UW_logo.png}}
@@ -38,9 +44,42 @@
 %    \tableofcontents
 %\end{frame}
 
-\section{BLAH}
+\section{Facilities}
 \begin{frame}
-    \frametitle{BLAH!}
+    \frametitle{New Hardware}
+    \begin{itemize}
+        \item Deployed an additional submit machine for production work
+        \begin{itemize}
+            \item Retired machines to be made available to users for interactive work
+        \end{itemize}
+        \item Purchased a small sample of next-gen compute nodes for testing
+        \begin{itemize}
+            \item Dual/quad (octocore) 1.6GHz Xeon, 4 x 750TB SATAII disk
+            \item Will likely buy similar systems with \ca{}2.6GHz processors for real purchase (late spring?)
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Storage and Software}
+    \begin{itemize}
+        \item Begun installation of OSG 0.6.0 on {\tt itb.hep.wisc.edu}
+        \begin{itemize}
+            \item Should have {\tt itb} back online later this week
+        \end{itemize}
+        \item USATLAS jobs created zillions of empty {\tt gram\_scratch} directories
+        \begin{itemize}
+            \item Contacted ATLAS folks; hopefully they'll fix their jobs
+        \end{itemize}
+        \item Followed up with FNAL regarding dCache bug
+        \begin{itemize}
+            \item Odd pool deadlock seems to affect mostly large pools on Xserve RAIDs
+            \item Dan provided dumps and debugging info to DESY devlopers
+            \item Bugfix promised in February after WLCG and dCache workshops
+            \item Because of this bug, we keep our Xserve RAIDs read-only
+            \item We'd like to make full use of our RAIDs (ResilientPools) soon; waiting on DESY
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+% running Xserve dcache pools in separate JVMs
 \end{document}
