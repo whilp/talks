@@ -45,11 +45,73 @@
 %\end{frame}
 
 \section{Facilities}
-\begin{frame}
-    \frametitle{New Hardware}
+\subsection{Hardware and Systems}
+\begin{frame}[fragile]
+    \frametitle{SL4 Upgrades and Tuning}
+    \begin{itemize}
+        \item Began to upgrade opportunistic resources to SL4
+        \begin{itemize}
+            \item Much of GLOW now at SL4; all co-located systems also at SL4
+        \end{itemize}
+        \item Debugged TCP window scaling problems on submit machines
+        \begin{itemize}
+            \item SL3 tuning mistakenly applied to SL4
+            \item Very slow HTTP transfer rates from cmsdbs.cern.ch (\ca{}200x slower)
+            \item Adjusting {\tt [rw]mem} helped, had to disable {\tt tcp\_window\_scaling} completely
+            \item Haven't noticed problems (even with SL3 tuning) on SL4 dCache nodes
+            \item SL4 {\tt /etc/sysctl.conf}:
+    \footnotesize{
+    \begin{verbatim}
+    net.core.rmem_default = 65535
+    net.core.wmem_default = 65535
+    net.core.rmem_max = 8388607
+    net.core.wmem_max = 8388607
+    net.ipv4.tcp_wmem = 4096 65536 8388607
+    net.ipv4.tcp_rmem = 4096 65536 8388607
+    net.ipv4.tcp_window_scaling = 0
+    \end{verbatim}}
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
+\subsection{Storage and Software}
 \begin{frame}
-    \frametitle{Storage and Software}
+    \frametitle{dCache}
+    \begin{itemize}
+        \item Xserve RAID dCache pools still failing
+        \begin{itemize}
+            \item Unexplained system crashes (still investigating)
+            \item Pool deadlocks
+        \end{itemize}
+        \item dCache PNFS timeout bug caused Wisconsin Load Test transfer problems
+        \begin{itemize}
+            \item Creates directories with {\tt root:root} permissions
+            \item PhEDEx fails to write data there
+        \end{itemize}
+        \item Replica Manager consuming lots of memory
+        \begin{itemize}
+            \item {\tt java.lang.OutOfMemoryError: Java heap space}
+            \item Previously, we'd increased the heap size from 800M to 1500M
+            \item Apparently insufficient
+            \item Now increasing to 2000M
+            \item What do other sites use for this value?
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{Performance}
+\begin{frame}
+    \frametitle{Load Test}
+    \begin{itemize}
+        \item PNFS timeouts cause some transfer failures
+        \item srmcp download errors are all due to timeouts of a single file within a block
+        \item FTS:
+        \begin{itemize}
+            \item Transfer Log: No transfers are being attempted
+            \item Detail Log: transfer expired in the download agent queue
+            \item Validate Log: no validation was attempted
+        \end{itemize}
+        \item The errors don't appear to be on our side
+    \end{itemize}
 \end{frame}
 \end{document}
