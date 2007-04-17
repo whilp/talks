@@ -44,4 +44,43 @@
 %    \tableofcontents
 %\end{frame}
 
+\section{dCache}
+\subsection{Stability and Monitoring}
+\begin{frame}
+    \frametitle{Deadlock, permissions and hardware}
+    \begin{itemize}
+        \item On Xserv RAID systems, running one JVM per pool has resolved the pool deadlock problem
+        \begin{itemize}
+            \item Also needed to reduce the memory allocated per JVM
+            \item All but one Xserv fully back online thanks to deadlock resolution
+        \end{itemize}
+        \item Brian appears to have found a (the?) cause of the PNFS permissions problem
+        \begin{itemize}
+            \item SRM considers directory creation a success even if it fails to set permissions
+            \item Should reduce our local Load Test errors
+        \end{itemize}
+        \item Improved metadata table for monitoring
+        \begin{itemize}
+            \item Especially useful for finding permissions problems
+            \item Hopefully useless when Chimera is available
+        \end{itemize}
+    \end{itemize}
+    \end{frame}
+
+\section{Load Test}
+\begin{frame}
+    \frametitle{Load Test}
+    \begin{itemize}
+        \item Debugged link problems with FZK/GEANT2
+        \item Transfers to European sites proceeding
+        \begin{itemize}
+            \item FTS proxy expired over the weekend (big gap)
+            \item AFS failed (smaller gap)
+        \end{itemize}
+    \end{itemize}
+    \begin{figure}
+        \includegraphics*[height=5cm]{Graphics/phedex.png}
+    \end{figure}
+\end{frame}
+
 \end{document}
