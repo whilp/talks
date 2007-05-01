@@ -57,7 +57,8 @@
     \end{itemize}
     \item SATA on submit machines
     \begin{itemize}
-        \item SL4 kernel doesn't support Adaptec FakeRAID on recentish Supermicros\footnotemark{}
+        \item SL4 kernel doesn't support Adaptec FakeRAID chips on recentish 
+        Supermicro Opteron motherboards\footnotemark{}
         \item Even with on-board RAID disabled, {\tt libata} fails to poll all disks
         \item Newer kernels on the two affected machines have improved SATA and RAID support
     \end{itemize}
@@ -70,17 +71,26 @@ PCI-X Controller (rev 09)}}
 \section{Software}
 \begin{frame}
 \frametitle{dCache, SAM/JobRobot and LoadTests}
+dCache:
 \begin{itemize}
-    \item dCache improvements
+    \item GridFTP servers ran out of file descriptors over the weekend
+    \item Multiple JVMs seem to have eliminated problems on Xserve RAIDs\footnotemark{}
+    \item Improved replica manager performance thanks to Alex
     \begin{itemize}
-        \item Pools nearly 100\% available over the past two weeks (though some still deadlock)
-        \item Multiple JVMs seem to have eliminated problems on Xserve RAIDs\footnotemark{}
-        \item Improved replica manager performance thanks to Alex
         \item Still \ca{}18,000 unreplicated files
     \end{itemize}
-    \item SAM/JobRobot
-    \item LoadTest
 \end{itemize}
+
+SAM/JobRobot:
+\begin{itemize}
+    \item \ldots{}
+\end{itemize}
+
+LoadTest:
+\begin{itemize}
+    \item \ldots{}
+\end{itemize}
+
 \footnotetext{https://twiki.grid.iu.edu/twiki/bin/view/Storage/MultipleJVMs}
 \end{frame}
 
