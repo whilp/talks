@@ -68,23 +68,6 @@
 \end{frame}
 
 \section{Monitoring}
-\subsection{Load Test}
-\begin{frame}
-\frametitle{Load Test and PhEDEx Upgrade}
-\begin{itemize}
-    \item Transfers failed during validation with PhEDEx 2.5.2 (installed 2007.05.12)
-    \item {\tt FileDownloadVerify} error: {\tt Error parsing srm-get-metadata output!}
-    \item Using Brian's script, the same file was working OK in 2.5.1
-    \item Problem: Python in Phedex\_251 (2.4.3) vs Phedex\_252 (2.4.2)?
-    \item Fixed with {\tt Custom/Template/FileDownloadSRMVerify}
-\end{itemize}
-
-\begin{figure}
-    \includegraphics*[height=4cm]{Graphics/phedex_252_wisc_quality.png}
-\end{figure}
-
-\end{frame}
-
 \subsection{SAM Test}
 \begin{frame}
 \frametitle{SAM Test}
@@ -156,6 +139,23 @@ Event: Abort
 - timestamp               =    Sun Apr 15 02:13:44 2007
 - user                    =    /DC=ch/DC=cern/OU=computers/CN=rb127.cern.ch
 \end{verbatim}
+\end{frame}
+
+\subsection{Load Test}
+\begin{frame}
+\frametitle{Load Test and PhEDEx Upgrade}
+\begin{itemize}
+    \item Transfers failed during validation with PhEDEx 2.5.2 (installed 2007.05.12)
+    \item {\tt FileDownloadVerify} error: {\tt Error parsing srm-get-metadata output!}
+    \item Using Brian's script, the same file was working OK in 2.5.1
+    \item Problem: Python in Phedex\_251 (2.4.3) vs Phedex\_252 (2.4.2)?
+    \item Fixed with {\tt Custom/Template/FileDownloadSRMVerify}
+\end{itemize}
+
+\begin{figure}
+    \includegraphics*[height=4cm]{Graphics/phedex_252_wisc_quality.png}
+\end{figure}
+
 \end{frame}
 
 \end{document}
