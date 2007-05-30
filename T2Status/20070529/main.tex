@@ -44,4 +44,39 @@
 %    \tableofcontents
 %\end{frame}
 
+\section{Facilities}
+\subsection{Storage}
+\begin{frame}
+\frametitle{New dCache pools, peak transfers, no LoadTest}
+\begin{itemize}
+    \item Commissioned 32 new dCache hosts
+    \begin{itemize}
+        \item 128 pools
+        \item 75 TB (resilient)
+    \end{itemize}
+    \item New (empty) pools allowed for a largish spike in LoadTest transfers
+    \begin{itemize}
+        \item 350 MB/s 2007.05.25
+        \item Unable to sustain; still trying to understand the drop off
+    \end{itemize}
+    \item LoadTest activity caused dCache instability
+    \begin{itemize}
+        \item Many pools deadlocked; Xserve RAIDs crashed
+        \item dcap and gPlazma server died
+        \item Disrupted local analysis and HLT work
+        \item PhEDEx/LoadTest currently off for debugging
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Compute}
+\begin{frame}
+\frametitle{New batch slots, tests going well}
+\begin{itemize}
+    \item 256 new batch slots (8x2.66GHz Xeons per node)
+    \item Few JobRobot errors
+    \item Good SAM performance through 2007.05.23
+\end{itemize}
+\end{frame}
+
 \end{document}
