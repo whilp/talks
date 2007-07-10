@@ -39,9 +39,32 @@
     \titlepage
 \end{frame}
 
-%\section{Overview}
-%\begin{frame}
-%    \tableofcontents
-%\end{frame}
+\section{Facilities}
+\subsection{Software and Storage}
+\begin{frame}
+\begin{itemize}
+    \item ReplicaManager handling heavy load well
+    \begin{itemize}
+        \item Increased {\tt maxWorkers} to 500
+        \item Files replicated within minutes of arrival
+    \end{itemize}
+    \item Pools still unstable, but planned upgrade might address that
+    \item OSG upgrade bugs worked out
+    \begin{itemize}
+        \item SAM tests expect {\tt \$GLOBUS_LOCATION} on worker nodes to point 
+        to a working Globus install
+    %    \item At Wisconsin, jobs should use {\tt \$OSG_GRID} instead
+    %    \item Patched Globus jobmanager to replace environment variables 
+    %    appropriately ({\tt s/OSG_LOCATION/OSG_GRID/})
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Production and Monitoring}
+\begin{frame}
+\begin{itemize}
+    \item poke!
+\end{itemize}
+\end{frame}
 
 \end{document}
