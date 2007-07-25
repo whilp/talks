@@ -1,0 +1,85 @@
+% vim: set tw=0:
+\documentclass{beamer}
+\usepackage{graphicx}
+
+% Reasonable themes:
+% Antibes Bergen Berkeley Berlin Frankfurt Goettingen Ilmenau Luebeck Malmoe
+% Montpellier PaloAlto Rochester Singapore Szeged Warsaw bars boxes
+% compatibility default lined plain shadow sidebar split tree
+% And these ones include the author's name on every slide:
+% Berkeley
+
+% Declare themes.
+\mode<presentation>
+\usetheme{UWHEP}
+
+% Personal macros.
+\newcommand{\email}[1]{{\texttt #1}}
+\newcommand{\newframe}[1]{\section{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\subframe}[1]{\subsection{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\supers}[1]{\ensuremath{^\textrm{#1}}}
+\newcommand{\subs}[1]{\ensuremath{_\textrm{#1}}}
+\newcommand{\ca}{\ensuremath{\sim}}
+
+% Author information.
+\title{T2 Status}
+\author[Maier, Mohapatra]{
+    Will Maier \and Ajit Mohapatra\\ 
+    {\tt wcmaier@hep.wisc.edu}\\
+    {\tt ajit@hep.wisc.edu}}
+\institute[Wisconsin]{University of Wisconsin - High Energy Physics}
+\date{2007.07.24}
+\logo{\includegraphics*[height=0.6cm]{../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics*[height=0.75cm]{../../Graphics/UW_logo.png}}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%\section{Overview}
+%\begin{frame}
+%    \tableofcontents
+%\end{frame}
+
+\section{Facilities}
+\subsection{Software and Storage}
+\begin{frame}
+\frametitle{Outage, upgrade, no OOM}
+\begin{itemize}
+    \item Planned outage and AFS upgrade went well
+    \begin{itemize}
+        \item Failed switch caused delay
+        \item Improved AFS stability, better load balancing
+        \item Moved more infrastructure to SL4
+    \end{itemize}
+    \item Recovered \ca{}2 T of data after filesystem corruption on Xserve RAID
+    \begin{itemize}
+        \item Mapped file sizes to PNFS ids to restore from {\tt lost+found}
+        \item Having a catalog table helped
+    \end{itemize}
+    \item OOM problems resolved
+    \begin{itemize}
+        \item Had seen aggressive OOM killer on 32 bit {\tt 2.6.9-42.0.3.ELsmp}
+        \item Problem exacerbated by Condor schedd, large amounts of RAM, multiple cores
+        \item 2.6.9 OOM killer activates way too soon
+        \item No crashes since systems were upgraded to {\tt 2.6.9-55.0.2.ELsmp}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Production and Monitoring}
+\begin{frame}
+\frametitle{Transfer peak, Production continues, monitoring OK}
+\begin{itemize}
+    \item Transfers to Wisconsin peaked at \ca{}400 MBps on 2007.07.19.
+    \item Recent rates are slower but more consistent (\ca{}100 MBps)
+\end{itemize}
+\begin{figure}
+    \includegraphics*[height=5cm]{Graphics/phedex_071907.png}
+\end{figure}
+\end{frame}
+
+\end{document}
