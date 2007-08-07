@@ -1,3 +1,4 @@
 .*sw[nop]$
 ^Ajit/.*
 ^.*\.(aux|log|nav|out|pdf|snm|toc|vrb)
+.*/\d+/Makefile$
