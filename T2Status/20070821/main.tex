@@ -44,15 +44,55 @@
 %    \tableofcontents
 %\end{frame}
 
+% http://indico.cern.ch/conferenceDisplay.py?confId=20096
+
 \section{Facilities}
 \subsection{Software and Storage}
 \begin{frame}
-\frametitle{}
+\frametitle{dCache stable since -38, new storage and monitoring}
+\begin{itemize}
+    \item dCache pools and doors stable since upgrade to -38
+    \begin{itemize}
+        \item Disabled automatic pool and door restart scripts
+        \item Pools go 'down' in Nagios due to high load; need to reduce probe sensitivity
+        \item Purchasing \ca{}36T of disk for converted compute/storage nodes
+    \end{itemize}
+    \item Testing Ganglia
+    \begin{itemize}
+        \item Current trend graphing/monitoring/reporting is in-house and crufty
+        \item Working on extending Ganglia to switches, environment sensors, etc
+    \end{itemize}
+    \item Few AFS hiccups
+    \begin{itemize}
+        \item Misconfigured file server caused client lockups noticed by JobRobot and ATLAS
+        \item Data migration (to finish redundancy plan) delayed by sensitive file servers
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \subsection{Production and Monitoring}
 \begin{frame}
 \frametitle{}
+\begin{itemize}
+    \item JobRobot: OK overall; some intermittent errors:
+    \begin{itemize}
+        \item {\tt Cannot plan: BrokerHelper: no compatible resources}
+        \item {\tt Cannot download jobExecutor from gsiftp://rb119.cern.ch...}
+    \end{itemize}
+    \item SAM: No known problems
+    \item LT: OK
+    \begin{itemize}
+        \item PIC-Wisconsin link got some attention, but PIC is on vacation and no progress since then
+        \item ASGC LoadTest files had wrong size in TMDB, which caused transfers to fail
+        \item ASGC corrected the problem, but not sure whether new files are injected/subscribed
+        \item No transfers from RAL
+    \end{itemize}
+    \item CSA07 Production going smoothly
+    \begin{itemize}
+        \item Ajit and sites are debugging day-to-day issues
+        \item New monitoring to keep track of performance/problems
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \end{document}
