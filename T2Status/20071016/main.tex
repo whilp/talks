@@ -1,0 +1,92 @@
+% vim: set tw=0:
+\documentclass{beamer}
+\usepackage{graphicx}
+
+% Reasonable themes:
+% Antibes Bergen Berkeley Berlin Frankfurt Goettingen Ilmenau Luebeck Malmoe
+% Montpellier PaloAlto Rochester Singapore Szeged Warsaw bars boxes
+% compatibility default lined plain shadow sidebar split tree
+% And these ones include the author's name on every slide:
+% Berkeley
+
+% Declare themes.
+\mode<presentation>
+\usetheme{UWHEP}
+
+% Personal macros.
+\newcommand{\email}[1]{{\texttt #1}}
+\newcommand{\newframe}[1]{\section{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\subframe}[1]{\subsection{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\supers}[1]{\ensuremath{^\textrm{#1}}}
+\newcommand{\subs}[1]{\ensuremath{_\textrm{#1}}}
+\newcommand{\ca}{\ensuremath{\sim}}
+
+% Author information.
+\title{T2 Status}
+\author[Maier, Mohapatra]{
+    Will Maier \and Ajit Mohapatra\\ 
+    {\tt wcmaier@hep.wisc.edu}\\
+    {\tt ajit@hep.wisc.edu}}
+\institute[Wisconsin]{University of Wisconsin - High Energy Physics}
+\date{\today}
+\logo{\includegraphics*[height=0.6cm]{../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics*[height=0.75cm]{../../Graphics/UW_logo.png}}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%\section{Overview}
+%\begin{frame}
+%    \tableofcontents
+%\end{frame}
+
+% http://indico.cern.ch/conferenceDisplay.py?confId=22581
+% tel: 866-469-3239
+% mtg: 569 567 908
+
+\section{Facilities}
+\subsection{Software and Storage}
+\begin{frame}
+\frametitle{More dCache storage and debugging}
+\begin{itemize}
+    \item Added \ca{}30TB to dCache
+    \begin{itemize}
+        \item New disk on 24 recently assimilated worker nodes
+        \item Had nearly run out of space
+    \end{itemize}
+    \item Extensive debugging of dCache/ReplicaManager
+    \begin{itemize}
+        \item {\tt pnfs register} while file is still being written results in bad information
+        \item {\tt pnfs register} slows the RM down considerably (no bulk updates)
+        \item RM buckles when lots of new files are written (and registered)
+        \item RM will happily hammer a single host if that's the only host with free space
+        \item RM doesn't consider existing p2p transfers on restart (and doesn't kill its own)
+    \end{itemize}
+    \item New ATLAS AFS fileserver reduced interruptions to CMS/local file service
+    \item Increased swap to suppport 'FastQueue' Condor preemption
+\end{itemize}
+\end{frame}
+
+\subsection{Production and Monitoring}
+\begin{frame}
+\frametitle{All quiet on the monitoring front}
+\begin{itemize}
+    % http://jobrobot.web.cern.ch/JobRobot/cgi-bin/make_graph.py
+    \item JobRobot: OK
+    % https://twiki.cern.ch/twiki/bin/view/CMS/SAMForCMS
+    \item SAM: OK
+    \item LoadTest: 4 upload links commissioned; one download
+    \item Production
+    \begin{itemize}
+        \item Ajit is on vacation; 
+        \item Mike Anderson and Christos Lazaridis are running production in his stead
+        \item Still trying to get up to speed -- more jobs should be running soon
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}
