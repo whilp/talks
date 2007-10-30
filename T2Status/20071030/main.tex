@@ -30,7 +30,7 @@
     {\tt wcmaier@hep.wisc.edu}\\
     {\tt ajit@hep.wisc.edu}}
 \institute[Wisconsin]{University of Wisconsin - High Energy Physics}
-\date{\today}
+\date{2007.10.30}
 \logo{\includegraphics*[height=0.6cm]{../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics*[height=0.75cm]{../../Graphics/UW_logo.png}}
 
 \begin{document}
@@ -47,12 +47,45 @@
 \section{Facilities}
 \subsection{Software and Storage}
 \begin{frame}
-\frametitle{}
+\frametitle{Corruption confusion and SRM restarts}
+\begin{itemize}
+    \item User reported possible data corruption in dCache
+    \begin{itemize}
+        \item One problematic dataset
+        \item Compared local checksums with those from FNAL files
+        \item No checksum mismatches; user re-ran jobs successfully
+        \item Still not sure what caused original problem
+    \end{itemize}
+    \item PNFS server crash followed by GUMS/SRM problems
+    \begin{itemize}
+        \item PNFS server had a disk-related kernel panic on 2007.10.19
+        \item Brought server back up quickly, little interruption to PNFS
+        \item GUMS was complaining over the weekend, but couldn't find cause
+        \item After restarting individual components, found that rebooting GUMS server was necessary
+        \item This seems to have broken SRM, which refused SRM copy operations on particular paths only
+        \item Restarted SRM, which broke the PinManager (needed to clear out the {\tt pinrequestsv1} table)
+        \item One final SRM restart fixed everything
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \subsection{Production and Monitoring}
 \begin{frame}
-\frametitle{}
+\frametitle{Mostly quiet}
+\begin{itemize}
+    \item JobRobot: OK
+    \item SAM: OK
+    \item PhEDEx/LoadTest
+    \begin{itemize}
+        \item Still have four commissioned links; no news
+    \end{itemize}
+    \item Production
+    \begin{itemize}
+        \item Ajit is back
+        \item CSA07 Signal production is finished
+        \item New requests with CMSSW 149 will be coming shortly
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \end{document}
