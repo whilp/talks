@@ -30,7 +30,7 @@
     {\tt wcmaier@hep.wisc.edu}\\
     {\tt ajit@hep.wisc.edu}}
 \institute[Wisconsin]{University of Wisconsin - High Energy Physics}
-\date{\today}
+\date{2007.11.13}
 \logo{\includegraphics*[height=0.6cm]{../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics*[height=0.75cm]{../../Graphics/UW_logo.png}}
 
 \begin{document}
@@ -47,12 +47,45 @@
 \section{Facilities}
 \subsection{Software and Storage}
 \begin{frame}
-\frametitle{}
+\frametitle{Odd hardware problems}
+\begin{itemize}
+    \item SRM crashed 2007.11.07
+    \begin{itemize}
+        \item {\tt 0x8c3a7930 JavaThread "Low Memory Detector" daemon [\_thread\_blocked, id=24506]}
+        \item Added swap for now; will increase system memory during next upgrade window
+    \end{itemize}
+    \item "Disk I/O" error on pools led to ghost files
+    \begin{itemize}
+        \item Two pools on two separate nodes showed simultaneous runIO problems
+        \item {\tt (DCap\_3\_nio) FIN : SEEK\_READ failed (IO not ok)}
+        \item Pools and hardware fine; had to stop pools, fsck and remount their data partitions
+        \item One file existed in the PNFS namespace but PNFS knew of no pool with replicas
+        \item Running {\tt pnfs register} updated replica sites correctly
+    \end{itemize}
+    \item Replacing aging AFS servers
+    \item NICs failing on recently integrated compute nodes
+\end{itemize}
 \end{frame}
 
 \subsection{Production and Monitoring}
 \begin{frame}
-\frametitle{}
+\frametitle{Upgraded FTS; new production sites}
+\begin{itemize}
+    \item SAM: OK
+    \item JobRobot: OK
+    \item LoadTest:
+    \begin{itemize}
+        \item 4 commissioned T1 links
+        \item Migrating from FNAL FTS1.5 server to endpoint T1 FTS servers
+        \item glite-UI-3.1 is installed and used for LoadTest transfers from FZK, IN2P3, RAL, CNAF and PIC FTS
+        \item Many "xfer Cancelled" errors from IN2P3; mixed success from other sites (mostly timeouts)
+    \end{itemize}
+    \item Production:
+    \begin{itemize}
+        \item CSA07 signal production continues
+        \item Added new sites: Cornell and Florida International University (FIU)
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \end{document}
