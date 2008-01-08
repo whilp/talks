@@ -1,0 +1,91 @@
+% vim: set tw=0:
+\documentclass{beamer}
+\usepackage{graphicx}
+
+% Reasonable themes:
+% Antibes Bergen Berkeley Berlin Frankfurt Goettingen Ilmenau Luebeck Malmoe
+% Montpellier PaloAlto Rochester Singapore Szeged Warsaw bars boxes
+% compatibility default lined plain shadow sidebar split tree
+% And these ones include the author's name on every slide:
+% Berkeley
+
+% Declare themes.
+\mode<presentation>
+\usetheme{UWHEP}
+
+% Personal macros.
+\newcommand{\email}[1]{{\texttt #1}}
+\newcommand{\newframe}[1]{\section{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\subframe}[1]{\subsection{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\supers}[1]{\ensuremath{^\textrm{#1}}}
+\newcommand{\subs}[1]{\ensuremath{_\textrm{#1}}}
+\newcommand{\ca}{\ensuremath{\sim}}
+
+% Author information.
+\title{T2 Status}
+\author[Maier, Mohapatra]{
+    Will Maier \and Ajit Mohapatra\\ 
+    {\tt wcmaier@hep.wisc.edu}\\
+    {\tt ajit@hep.wisc.edu}}
+\institute[Wisconsin]{University of Wisconsin - High Energy Physics}
+\date{2008.01.08}
+\logo{\includegraphics[height=0.6cm]{../../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics[height=0.75cm]{../../../Graphics/UW_logo.png}}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%\section{Overview}
+%\begin{frame}
+%    \tableofcontents
+%\end{frame}
+
+\section{Facilities}
+\subsection{Software and Storage}
+\begin{frame}
+\frametitle{dCache, Condor and OSG upgrades}
+\begin{itemize}
+    \item Upgraded to dCache 0.8
+    \begin{itemize}
+        \item Also upgraded core servers to SL4
+        \item Lost two central servers; reorganized service layout
+        \item Discovered bug (?) in {\tt dCacheSetup}/{\tt pnfs.batch}/companion DB interaction with Brian's help
+        \item Still updating/disabling monitoring scripts as needed
+    \end{itemize}
+    \item Upgraded to OSG 0.8.0
+    \begin{itemize}
+        \item Also moved to 64bit OS
+        \item Lost and recovered various LCG tweaks with Burt's help
+    \end{itemize}
+    \item Upgraded to Condor 7.0.0
+    \begin{itemize}
+        \item Will be released at the end of the week
+        \item Deployed pre-release, fixed one bug in the process
+    \end{itemize}
+    \item Ordering replacement hardware for dead core dCache servers and AFS file server
+\end{itemize}
+\end{frame}
+
+\subsection{Production and Monitoring}
+\begin{frame}
+\frametitle{Quiet over holidays}
+\begin{itemize}
+    \item JobRobot/SAM: No activity
+    \item LoadTest/PhEDEx
+    \begin{itemize}
+        \item Downloading steadily over break; agents are all up
+        \item Skims still coming in
+        \item Installed latest PhEDEx (2.5.4.2) with Move feature (automatic cleanup)
+    \end{itemize}
+    \item Production
+    \begin{itemize}
+        \item CSA07 Signal production continues from before break
+        \item Another 20-30M events to finish in CSA07
+    \end{itemize}
+\end{itemize}
+\end{frame}
+\end{document}
