@@ -255,7 +255,7 @@
 \end{frame}
 
 \section{Community Expectations}
-\subsection{HLT Validation and Local Students}
+\subsection{HLT Validation and Local Analysis}
 \begin{frame}
 \begin{itemize}
     \item Several dozen collaborators working on HLT validation
@@ -266,7 +266,23 @@
         \item Exotica
         \item QCD
     \end{itemize}
+    \item Local work is correctly represented on the dashboard
+    \begin{itemize}
+        \item Users use {\tt farmout} scripts\footnotemark[1] (Dan Bradley)
+        \item Script automatically submits jobs for an input dataset based on DBS info and data in local dCache storage
+        \item Makes local analysis very convenient
+        \item We don't mind providing local user accounts for this sort of successful user analysis
+        \item \ca{} 30 active users
+    \end{itemize}
 \end{itemize}
+\footnotetext[1]{http://www.hep.wisc.edu/cms/comp/AnalyzingManyEvents.html}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+    \includegraphics[height=6cm]{Graphics/glow-userpie.png}
+    \caption{Cluser users by CPU hours: 2005.10.05 ($>$ 2.5M hours)}
+\end{figure}
 \end{frame}
 
 \end{document}
