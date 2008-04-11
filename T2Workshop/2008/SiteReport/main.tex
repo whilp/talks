@@ -1,6 +1,7 @@
 % vim: set tw=0:
 \documentclass{beamer}
 \usepackage{graphicx}
+\usepackage{booktabs}
 
 % Reasonable themes:
 % Antibes Bergen Berkeley Berlin Frankfurt Goettingen Ilmenau Luebeck Malmoe
@@ -87,6 +88,17 @@
     \item New in 2008: 128 TB on 32 1U servers
     \item FIXME: OLDTOTAL, NEWTOTAL (table?)
 \end{itemize}
+\begin{table}
+    \begin{tabular}{lr}
+        \toprule
+        Dedicated dCache RAID & NN TB \\
+        Compute Nodes & MM TB \\
+        Total & XX TB \\
+        \bottomrule
+    \end{tabular}
+    \caption{2007 Storage Status}
+    \label{2007_storage_status}
+\end{table}
 \end{frame}
 
 \subsection{Compute Resources}
