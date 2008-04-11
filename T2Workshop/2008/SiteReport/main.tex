@@ -127,17 +127,23 @@
 \begin{frame}
 \begin{itemize}
     \item New in 2008: 256 CPUs @ 3.0 GHz Xeon on 32 1U servers
-    \item FIXME: OLDTOTAL, NEWTOTAL (table?)
+    \item All compute nodes upgraded to SL4
+    \item Integrated 24 machines from UW Plasma group
+    \item Access to \ca{}1.7k opportunistic GLOW CPUs
 \end{itemize}
 \begin{columns}
 \column{2.5in}
 \begin{table}
     \begin{tabular}{lr}
         \toprule
-        2x2 Xeon 3.0Ghz & N KSI2K \\
-        2x4 Xeon 3.0Ghz & N KSI2K \\
+        CPU Class           & KSI2K \\
         \midrule
-        Total & XX \\
+        2 x 2.4 GHz Xeon    & 64.80 \\    % g3
+        2 x 2.8 GHz Xeon    & 158.6 \\    % g4, g5, g6
+        2 x 3.0 GHz Xeon    & 99.2 \\     % g7, g8
+        4 x 1.8 GHz Opteron & 207.0 \\    % g9 (g10 still Plasma)
+        \midrule
+        Total & 529.6 \\
         \bottomrule
     \end{tabular}
     \caption{2007 Batch Status}
@@ -148,8 +154,13 @@
 \begin{table}
     \begin{tabular}{lr}
         \toprule
-        2x2 Xeon 3.0Ghz & N KSI2K \\
-        2x4 Xeon 3.0Ghz & N KSI2K \\
+        CPU Class           & KSI2K \\
+        \midrule
+        2 x 2.4 GHz Xeon    & 64.80 \\    % g3
+        2 x 2.8 GHz Xeon    & 158.6 \\    % g4, g5, g6
+        2 x 3.0 GHz Xeon    & 99.2 \\     % g7, g8
+        4 x 1.8 GHz Opteron & 317.0 \\    % g9, g10
+        8 x g12 Xeon & NNN \\             % g12
         \midrule
         Total & XX \\
         \bottomrule
