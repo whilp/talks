@@ -1,0 +1,20 @@
+Local styles
+============
+
+To install LaTeX styles in a user's home directory, create the
+following directory structure:
+
+    ~/texmf
+        tex
+            latex
+
+Drop the .sty files in the 'latex' directory. Finally, run the
+following to generate the special ls-R index file:
+
+    $ mktexlsr ~/texmf
+
+Altogether, the following should be sufficient:
+
+    $ mkdir -p ~/texmf/tex/latex
+    $ cp /path/to/*.sty ~/texmf/tex/latex/.
+    $ mktexlsr ~/texmf
