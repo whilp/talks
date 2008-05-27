@@ -48,11 +48,46 @@
 \subsection{Software and Storage}
 \begin{frame}
 \frametitle{}
+\begin{itemize}
+    \item CRAB jobs are hammering AFS
+    \begin{itemize}
+        \item Untar payload before {\tt chdir()} into scratch space
+        \item Sent patch upstream, but other jobs still violate assumptions
+        \item Deploying parts of NFSlite to minimize use of AFS
+        \item Also discovered that gatekeeper wasn't fully using local wnclient installation -- still debugging
+        \item gatekeeper on- and offline today
+    \end{itemize}
+    \item Switched to new edge router and fiber path
+    \begin{itemize}
+        \item Due to planned construction, old router was being decommissioned
+        \item Now on new router with lower load
+        \item New router also has access to more fiber -- campus says we can provision new bandwidth dynamically/temporarily
+        \item Should be suitable for burst traffic
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \subsection{Production and Monitoring}
 \begin{frame}
 \frametitle{}
+\begin{itemize}
+    \item SAM: OK
+    \begin{itemize}
+        \item Good until today (gatekeeper problems)
+    \end{itemize}
+    \item JobRobot: OK 
+    \item PhEDEx:
+    \begin{itemize}
+        \item DDT2 link exercises in Prod (CNAF, ASGC, CERN, FNAL) last week -- most transfers OK
+        \item MC data subscriptions for local users
+    \end{itemize}
+    \item MC Production:
+    \begin{itemize}
+        \item CSA08 preproduction is over
+        \item (In)famous MadGraph production ran last week (causing all sorts of pain and suffering to the OSG T2s), but it's over
+        \item Skim jobs will run over this DS starting from tomorrow
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \end{document}
