@@ -1,0 +1,86 @@
+% vim: set tw=0:
+\documentclass{beamer}
+\usepackage{graphicx}
+
+% Reasonable themes:
+% Antibes Bergen Berkeley Berlin Frankfurt Goettingen Ilmenau Luebeck Malmoe
+% Montpellier PaloAlto Rochester Singapore Szeged Warsaw bars boxes
+% compatibility default lined plain shadow sidebar split tree
+% And these ones include the author's name on every slide:
+% Berkeley
+
+% Declare themes.
+\mode<presentation>
+\usetheme{UWHEP}
+
+% Personal macros.
+\newcommand{\email}[1]{{\texttt #1}}
+\newcommand{\newframe}[1]{\section{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\subframe}[1]{\subsection{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\supers}[1]{\ensuremath{^\textrm{#1}}}
+\newcommand{\subs}[1]{\ensuremath{_\textrm{#1}}}
+\newcommand{\ca}{\ensuremath{\sim}}
+
+% Author information.
+\title{T2 Status}
+\author[Maier, Mohapatra]{
+    Will Maier \and Ajit Mohapatra\\ 
+    {\tt wcmaier@hep.wisc.edu}\\
+    {\tt ajit@hep.wisc.edu}}
+\institute[Wisconsin]{University of Wisconsin - High Energy Physics}
+\date{2008.06.24}
+\logo{\includegraphics[height=0.6cm]{../../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics[height=0.75cm]{../../../Graphics/UW_logo.png}}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%\section{Overview}
+%\begin{frame}
+%    \tableofcontents
+%\end{frame}
+
+\section{Facilities}
+\subsection{Software and Storage}
+\begin{frame}
+\frametitle{}
+\begin{itemize}
+    \item Upgraded OSG wn-client to 1.0
+    \begin{itemize}
+        \item Broken srmcp caused stageout failures; reverted to 0.8.0 srmcp
+        \item Also upgraded ITB CE to 1.0; will upgrade other CEs soon
+    \end{itemize}
+    \item Fixed RSV reporting
+    \item Upgraded kernel on x86 production machines to avoid OOM
+    \item Deployed new frontier server
+    \item Upgraded production DB server
+    \item Cleaned up Nagios dCache checks
+\end{itemize}
+\end{frame}
+
+\subsection{Production and Monitoring}
+\begin{frame}
+\frametitle{}
+\begin{itemize}
+    \item SAM: OK
+    \item RSV: OK
+    \begin{itemize}
+        \item Hiccup from 2008.06.21 - 23; had to reconfigure and kick RSV
+    \end{itemize}
+    \item JobRobot: OK 
+    \item PhEDEx:
+    \begin{itemize}
+        \item \ldots{}
+    \end{itemize}
+    \item MC Production:
+    \begin{itemize}
+        \item \ldots{}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}
