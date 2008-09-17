@@ -30,7 +30,7 @@
     {\tt wcmaier@hep.wisc.edu}\\
     {\tt ajit@hep.wisc.edu}}
 \institute[Wisconsin]{University of Wisconsin - High Energy Physics}
-\date{\today}
+\date{2008.09.16}
 \logo{\includegraphics[height=0.6cm]{../../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics[height=0.75cm]{../../../Graphics/UW_logo.png}}
 
 \begin{document}
@@ -48,11 +48,47 @@
 \subsection{Software and Storage}
 \begin{frame}
 \frametitle{}
+\begin{itemize}
+    \item When rejiggering to provide {\tt /store/user}, hardlinks lead to corrupt PNFS metadata
+    \begin{itemize}
+        \item Hardlinked old data to new directory tree under {\tt /store/user}
+        \item Removed old links
+        \item New files retained old parent PNFSID; access broke when old parent directory removed
+        \item Working with experts to resolve
+    \end{itemize}
+    \item {\tt osg-version} and {\tt ping} RSV probe jobs went on hold for \ca{}72 hours
+    \begin{itemize}
+        \item Had to restart {\tt condor-cron} and {\tt osg-rsv}
+        \item Cause unclear; considered enabling {\tt SYSTEM\_PERIODIC\_RELEASE}, but we'd like to catch the next case
+    \end{itemize}
+    \item New 24 TB test system arrived
+    \begin{itemize}
+        \item Passed initial burn-in tests
+        \item Performance and further burn-in tests later this week
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \subsection{Production and Monitoring}
 \begin{frame}
 \frametitle{}
+\begin{itemize}
+    \item JobRobot: OK
+    \item SAM: OK
+    \item RSV: OK
+    \begin{itemize}
+        \item {\tt osg-version} and {\tt ping} didn't run for three days due to {\tt condor-cron} error
+    \end{itemize}
+    \item PhEDEx
+    \begin{itemize}
+        \item Upgrading to 3.0.5
+        \item Usual subscriptions for local users
+    \end{itemize}
+    \item MC Production:
+    \begin{itemize}
+        \item Summer08 production resumed last Friday and going smoothly so far
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \end{document}
