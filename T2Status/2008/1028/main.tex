@@ -49,22 +49,23 @@
 \begin{frame}
 \frametitle{}
 \begin{itemize}
-    \item SRM bug broke transfers to FNAL 2008.10.08
+    \item Deployed new storage nodes (10 x 24 TB)
     \begin{itemize}
-        \item File erroneously pinned to pool that did not have replica
-        \item All SRM transfers seemed to be affected; DCAP worked fine
-        \item Though unpinning the file didn't work removing the relevant row from the SRM database resolved the issue
+        \item Nodes racked; half installed
+        \item Running burn-in
     \end{itemize}
-    \item Machine hosting Condor collector died
+    \item Began preparations for dCache 1.9
     \begin{itemize}
-        \item Data not recoverable, so rebuilt from scratch
+        \item Reconciled upstream changes with local modifications
+        \item Upgrade planned for early January (unless bugs in 1.8 prompt earlier action)
     \end{itemize}
-    \item Deployed IPMI on test storage node
+    \item Tightened RSV configuration
+    \item Set up GSISSH
     \begin{itemize}
-        \item Will deploy on rest of new storage rack and other CMS machines
+        \item Plan to retire local {\tt grid-xterm}
+        \item Requires valid shells in {\tt /etc/passwd}
     \end{itemize}
-    \item Working with campus networking to increase egress rates (aggregate peak $>$ 6Gbps)
-\end{itemize}
+    \item Enabled {\tt osg_sbgrid}
 \end{frame}
 
 \subsection{Production and Monitoring}
@@ -72,17 +73,13 @@
 \frametitle{}
 \begin{itemize}
      \item JobRobot: OK
-     \item SAM:
-     \begin{itemize}
-         \item 2008.10.06: Condor collector died, no SAM jobs ran
-     \end{itemize}
+     \item SAM: OK
      \item RSV: OK
      \item PhEDEx:
      \begin{itemize}
-        \item SRM bug broke transfers to FNAL 2008.10.08
-        \item Upgraded to 3\_0\_6; LoadTest instance updated, Prod will be updated soon
+        \item \ldots{}
      \end{itemize}
-     \item MC Production: Summer08 continues\ldots{}
+     \item MC Production: \ldots{}
 \end{itemize}
 \end{frame}
 
