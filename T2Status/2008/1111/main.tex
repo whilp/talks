@@ -49,7 +49,28 @@
 \begin{frame}
 \frametitle{}
 \begin{itemize}
-    \item 
+    \item New storage in production
+    \begin{itemize}
+        \item Total raw: 500 TB
+        \item Running well, though two 1 TB Seagate disks failed already
+    \end{itemize}
+    \item Monitoring discrepancies between files on disk and pool inventories
+    \begin{itemize}
+        \item Appear to be differences on \ca{}10\% of hosts
+        \item Still investigating
+    \end{itemize}
+    \item Monitoring the billing database
+    \begin{itemize}
+        \item Broken files caused GridFTP transfers
+        \item Watch the database for errors
+    \end{itemize}
+    \item Planning for AC capacity increases
+    \begin{itemize}
+        \item Main room capacity exhausted; need more power in secondary room
+        \item Nearly full now, but will have more capacity in \ca{}6 months
+    \end{itemize}
+    \item Renegade {\tt osg\_mis} Python process caused high load on CE
+    \item Installed cmsShow
 \end{itemize}
 \end{frame}
 
@@ -57,19 +78,21 @@
 \begin{frame}
 \frametitle{}
 \begin{itemize}
-     \item JobRobot: OK
+     \item JobRobot: General problems?
      \item SAM: OK
-     \item RSV: OK
+     \item RSV:
+     \begin{itemize}
+        \item {\tt osg-version} stopped running again while CE was under high load
+        \item Restarted {\tt condor-cron} and {\tt osg-rsv} in VDT
+     \end{itemize}
      \item PhEDEx:
      \begin{itemize}
-        \item Debug and Prod instances running 3\_0\_6
-        \item Transferred Summer08 samples for local users
-        \item Debug link exercise is going OK
+        \item 3\_0\_6 is working fine
+        \item Usual MC sample subscriptions for local users and LoadTest activity in the Debug instance.
      \end{itemize}
      \item MC Production:
      \begin{itemize}
         \item Summer08 production continues\ldots{}
-        \item The (in)famous MadGraphs are running at T2 sites
      \end{itemize}
 \end{itemize}
 \end{frame}
