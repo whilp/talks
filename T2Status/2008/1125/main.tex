@@ -49,20 +49,20 @@
 \begin{frame}
 \frametitle{}
 \begin{itemize}
-    \item Investigated dCache discrepancies; most seem to be transient (resolved within hours)
+    \item Most dCache discrepancies are transient (resolved within hours)
     \begin{itemize}
-        \item Decreasing monitor sensitivity to filter out harmless cases
+        \item Decreased monitor sensitivity to filter out harmless cases
     \end{itemize}
-    \item PNFSManager ran out of disk space 2008.11.24; had to remount PNFS on a few nodes and restart dCacheDomain
-    \item CMSSW\_2\_0\_12 corrupted 2008.11.23 due to hardcoded paths in {\tt ToolCache.db}
+    \item PNFSManager ran out of disk space 2008.11.24; remounted PNFS nodes and restarted dCacheDomain
+    \item CMSSW\_2\_0\_12 corrupted 2008.11.23
     \begin{itemize}
-        \item Have redundant copies of CMSSW installations to improve reliability
+        \item Redundant copies of CMSSW to improve reliability
         \item Post-installation copy operation fixes hardcoded paths
         \item CMSSW\_2\_0\_X creates {\tt ToolCache.db}, which doesn't like getting fixed
-        \item Earlier versions have a flat text file; later versions gzip the file
-        \item Disabled the path fixing for now, but need to come up with another approach
+        \item Earlier versions had a flat text file; later versions gzip the file
+        \item Disabled path fixing for now, but need to come up with another approach
     \end{itemize}
-    \item Still investigating rogue jobs on gatekeeper; found loose mappings to osg\_mis
+    \item Still investigating rogue jobs on gatekeeper
     \item Cleaned up OSG accounts and GUMS-to-OSG mappings
     \begin{itemize}
         \item Including loose mapping which allowed OSG VO jobs to run as osg\_mis on gatekeeper
