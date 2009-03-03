@@ -191,48 +191,42 @@ Since last workshop:
 \section{Facilities Planning}
 \subsection{Cooling and Power}
 \begin{frame}
+\begin{figure}
+    % XXX: http://noc.hep.wisc.edu/nrg/temp/MachineRoom2-temp.cgi
+    \includegraphics[width=0.75\textwidth]{Graphics/mr2-temp-1yr.png}
+    \caption{Machine room temperature (F), 2008-2009}
+\end{figure}
+
 \begin{itemize}
-    \item At current capacity in new room
-    \item Department building new room, will have access
-    \item Can have space in the new room; sideeffect cooling
-    % XXX: Plot
-    \item Original room out of three-phase power
-    \item Upgrade in progress, outlets available soon
+    \item At cooling capacity in new room; at power capacity in old room
+    \item New room with shared space and power upgrade in old room forthcoming
 \end{itemize}
 \end{frame}
 
-\subsection{Network}
+\section{How we try to do it}
+\subsection{Emphasize local analysis}
 \begin{frame}
+\begin{figure}
+    % XXX: http://www.hep.wisc.edu/cms/comp/operations/resourceusage.html
+    \includegraphics[width=0.33\textwidth]{Graphics/condor-users.png}
+    \caption{CPU hours by local username, 2005-2009}
+\end{figure}
+
 \begin{itemize}
-    \item Not at capacity, but typical egress flows much higher
-    \item Largest consumer of campus bandwith
-    \item Campus networking is interested in our case, offered to dynamically provision extra fiber as needed
-    % XXX: Plot/doit plot
+    \item 140 local users, \ca{}50 running now
+    \item Developed local Scripts for quick analysis with central registration (Dan Bradley)
+    \item Treat global production as if it were local (Ajit Mohapatra)
 \end{itemize}
 \end{frame}
 
-\section{Metric Performance}
-\subsection{SAM}
+\subsection{Redundancy}
 \begin{frame}
 \begin{itemize}
-    % XXX: plots
-    \item \ldots{}
-\end{itemize}
-\end{frame}
-
-\subsection{JobRobot}
-\begin{frame}
-\begin{itemize}
-    % XXX: plots
-    \item \ldots{}
-\end{itemize}
-\end{frame}
-
-\subsection{RSV}
-\begin{frame}
-\begin{itemize}
-    % XXX: plots
-    \item \ldots{}
+    \item Aggressive replication of all data (PFM) on small pools and commodity hardware
+    \item Many GridFTP doors
+    \item Dedicated central servers for dCache and GUMS (with hot spares)
+    \item Multiple CEs with easy fail over
+    \item Monitor the monitors: Nagios, central monitoring (JobRobot, SAM, RSV, et al)
 \end{itemize}
 \end{frame}
 
