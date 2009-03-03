@@ -57,8 +57,8 @@
     \tableofcontents
 \end{frame}
 
-\section{2009 Hardware Deployment}
-\subsection{Batch status and plans}
+\section{2008-2009 Facilities Status}
+\subsection{Batch}
 \begin{frame}
 % XXX: Use the following to generate N slots:
 % condor_status -pool glow.cs.wisc.edu \
@@ -98,7 +98,7 @@ Since last workshop:
 \end{figure}
 \end{frame}
 
-\subsection{Storage status and plans}
+\subsection{Storage}
 \begin{frame}
 \begin{table}
 \begin{tabular}{lr}
@@ -128,18 +128,22 @@ Since last workshop:
 \end{figure}
 \end{frame}
 
-\subsection{Computation Resources}
+\subsection{Network}
 \begin{frame}
-Since last workshop:
+\begin{figure}
+    % XXX: http://stats.net.wisc.edu/cgi-bin/genstatspage.pl?db=r-csscplat-b380-3-core_vl369_bytes&time=1y
+    \includegraphics[width=\textwidth]{Graphics/network-1yr.png}
+    \caption{WAN usage, 2008-2009}
+
+\end{figure}
 \begin{itemize}
-    \item Added NNN slots/KSI2K
-    \item XXX CPUs, dual-purpose with storage
-    \item Increased opportunistic pool access (CHTC)
-    % XXX: Table/plot
+    \item Tier2 traffic accounts for the majority of egress traffic from Wisconsin
+    \item Ingress peaks due to PhEDEx transfers
 \end{itemize}
 \end{frame}
 
-\subsection{Deployment Plans}
+\section{2009 Deployment Plans}
+\subsection{Batch and storage systems}
 \begin{frame}
 \begin{itemize}
     \item Target: NNN TB, NNN slots before 2010
@@ -150,6 +154,19 @@ Since last workshop:
         \item September: 200 slots, 100TB
         \item December: \ca{}300TB
     \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Network}
+\begin{frame}
+\begin{figure}
+    % XXX: hacked from makeplot.py in nod's (broken) ganglia webui stuff
+    \includegraphics[width=\textwidth]{Graphics/dcache-usage-1yr.png}
+    \caption{dCache usage, 2008-2009}
+\end{figure}
+
+\begin{itemize}
+    \item \ldots{}
 \end{itemize}
 \end{frame}
 
