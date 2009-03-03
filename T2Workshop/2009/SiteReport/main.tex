@@ -58,7 +58,7 @@
 \end{frame}
 
 \section{2009 Hardware Deployment}
-\subsection{Current status: Storage}
+\subsection{Storage: Current status}
 \begin{frame}
 \begin{table}
 \begin{tabular}{lr}
@@ -75,14 +75,8 @@
 \end{table}
 \end{frame}
 
-\subsection{Current Status: Batch}
+\subsection{Batch: Current status}
 \begin{frame}
-\begin{figure}
-    % http://noc.hep.wisc.edu/nrg/condor/pools/GLOW-condor-claimed.1yr.gif
-    \includegraphics[height=3.0cm]{Graphics/GLOW-condor-claimed-1yr.png}
-    %\caption{Dedicated and opportunistic slots, 2008-2009}
-\end{figure}
-
 % XXX: Use the following to generate N slots:
 % condor_status -pool glow.cs.wisc.edu \
 %   -constraint 'regexp("g[4-7]n\d+\.hep\.wisc\.edu", Machine)' \
@@ -105,6 +99,20 @@
 \caption{2008 Batch Status}
 \label{2008_batch_status}
 \end{table}
+
+Since last workshop:
+\begin{itemize}
+    \item Added 32 8 x 3.00 GHz Xeon nodes
+    \item Decommissioned 32 2 x 2.4 GHz Xeon
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+    % http://noc.hep.wisc.edu/nrg/condor/pools/GLOW-condor-claimed.1yr.gif
+    \includegraphics[width=\textwidth]{Graphics/GLOW-condor-claimed-1yr.png}
+    \caption{Dedicated and opportunistic slots, 2008-2009}
+\end{figure}
 \end{frame}
 
 \subsection{Storage}
