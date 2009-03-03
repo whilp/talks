@@ -58,6 +58,31 @@
 \end{frame}
 
 \section{2008-2009 Facilities Status}
+\subsection{Software}
+\begin{frame}
+\begin{table}
+\begin{tabular}{lr}
+    \toprule
+    Component   &   Software \\
+    \midrule
+    OS          &   Scientific Linux 4.4 \\
+    Batch       &   Condor 7.0.5 \\
+    Storage     &   dCache 1.9.0-8 \\
+    Grid        &   VDT 1.10.1r \\
+    \bottomrule
+\end{tabular}
+\caption{2009 Software Status}
+\label{2009_software_status}
+\end{table}
+
+\begin{itemize}
+    \item OSG updates have become much more reliable, though we still can't relocate our installations
+    \item Significant performance improvements (especially scaling) in recent Condor
+    \item dCache running well, but replication is still a major problem
+\end{itemize}
+
+\end{frame}
+
 \subsection{Batch}
 \begin{frame}
 % XXX: Use the following to generate N slots:
@@ -144,6 +169,26 @@ Since last workshop:
 \end{frame}
 
 \section{2009 Deployment Plans}
+\subsection{Software}
+\begin{frame}
+\begin{table}
+\begin{tabular}{lp{.5\textwidth}}
+    \toprule
+    March-April     &   Complete Scientific Linux 5.2 testing and begin deployment \\
+    \midrule
+    May-June        &   Test BeStMan, dCache'? \\
+    \midrule
+    July            &   Upgrade to dCache feature branch, Chimera \\
+                    &   \hspace{1cm}\emph{OR} \\
+                    &   Begin switch to dCache' \\
+    \bottomrule
+\end{tabular}
+\caption{2009 Software Deployment Plan}
+\label{2009_software_deployment_plan}
+\end{table}
+
+\end{frame}
+
 \subsection{Batch and storage systems}
 \begin{frame}
 \begin{table}
@@ -160,8 +205,8 @@ Since last workshop:
     Total in 2009   &   1280            &   1200 \\
     \bottomrule
 \end{tabular}
-\caption{2009 Deployment Plan}
-\label{2009_deployment_plan}
+\caption{2009 Hardware Deployment Plan}
+\label{2009_hardware deployment_plan}
 \end{table}
 
 \begin{itemize}
