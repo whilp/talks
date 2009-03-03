@@ -58,23 +58,6 @@
 \end{frame}
 
 \section{2009 Hardware Deployment}
-\subsection{Storage: Current status}
-\begin{frame}
-\begin{table}
-\begin{tabular}{lr}
-    \toprule
-    Dedicated storage   &   NNN TB \\
-    Dual-purpose        &   NNN TB \\
-    \midrule
-    Raw                 &   NNN TB \\
-    Replicated          &   NNN TB \\
-    \bottomrule
-\end{tabular}
-\caption{2008 dCache}
-\label{2008_dcache}
-\end{table}
-\end{frame}
-
 \subsection{Batch: Current status}
 \begin{frame}
 % XXX: Use the following to generate N slots:
@@ -115,13 +98,34 @@ Since last workshop:
 \end{figure}
 \end{frame}
 
-\subsection{Storage}
+\subsection{Storage: Current status}
 \begin{frame}
+\begin{table}
+\begin{tabular}{lr}
+    \toprule
+    Dedicated       &   280 TB \\   % s5, s15 (10 * 24 TB)
+    Dual-purpose    &   200 TB \\   % rest
+    \midrule
+    Raw             &   480 TB \\
+    Replicated      &   240 TB \\
+    \bottomrule
+\end{tabular}
+\caption{2008 Storage Status}
+\label{2008_storage_status}
+\end{table}
+
 \begin{itemize}
-    \item Added NNN TB since last workshop
-    \item Large, dedicated storage and dual-purpose machines
-    % XXX: Table/plot
+    \item Added \ca{}300 TB since last workshop
+    \item Both large, dedicated storage and dual-purpose machines
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+    % XXX: hacked from makeplot.py in nod's (broken) ganglia webui stuff
+    \includegraphics[width=\textwidth]{Graphics/dcache-usage-1yr.png}
+    \caption{dCache usage, 2008-2009}
+\end{figure}
 \end{frame}
 
 \subsection{Computation Resources}
