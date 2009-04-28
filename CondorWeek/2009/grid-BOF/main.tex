@@ -1,0 +1,90 @@
+% vim: set tw=0:
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{pdfborder={0 0 0 0}}
+
+% Reasonable themes:
+% Antibes Bergen Berkeley Berlin Frankfurt Goettingen Ilmenau Luebeck Malmoe
+% Montpellier PaloAlto Rochester Singapore Szeged Warsaw bars boxes
+% compatibility default lined plain shadow sidebar split tree
+% And these ones include the author's name on every slide:
+% Berkeley
+
+% Declare themes.
+\mode<presentation>
+\usetheme{UWHEPMinimal}
+
+% Personal macros.
+\newcommand{\email}[1]{{\texttt #1}}
+\newcommand{\newframe}[1]{\section{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\subframe}[1]{\subsection{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\supers}[1]{\ensuremath{^\textrm{#1}}}
+\newcommand{\subs}[1]{\ensuremath{_\textrm{#1}}}
+\newcommand{\ca}{\ensuremath{\sim}}
+\renewcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+
+% Author information.
+\title{Grid BOF}
+\author[Maier]{
+    Will Maier\\
+    {\tt wcmaier@hep.wisc.edu}}
+\institute[Wisconsin]{University of Wisconsin - High Energy Physics}
+\date{2009.04.23}
+\logo{\includegraphics[height=0.6cm]{../../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics[height=0.75cm]{../../../Graphics/UW_logo.png}}
+
+\begin{document}
+
+%\begin{frame}
+%    \titlepage
+%\end{frame}
+
+%\section{Overview}
+%\begin{frame}
+%    \tableofcontents
+%\end{frame}
+
+\begin{frame}
+\frametitle{Condor and Data Intensive Jobs on the Grid}
+\begin{itemize}
+	\item OSG jobs arrive at GLOW via local Compute Elements
+	\item GLOW pools flock to each other
+	\item Very efficient use of idle slots, but\ldots{}
+	\begin{itemize}
+		\item \ldots{}jobs run in unpredictable environments
+		\item \ldots{}jobs and their data are often disconnected
+	\end{itemize}
+	\item Provide a consistent platform
+	\begin{itemize}
+		\item Common packages
+		\item Shared configuration (Cfengine)
+		\item Replicated data (rsync)
+	\end{itemize}
+	\item Support variety of data access patterns across campus boundaries
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data Access on the Grid}
+\begin{itemize}
+	\item We use\ldots{}
+	\begin{itemize}
+		\item OpenAFS: small, read-only files (shared libraries, in-file databases)
+		\item Condor file transfer: small, read-write files (job sandbox)
+		\item dCache/Lustre/Xrootd: large, random-access reads and job output (ROOT files)
+	\end{itemize}
+	\item Data services can only support so many concurrent jobs
+	\begin{itemize}
+		\item If we run too many at once, throughput decreases
+	\end{itemize}
+	\item How can we schedule the optimal number of data-intensive jobs?
+	\begin{itemize}
+		\item {\tt MAX\_JOBS\_RUNNING}
+		\item Dynamic identification and throttling in Condor?
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}
