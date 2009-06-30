@@ -134,7 +134,7 @@
 	\end{itemize}
 
 	\begin{table}
-	\begin{tabular}{rl}
+	\begin{tabular}{rllll}
 		\toprule
 		Purchase	& Disk (TB)	& RAM (GB)	& CPU	& Count	\\
 		\midrule
@@ -151,6 +151,7 @@
 	\end{table}
 
 	% XXX: pie chart dedicated vs not (google charts?)
+\begin{itemize}
 	\item Dedicated storage
 	\begin{itemize}
 		\item Apple Xserve RAID, 9TB, fiber channel
@@ -221,7 +222,7 @@
 	\item CFEngine also installs extra RPMs, mounts PNFS, etc
 	\item CFEngine handles upgrades, too:
 	\begin{itemize}
-		\item Merge new {\tt /opt/d-cache} with local using {\tt hg} (clean upstream branch, local branch}
+		\item Merge new {\tt /opt/d-cache} with local using {\tt hg} (clean upstream branch, local branch)
 		\item Turn off services
 		\item Push updates to all nodes and run {\tt install.sh} (CFEngine)
 		\item Start services; revert to old {\tt /opt/d-cache} if necessary
