@@ -75,7 +75,7 @@
 \end{itemize}
 \end{frame}
 
-\subsection{Network Topology}
+\subsection{Network}
 \begin{frame}
 \begin{itemize}
 	\item 10Gbps fiber uplink to campus, world
@@ -99,40 +99,187 @@
 	\begin{itemize}
 		\item At least 2GB/core; most servers have 16GB for 4 cores
 	\end{itemize}
+	\item All central servers on UPS; can survive short outages or shut down gracefully
+	\begin{itemize}
+		\item Filesystem corruption hurts\ldots{}
+	\end{itemize}
 	\item Otherwise, commodity hardware
 	\begin{itemize}
 		\item Fewer configuration profiles to manage
-		\item Standard 72000 RPM SATA disks sufficient; no RAID (only namespace needs to persist)
+		\item Standard 7200 RPM SATA disks sufficient; no RAID (only namespace needs to persist)
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \subsection{Cluster nodes}
+\begin{frame}
+\begin{itemize}
+	% XXX: table?
+	\item Majority of storage on dual-purpose batch and storage nodes
+	\item Historically, dedicated nodes have lower availability
+	\begin{itemize}
+		\item Consequence of hardware failure is greater
+		\item Cursed with wonky RAID controllers -- extra point of failure?
+	\end{itemize}
+	\item First generation: XXX (g7, g8)
+	\begin{itemize}
+		\item XXX servers
+		\item XXX 1TB IDE disk, 2GB RAM, 2 AMD XXX cores 
+	\end{itemize}
+	\item Second generation: XXX (g9, 10)
+	\begin{itemize}
+		\item XXX servers
+		\item XXX TB IDE disk, 8GB RAM, 4 AMD XXX cores
+	\end{itemize}
+	\item Third generation: XXX (g12, g14)
+	\begin{itemize}
+		\item XXX servers
+		\item XXX TB SATA disk, 16GB RAM, 8 Intel XXX cores
+	\end{itemize}
+	\item Dedicated storage
+	\begin{itemize}
+		\item Apple Xserve RAID, 9TB, fiber channel
+		\item Whitebox 24 TB local SATA disks, LSI RAID6
+	\end{itemize}
+\end{itemize}
+\end{frame}
 
 \section{Software}
+\subsection{Central Services}
+\begin{frame}
+\begin{itemize}
+	\item Dedicated nodes for PNFS, 'admin' services, SRM/dcap
+	\item Hotspare system running and ready to cover for any of the above
+	\item Databases running on all servers
+	\begin{itemize}
+		\item Logging disabled
+	\end{itemize}
+	\item PNFS
+	\begin{itemize}
+		\item XXX PFM replication (for fast namespace lookups)
+	\end{itemize}
+	\item admin
+	\begin{itemize}
+		\item XXX http monitor, admin interface, companion and billing databases
+		\item Admin interface configured with SSH keys
+		\item {\tt billingrep} live replicator (for access to the billing log)
+	\end{itemize}
+	\item SRM/dcap
+	\begin{itemize}
+		\item XXX
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Cluster Nodes}
+\begin{frame}
+\begin{itemize}
+	\item 30 GridFTP doors scattered across nodes
+	\item XXX shared w/ condor
+	\item XXX 400M JVM
+\end{itemize}
+\end{frame}
 
 \section{Administration}
 \subsection{Deployment}
+\begin{frame}
+\begin{itemize}
+	\item Configuration and installation automated by CFEngine
+	\item {\tt /opt/d-cache} versioned by Mercurial, synced from AFS by CFEngine
+	\item CFEngine also installs extra RPMs, mounts PNFS, etc
+	\item CFEngine handles upgrades, too:
+	\begin{itemize}
+		\item Merge new {\tt /opt/d-cache} with local using {\tt hg} (clean upstream branch, local branch}
+		\item Turn off services
+		\item Push updates to all nodes and run {\tt install.sh} (CFEngine)
+		\item Start services; revert to old {\tt /opt/d-cache} if necessary
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
 \subsection{Monitoring}
+\begin{frame}
+\begin{itemize}
+	\item Nagios
+	\item dCache Health Check
+	\item SAM, RSV
+	\item Stuck transfers
+	\item Per-directory replication rate (walk namespace)
+	\item root-owned files/directories
+	\item Absent pool report
+\end{itemize}
+\end{frame}
+
+\subsection{Replication}
+\begin{frame}
+\begin{itemize}
+	\item Since we store data on commodity hardware (with no RAID), we make copies at the cluster level
+	\item dCache's Replica Manager couldn't keep up with the flood of pool messages
+	\begin{itemize}
+		\item XXX Stopped running in 2007
+	\end{itemize}
+	\item PFM performance slows with lots of pools and files
+	\item {\tt billingrep} for low-latency, first order replication
+	\begin{itemize}
+		\item Watches billing log for file creations
+		\item XXX {\tt pp get file} to a random pool
+		\item Files replicated within seconds
+		\item Not aware of pool cost or availability; doesn't recover if replicas disappear
+		\item \url{http://code.hep.wisc.edu/dcache-tools}
+	\end{itemize}
+	\item {\tt pfm} for accurate policy enforcement
+	\begin{itemize}
+		\item Walks PNFS namespace (\ca{}30 minutes for 300k files)
+		\item Finds available replicas for each file and adds or removes replicas depending on policy
+		\item Policy defined by regular expressions matching logical file names
+		\item At Wisconsin: No more or less than two replicas for each file
+	\end{itemize}
+\end{itemize}
+\end{frame}
 
 \section{Experiences}
 \subsection{Usage}
+\begin{frame}
+\begin{itemize}
+	\item Very few files lost (thanks to replication)
+	\item Adequate performance in LoadTest
+	\item Without fast disks on PNFS node, transfer pileups
+	\item XXX users, XXX simultaneous transfers
+	\item Merging lots of small files hurts
+	\item Highly efficient analysis of large files (relatively small overhead)
+\end{itemize}
+\end{frame}
+
 \subsection{Support}
+\begin{frame}
+\begin{itemize}
+	\item Triage: local ticketing system
+	\begin{itemize}
+		\item Handle hardware failures, debug performance issues and interaction with batch system
+	\end{itemize}
+	\item {\tt osg-storage} list, {\tt uscms-t2@conference.fnal.gov}
+	\begin{itemize}
+		\item Access to developer and expert help, escalate tricky issues
+		\item Share management scripts, best practices
+		\item Fast and real time; indepth and asynchronous
+	\end{itemize}
+	\item We don't use:
+	\begin{itemize}
+		\item dCache user forum (still active?)
+		\item OSG camp fire (clunky web client, no local logs)
+	\end{itemize}
+\end{itemize}
+\end{frame}
 
 \subsection{Plans}
 \begin{frame}
 \begin{itemize}
 	\item Centralize databases on high-performance server or provide faster disks on all central servers
 	\item Improve switch port efficiency so all nodes communicate across the same 16Gbps backplane
-\end{itemize}
-\end{frame}
-
-%\section{}
-%\subsection{}
-\begin{frame}
-%\frametitle{}
-\begin{itemize}
-	\item ...
+	\item Expand UPS coverage
+	\item {\tt pgpool} replication of PostgreSQL databases
+	\item Point {\tt billingrep} at database, not log
+	\item Local test stand
 \end{itemize}
 \end{frame}
 
