@@ -58,8 +58,10 @@
 \end{frame}
 
 \section{Hardware}
+\subsection{Summary}
 \begin{frame}
 \begin{itemize}
+	\item \ca{}460TB, 520 pools, 190 nodes hosting pools
 	\item Most of our network architecture is provided by campus, but we manage the switches
 	\item We emphasize reliability and performance on central servers
 	\begin{itemize}
@@ -80,7 +82,6 @@
 \begin{itemize}
 	\item 10Gbps fiber uplink to campus, world
 	\item 1Gbps Ethernet to all nodes and central servers
-	\item CMS WAN transfers drive campus network demands
 	\item Three stacks of Cisco 3750 switches
 	\begin{itemize}
 		\item Main stack bridged to others via 4Gbps Etherchannel
@@ -141,14 +142,15 @@
 	\begin{table}
 	\begin{tabular}{rllll}
 		\toprule
-		Purchase	& Disk (TB)	& RAM (GB)	& CPU	& Count	\\
+		Generation	& Disk (TB)	& RAM (GB)	& CPU	& Count	\\
 		\midrule
-		2005		& XXX		& XXX		& XXX	& XXX	\\ % g7,g8
-		2006		& XXX		& XXX		& XXX	& XXX	\\ % g9,g10
-		2007		& XXX		& XXX		& XXX	& XXX	\\ % g12
-		2008		& XXX		& XXX		& XXX	& XXX	\\ % g14
-		2009		& XXX		& XXX		& XXX	& XXX	\\ % g7,g8
-		% XXX: add s5, s15
+		1		& XXX		& XXX		& XXX	& XXX	\\ % g7,g8
+		2		& XXX		& XXX		& XXX	& XXX	\\ % g9,g10
+		3		& XXX		& XXX		& XXX	& XXX	\\ % g12
+		4		& XXX		& XXX		& XXX	& XXX	\\ % g14
+		5		& XXX		& XXX		& XXX	& XXX	\\ % g7,g8
+		\midrule
+		dedicated	& XXX		& XXX		& XXX	& XXX	\\ % s5,s15
 		\bottomrule
 	\end{tabular}
 	\caption{Wisconsin Storage Cluster Nodes, 2005-2009}
