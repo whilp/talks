@@ -1,6 +1,7 @@
 % vim: set tw=0:
 \documentclass{beamer}
 \usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage{hyperref}
 \hypersetup{pdfborder={0 0 0 0}}
 
@@ -59,9 +60,9 @@
 
 \section{Hardware}
 \begin{frame}
-%\frametitle{}
 \begin{itemize}
-	\item Emphasize reliability and performance on central servers
+	\item Most of the network architecture is provided by campus, but we manage the switches
+	\item We emphasize reliability and performance on central servers
 	\begin{itemize}
 		\item Reliability first: performance means nothing if the systems aren't up\ldots{}
 		\item \ldots{}but work doesn't get done if clients are waiting to perform lookups on the central services
@@ -80,8 +81,12 @@
 \begin{itemize}
 	\item 10Gbps fiber uplink to campus, world
 	\item XXX network diagram
-	\item XXX 10 Cisco 3750Gs bridged to 2 3750Gs over 4Gbps copper Etherchannel
 	\item 1Gbps Ethernet to all nodes and central servers
+	\item Three stacks of Cisco 3750 switches
+	\begin{itemize}
+		\item Main stack bridged to others via 4Gbps Etherchannel
+		\item Most connections use the stack backplanes; some node-to-node and node-to-WAN connections use the Etherchannels
+	\end{itemize}
 	\item \ca{} XXX TB and XXX nodes on one side; XXX TB and XXX nodes on the other
 \end{itemize}
 \end{frame}
@@ -89,13 +94,13 @@
 \subsection{Central Services}
 \begin{frame}
 \begin{itemize}
-	\item Fast RAID for namespace database (up to 200MB/s)
+	\item Fast RAID for namespace database
 	\begin{itemize}
 		\item Need speed: database journals require lots of writes
 		\item Need reliability: lots of pain if the database dies or becomes corrupted
 		\item At Wisconsin: LSI RAID10 (4x250 GB 10k RPM SATA disks)
 	\end{itemize}
-	\item Databases and dCache daemons make use of available memory
+	\item Databases and dCache daemons are happy to make use of available memory and cores
 	\begin{itemize}
 		\item At least 2GB/core; most servers have 16GB for 4 cores
 	\end{itemize}
@@ -115,27 +120,37 @@
 \begin{frame}
 \begin{itemize}
 	% XXX: table?
-	\item Majority of storage on dual-purpose batch and storage nodes
-	\item Historically, dedicated nodes have lower availability
+	\item Majority of storage on whitebox, dual-purpose batch and storage nodes
+	%\item Historically, dedicated nodes have lower availability
+	%\begin{itemize}
+	%	\item Consequence of hardware failure is greater
+	%	\item Cursed with wonky RAID controllers -- extra point of failure?
+	%\end{itemize}
+	\item Nodes stay in the cluster until it's too expensive to keep them running
 	\begin{itemize}
-		\item Consequence of hardware failure is greater
-		\item Cursed with wonky RAID controllers -- extra point of failure?
+		\item With five year warranties on disks, nodes can last a long time
+		\item RAM upgrades or motherboard failures aren't worth the trouble if the node is out of warranty (standard three years)
 	\end{itemize}
-	\item First generation: XXX (g7, g8)
-	\begin{itemize}
-		\item XXX servers
-		\item XXX 1TB IDE disk, 2GB RAM, 2 AMD XXX cores 
 	\end{itemize}
-	\item Second generation: XXX (g9, 10)
-	\begin{itemize}
-		\item XXX servers
-		\item XXX TB IDE disk, 8GB RAM, 4 AMD XXX cores
-	\end{itemize}
-	\item Third generation: XXX (g12, g14)
-	\begin{itemize}
-		\item XXX servers
-		\item XXX TB SATA disk, 16GB RAM, 8 Intel XXX cores
-	\end{itemize}
+
+	\begin{table}
+	\begin{tabular}{rl}
+		\toprule
+		Purchase	& Disk (TB)	& RAM (GB)	& CPU	& Count	\\
+		\midrule
+		2005		& XXX		& XXX		& XXX	& XXX	\\ % g7,g8
+		2006		& XXX		& XXX		& XXX	& XXX	\\ % g9,g10
+		2007		& XXX		& XXX		& XXX	& XXX	\\ % g12
+		2008		& XXX		& XXX		& XXX	& XXX	\\ % g14
+		2009		& XXX		& XXX		& XXX	& XXX	\\ % g7,g8
+		% XXX: add s5, s15
+		\bottomrule
+	\end{tabular}
+	\caption{Wisconsin Storage Cluster Nodes, 2005-2009}
+	\label{cluster_nodes}
+	\end{table}
+
+	% XXX: pie chart dedicated vs not (google charts?)
 	\item Dedicated storage
 	\begin{itemize}
 		\item Apple Xserve RAID, 9TB, fiber channel
@@ -148,7 +163,8 @@
 \subsection{Central Services}
 \begin{frame}
 \begin{itemize}
-	\item Dedicated nodes for PNFS, 'admin' services, SRM/dcap
+	\item Originally six central servers, with one service on each machine
+	\item Now, dedicated nodes for PNFS, 'admin' services, SRM/dcap
 	\item Hotspare system running and ready to cover for any of the above
 	\item Databases running on all servers
 	\begin{itemize}
@@ -156,6 +172,7 @@
 	\end{itemize}
 	\item PNFS
 	\begin{itemize}
+		\item companion database
 		\item XXX PFM replication (for fast namespace lookups)
 	\end{itemize}
 	\item admin
@@ -166,7 +183,13 @@
 	\end{itemize}
 	\item SRM/dcap
 	\begin{itemize}
-		\item XXX
+		\item Only one door for each, and they live on the same machine
+		\item Haven't observed performance problems
+	\end{itemize}
+	\item Hotspare
+	\begin{itemize}
+		\item {\tt /opt/d-cache} already present
+		\item Ready for quick redeployment of a failed central service
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -175,8 +198,17 @@
 \begin{frame}
 \begin{itemize}
 	\item 30 GridFTP doors scattered across nodes
-	\item XXX shared w/ condor
-	\item XXX 400M JVM
+	\item Configure dCache JVMs so that 1GB RAM/core remains
+	\begin{itemize}
+		\item In most cases, four pool daemons, each with 400M JVMs
+	\end{itemize}
+	\item Most storage nodes also run Condor
+	\begin{itemize}
+		\item Jobs are almost always running
+		\item Jobs fetching data, dCache pushing files
+		% \item (1000 slots x 2MB/s)/250 storage nodes
+		\item No bottlenecks (yet) on the nodes, but the Etherchannels are troublesome
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -279,7 +311,8 @@
 	\item Expand UPS coverage
 	\item {\tt pgpool} replication of PostgreSQL databases
 	\item Point {\tt billingrep} at database, not log
-	\item Local test stand
+	\item Local test stand/verify upgrades
+	\item Multiple dcap doors
 \end{itemize}
 \end{frame}
 
