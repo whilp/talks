@@ -61,7 +61,10 @@
 \subsection{Summary}
 \begin{frame}
 \begin{itemize}
-	\item \ca{}460TB, 520 pools, 190 nodes hosting pools
+	\item \ca{}500TB of writable disk, 520 pools, 190 nodes
+	\begin{itemize}
+		\item Nodes host 2-4 pools each
+	\end{itemize}
 	\item Most of our network architecture is provided by campus, but we manage the switches
 	\item We emphasize reliability and performance on central servers
 	\begin{itemize}
@@ -87,13 +90,7 @@
 		\item Main stack bridged to others via 4Gbps Etherchannel
 		\item Most connections use the stack backplanes; some node-to-node and node-to-WAN connections use the Etherchannels
 	\end{itemize}
-	\item \ca{} 390 TB and 90 nodes on one side; 256 TB and 96 nodes on the other
-	% main: g9, g10, s15, s5, opportunistic slots (45xg9x1TB, 24xg10x1.5TB, 10xs15x24TB, 9xs5x9TB)
-		% 45 + 36 + 240 + 90 = 390TB
-	% mr1: g7, g8 (27xg7x1TB, 5xg8x1TB)
-		% 27 + 5 = 32 TB
-	% mr2: g12, g14 (32xg12x3TB, 32xg14x4TB)
-		% 96 + 128 = 224 TB
+	\item \ca{}300 TB and 90 nodes on one side; \ca{}200 TB and 96 nodes on the other
 \end{itemize}
 \end{frame}
 
@@ -112,7 +109,7 @@
 	\end{itemize}
 	\item All central servers on UPS; can survive short outages or shut down gracefully
 	\begin{itemize}
-		\item Filesystem corruption hurts\ldots{}
+		\item Filesystem corruption hurts
 	\end{itemize}
 	\item Otherwise, commodity hardware
 	\begin{itemize}
@@ -125,13 +122,7 @@
 \subsection{Cluster nodes}
 \begin{frame}
 \begin{itemize}
-	% XXX: table?
 	\item Majority of storage on whitebox, dual-purpose batch and storage nodes
-	%\item Historically, dedicated nodes have lower availability
-	%\begin{itemize}
-	%	\item Consequence of hardware failure is greater
-	%	\item Cursed with wonky RAID controllers -- extra point of failure?
-	%\end{itemize}
 	\item Nodes stay in the cluster until it's too expensive to keep them running
 	\begin{itemize}
 		\item With five year warranties on disks, nodes can last a long time
@@ -142,28 +133,44 @@
 	\begin{table}
 	\begin{tabular}{rllll}
 		\toprule
-		Generation	& Disk (TB)	& RAM (GB)	& CPU	& Count	\\
+		Generation	& Disk (TB)	& RAM (GB)	& Cores	& Count	\\
 		\midrule
-		1		& XXX		& XXX		& XXX	& XXX	\\ % g7,g8
-		2		& XXX		& XXX		& XXX	& XXX	\\ % g9,g10
-		3		& XXX		& XXX		& XXX	& XXX	\\ % g12
-		4		& XXX		& XXX		& XXX	& XXX	\\ % g14
-		5		& XXX		& XXX		& XXX	& XXX	\\ % g7,g8
-		\midrule
-		dedicated	& XXX		& XXX		& XXX	& XXX	\\ % s5,s15
+	% main: g9, g10, s15, s5, opportunistic slots (45xg9x1TB, 24xg10x1.5TB, 10xs15x24TB, 9xs5x9TB)
+		% 45 + 36 + 240 + 90 = 390TB
+	% mr1: g7, g8 (27xg7x1TB, 5xg8x1TB)
+		% 27 + 5 = 32 TB
+	% mr2: g12, g14 (32xg12x3TB, 32xg14x4TB)
+		% 96 + 128 = 224 TB
+		1		& 1		& 2		& 2	& 32	\\ % g7,g8
+		2		& 1-1.5		& 4-16		& 4	& 69	\\ % g9,g10
+		3		& 3		& 16		& 8	& 32	\\ % g12
+		4		& 4		& 16		& 8	& 32	\\ % g14
 		\bottomrule
 	\end{tabular}
-	\caption{Wisconsin Storage Cluster Nodes, 2005-2009}
+	\caption{Wisconsin Dual-Purpose Cluster Nodes, 2005-2009}
 	\label{cluster_nodes}
 	\end{table}
+\end{frame}
 
-	% XXX: pie chart dedicated vs not (google charts?)
+\begin{frame}
 \begin{itemize}
 	\item Dedicated storage
 	\begin{itemize}
-		\item Apple Xserve RAID, 9TB, fiber channel
-		\item Whitebox 24 TB local SATA disks, LSI RAID6
+		\item Apple Xserve RAID with fiber channel to commodity controller node
+		\item Whitebox with 24 local SATA disks, LSI RAID6
 	\end{itemize}
+	\begin{table}
+	\begin{tabular}{rllll}
+		\toprule
+		Generation	& Disk (TB)	& RAM (GB)	& Cores	& Count	\\
+		\midrule
+		1		& 9		& 2		& 2	& 9	\\ % s5
+		2		& 24		& 16		& 8	& 10	\\ % s15
+		\bottomrule
+	\end{tabular}
+	\caption{Wisconsin Dedicated Storage Cluster Nodes, 2005-2009}
+	\label{cluster_nodes}
+	\end{table}
 \end{itemize}
 \end{frame}
 
@@ -174,18 +181,14 @@
 	\item Originally six central servers, with one service on each machine
 	\item Now, dedicated nodes for PNFS, 'admin' services, SRM/dcap
 	\item Hotspare system running and ready to cover for any of the above
-	\item Databases running on all servers
-	\begin{itemize}
-		\item Logging disabled
-	\end{itemize}
 	\item PNFS
 	\begin{itemize}
 		\item companion database
-		\item XXX PFM replication (for fast namespace lookups)
+		\item PFM replication (for fast namespace lookups)
 	\end{itemize}
 	\item admin
 	\begin{itemize}
-		\item XXX http monitor, admin interface, companion and billing databases
+		\item http monitor, admin interface, companion and billing databases
 		\item Admin interface configured with SSH keys
 		\item {\tt billingrep} live replicator (for access to the billing log)
 	\end{itemize}
@@ -206,14 +209,14 @@
 \begin{frame}
 \begin{itemize}
 	\item 30 GridFTP doors scattered across nodes
-	\item Configure dCache JVMs so that 1GB RAM/core remains
+	\item Configure dCache JVMs so that 1.5GB RAM/core remains
 	\begin{itemize}
 		\item In most cases, four pool daemons, each with 400M JVMs
 	\end{itemize}
-	\item Most storage nodes also run Condor
+	\item Most storage nodes also run Condor (one batch slot per core)
 	\begin{itemize}
-		\item Jobs are almost always running
-		\item Jobs fetching data, dCache pushing files
+		\item Jobs are almost always running and fetching data
+		\item dCache pushing files
 		% \item (1000 slots x 2MB/s)/250 storage nodes
 		\item No bottlenecks (yet) on the nodes, but the Etherchannels are troublesome
 	\end{itemize}
@@ -224,30 +227,20 @@
 \subsection{Deployment}
 \begin{frame}
 \begin{itemize}
-	\item Configuration and installation automated by CFEngine
 	\item {\tt /opt/d-cache} versioned by Mercurial, synced from AFS by CFEngine
+	\begin{itemize}
+		\item Clean upstream branch; local branch with changes
+	\end{itemize}
+	\item Configuration and installation automated by CFEngine
 	\item CFEngine also installs extra RPMs, mounts PNFS, etc
 	\item CFEngine handles upgrades, too:
 	\begin{itemize}
-		\item (We don't use the VDT dCache)
-		\item Merge new {\tt /opt/d-cache} with local using {\tt hg} (clean upstream branch, local branch)
+		\item Merge new {\tt /opt/d-cache} with local
 		\item Turn off services
 		\item Push updates to all nodes and run {\tt install.sh} (CFEngine)
 		\item Start services; revert to old {\tt /opt/d-cache} if necessary
+		\item To roll back, revert to last known good {\tt /opt/d-cache} and server RPMs
 	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\subsection{Monitoring}
-\begin{frame}
-\begin{itemize}
-	\item Nagios
-	\item dCache Health Check
-	\item SAM, RSV
-	\item Stuck transfers
-	\item Per-directory replication rate (walk namespace)
-	\item root-owned files/directories
-	\item Absent pool report
 \end{itemize}
 \end{frame}
 
@@ -256,25 +249,49 @@
 \begin{itemize}
 	\item Since we store data on commodity hardware (with no RAID), we make copies at the cluster level
 	\item dCache's Replica Manager couldn't keep up with the flood of pool messages
-	\begin{itemize}
-		\item XXX Stopped running in 2007
-	\end{itemize}
 	\item PFM performance slows with lots of pools and files
 	\item {\tt billingrep} for low-latency, first order replication
 	\begin{itemize}
 		\item Watches billing log for file creations
-		\item XXX {\tt pp get file} to a random pool
-		\item Files replicated within seconds
-		\item Not aware of pool cost or availability; doesn't recover if replicas disappear
+		\item {\tt pp get file} to a random pool; replicated in seconds
+		\item Not aware of pool cost/availability; doesn't recover if replicas disappear
 		\item \url{http://code.hep.wisc.edu/dcache-tools}
 	\end{itemize}
 	\item {\tt pfm} for accurate policy enforcement
 	\begin{itemize}
-		\item Walks PNFS namespace (\ca{}30 minutes for 300k files)
+		\item Walks PNFS namespace (\ca{}10 minutes for 300k files), talks to each pool (20 minutes for \ca{}200 active pools)
 		\item Finds available replicas for each file and adds or removes replicas depending on policy
 		\item Policy defined by regular expressions matching logical file names
 		\item At Wisconsin: No more or less than two replicas for each file
 	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Monitoring}
+\begin{frame}
+\begin{itemize}
+	\item Nagios
+	\item SAM, RSV
+	\item root-owned files/directories
+	\begin{itemize}
+		\item {\tt find /pnfs/hep.wisc.edu/store/ /pnfs/hep.wisc.edu/osg/* -user root 2>/dev/null}
+	\end{itemize}
+	\item dCache Health Check
+	\begin{itemize}
+		\item Transfer from each GridFTP, dcap and SRM door
+		\item Write new files into dCache; read them out and compare checksums
+		\item Test transfers to and from FNAL via SRM
+	\end{itemize}
+	\item Stuck transfers
+	\begin{itemize}
+		\item Scan active transfers page for transfers with no significant activity
+		\item Often indicates unavailable files or broken pools
+	\end{itemize}
+	\item Per-directory disk usage
+	\begin{itemize}
+		\item Walk PNFS and report disk usage (including replication) for the top directories
+	\end{itemize}
+	\item Absent pool report
 \end{itemize}
 \end{frame}
 
@@ -283,9 +300,8 @@
 \begin{frame}
 \begin{itemize}
 	\item Very few files lost (thanks to replication)
-	\item Adequate performance in LoadTest
+	\item Good performance in LoadTest
 	\item Without fast disks on PNFS node, transfer pileups
-	\item XXX users, XXX simultaneous transfers
 	\item Merging lots of small files hurts
 	\item Highly efficient analysis of large files (relatively small overhead)
 \end{itemize}
@@ -298,15 +314,16 @@
 	\item Analysis:
 	\begin{itemize}
 		\item dCache works well without much modification
-		\item Small overhead per transfer, dcap provides fast access
+		\item Small tranfers overhead for small number of transfers, dcap provides fast access
 		\item Relatively few outputs for each job
 	\end{itemize}
 	\item Merge:
 	\begin{itemize}
-		\item More common with SLHC
-		\item Most approaches merge numerous small files in serial
+		\item More common in SLHC workflows (and increasingly common in the future?)
+		\item Most local approaches merge numerous small files in serial
 		\item Unavailable files wait for timeout; during peak usage, time to fetch available files exceeds reasonable timeouts
 		\item Improving PNFS performance helps, but this workflow is still inefficient on dCache
+		\item Parallelizing merge process helps, too
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -314,13 +331,13 @@
 \subsection{Plans}
 \begin{frame}
 \begin{itemize}
-	\item Centralize databases on high-performance server or provide faster disks on all central servers
-	\item Improve switch port efficiency so all nodes communicate across the same 16Gbps backplane
 	\item Expand UPS coverage
-	\item {\tt pgpool} replication of PostgreSQL databases
-	\item Point {\tt billingrep} at database, not log
 	\item Local test stand/verify upgrades
-	\item Multiple dcap doors
+	\item Add dcap doors
+	\item Improve switch port efficiency so all nodes communicate across the same 16Gbps backplane
+	\item Point {\tt billingrep} at database, not log
+	\item {\tt pgpool} replication of PostgreSQL databases
+	\item Centralize databases on high-performance server or provide faster disks on all central servers
 \end{itemize}
 \end{frame}
 
