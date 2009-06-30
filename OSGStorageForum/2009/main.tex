@@ -228,6 +228,7 @@
 	\item CFEngine also installs extra RPMs, mounts PNFS, etc
 	\item CFEngine handles upgrades, too:
 	\begin{itemize}
+		\item (We don't use the VDT dCache)
 		\item Merge new {\tt /opt/d-cache} with local using {\tt hg} (clean upstream branch, local branch)
 		\item Turn off services
 		\item Push updates to all nodes and run {\tt install.sh} (CFEngine)
@@ -286,6 +287,26 @@
 	\item XXX users, XXX simultaneous transfers
 	\item Merging lots of small files hurts
 	\item Highly efficient analysis of large files (relatively small overhead)
+\end{itemize}
+\end{frame}
+
+\subsection{Workflows}
+\begin{frame}
+\begin{itemize}
+	\item Most local workflows involve extended analysis of large files or merging many small files
+	\item Analysis:
+	\begin{itemize}
+		\item dCache works well without much modification
+		\item Small overhead per transfer, dcap provides fast access
+		\item Relatively few outputs for each job
+	\end{itemize}
+	\item Merge:
+	\begin{itemize}
+		\item More common with SLHC
+		\item Most approaches merge numerous small files in serial
+		\item Unavailable files wait for timeout; during peak usage, time to fetch available files exceeds reasonable timeouts
+		\item Improving PNFS performance helps, but this workflow is still inefficient on dCache
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
