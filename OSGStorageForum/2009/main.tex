@@ -61,7 +61,7 @@
 \section{Hardware}
 \begin{frame}
 \begin{itemize}
-	\item Most of the network architecture is provided by campus, but we manage the switches
+	\item Most of our network architecture is provided by campus, but we manage the switches
 	\item We emphasize reliability and performance on central servers
 	\begin{itemize}
 		\item Reliability first: performance means nothing if the systems aren't up\ldots{}
@@ -80,14 +80,20 @@
 \begin{frame}
 \begin{itemize}
 	\item 10Gbps fiber uplink to campus, world
-	\item XXX network diagram
 	\item 1Gbps Ethernet to all nodes and central servers
+	\item CMS WAN transfers drive campus network demands
 	\item Three stacks of Cisco 3750 switches
 	\begin{itemize}
 		\item Main stack bridged to others via 4Gbps Etherchannel
 		\item Most connections use the stack backplanes; some node-to-node and node-to-WAN connections use the Etherchannels
 	\end{itemize}
-	\item \ca{} XXX TB and XXX nodes on one side; XXX TB and XXX nodes on the other
+	\item \ca{} 390 TB and 90 nodes on one side; 256 TB and 96 nodes on the other
+	% main: g9, g10, s15, s5, opportunistic slots (45xg9x1TB, 24xg10x1.5TB, 10xs15x24TB, 9xs5x9TB)
+		% 45 + 36 + 240 + 90 = 390TB
+	% mr1: g7, g8 (27xg7x1TB, 5xg8x1TB)
+		% 27 + 5 = 32 TB
+	% mr2: g12, g14 (32xg12x3TB, 32xg14x4TB)
+		% 96 + 128 = 224 TB
 \end{itemize}
 \end{frame}
 
