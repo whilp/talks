@@ -44,23 +44,30 @@
 \section{Overview}
 \begin{frame}
     \tableofcontents
+\begin{itemize}
+	\item OSG Storage Forum held at FNAL from 30 June to 01 July
+	\item Agenda: \url{http://indico.fnal.gov/conferenceOtherViews.py?view=standard&confId=2538}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{}
+\frametitle{Goals for the year (F. W\"urthwein)}
 \begin{itemize}
-	\item OSG Storage Forum held at FNAL from 30 June to 01 July
-	\item CMS, ATLAS, LIGO Tier2 and Tier3s represented
-	\item Agenda: \url{http://indico.fnal.gov/conferenceOtherViews.py?view=standard&confId=2538}
-	\item Goals for this year (F. W\"urthwein):
+	\item Support LHC users doing real work, especially at Tier3s
+	\item Make life easier for storage administrators
 	\begin{itemize}
-		\item Support LHC users doing real work, especially at Tier3s
-		\item Make life easier for storage administrators
-		\begin{itemize}
-			\item Simplify deployment and upgrades
-			\item Improve technical support for sites
-		\end{itemize}
-		\item Increase non-physics participation, more pilots, security stuff\ldots{}
+		\item Simplify deployment and upgrades
+		\item Improve technical support for sites
+	\end{itemize}
+	\item Increase Tier2 scale
+	\begin{itemize}
+		\item O(1M) files, 200-600 TB, 10-100 Hz to SRM via WAN, 1k-10k cores
+		\item Limit maintenance cost to $<$ 0.5 FTE
+	\end{itemize}
+	\item Improve storage reliability at the Tier2s
+	\begin{itemize}
+		\item 80\% success rate in STEP09; 90\% of job failures due to LAN read errors
+		\item Inadequate provisions for replication/redundancy at Tier2s
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -68,11 +75,6 @@
 \section{Storage Technologies}
 
 \subsection{dCache}
-
-\begin{frame}
-\begin{itemize}
-\end{itemize}
-\end{frame}
 
 % site talks
 % development plans
