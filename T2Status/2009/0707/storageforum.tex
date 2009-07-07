@@ -129,13 +129,51 @@
 		\item Doesn't know about replicas that become unavailable (that's PFM's job)
 		\item Allows PFM to run at a leisurely pace while keeping files (relatively) safe
 	\end{itemize}
+	\item {\small{(Hadoop core replicates files instantly\ldots{}(B. Bockelman))}}
 \end{itemize}
 \end{frame}
 
-\subsection{Hadoop}
-% scalability of bestman+hadoop
-\subsection{Lustre}
-\subsection{Xrootd}
+\subsection{Hadoop/Bestman}
+
+\begin{frame}
+\begin{itemize}
+	\item Hadoop at Caltech (M. Thomas)
+	\begin{itemize}
+		\item Namenode is very lightweight (8 cores/16 GB RAM means lots of room to scale)
+		\item Datanodes coexist nicely on Condor batch nodes
+		\item Demonstrated 2 GB/s aggregate transfer rates between nodes
+		\item Caltech provides convenient RPMs (makes testing easy\ldots{})
+	\end{itemize}
+	\item Hadoop and Bestman scalability (B. Bockelman)
+	\begin{itemize}
+		\item Virtualized Bestman SRM servers
+		\item Demonstrated 50 Hz for SRM operations, .3s latency for {\tt lcg-ls}
+		\item WAN transfer peak: 9 Gb/s; sustained: 5 Gb/s
+	\end{itemize}
+	\item Bestman stress tests (H. Pi)
+	\begin{itemize}
+		\item Demonstrated 25 Hz rate ({\tt srmls})
+		\item Proxy delegation slows Bestman down considerably
+		\item Peak transfer rate: 700 MB/s (near maximum expected for number of spindles); sustained: 550 MB/s
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Lustre, Xrootd}
+
+\begin{frame}
+\begin{itemize}
+	\item Lustre at UF (Y. Wu)
+	\begin{itemize}
+		\item Sharing data with FIT, FIU Tier3s via Lustre
+		\item Provides POSIX compliant interface and easy integration with Bestman for SRM
+		\item No modifications necessary to work with CMSSW; some jobs perform better with Lustre
+		\item 150 MB/s read, 125 MB/s write (IOZone)
+		\item Copying from ramdisk, throughput of 500 MB/s into Lustre
+	\end{itemize}
+	\item Xrootd can provide in front of Hadoop (B. Bockelman)
+\end{itemize}
+\end{frame}
 
 \section{Storage in the OSG}
 \subsection{Information Services}
