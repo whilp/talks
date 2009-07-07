@@ -75,6 +75,23 @@
 \section{Storage Technologies}
 
 \subsection{dCache}
+% monitoring (health check, stuck, absent, usage)
+
+\begin{frame}
+\frametitle{From PNFS to Chimera (F. Hu)}
+\begin{itemize}
+	\item Lots of limitations and problems with PNFS; no longer actively developed
+	\item Chimera is the next generation namespace provider for dCache
+	\item Database driven, scalable
+	\item Instructions: \url{http://trac.dcache.org/projects/dcache/wiki/ChimeraSetup}
+	\begin{itemize}
+		\item Namespace must be migrated from PNFS to Chimera (requires downtime)
+	\end{itemize}
+	\item Purdue tests show Chimera scales well (and much better than PNFS with either DBD or PostgreSQL backends)
+\end{itemize}
+\end{frame}
+
+% billingrep (W. Maier)
 
 % site talks
 % development plans
