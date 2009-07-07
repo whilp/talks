@@ -78,6 +78,27 @@
 % monitoring (health check, stuck, absent, usage)
 
 \begin{frame}
+\frametitle{Development News and Plans (T. Perelmutov)}
+\begin{itemize}
+	\item SRM performance improvements
+	\item All logging goes through Log4j!
+	\item New pool code (better space accounting, migration of files between pools, fast startup and lower memory usage)
+	\item XML info service: \url{http://${ADMIN\_NODE}:2288/info}
+	\item Time-based release schedule
+	\begin{itemize}
+		\item 1.9.4: 20 July
+		\item 1.9.5: after 1.9.4\ldots{} (used for first round of data taking)
+	\end{itemize}
+	\item Chimera replaces PNFS, but PNFS will be supported until all sites have migrated
+	\begin{itemize}
+		\item Not specific to PostgreSQL; will run on any JDBC enabled database (including Oracle)
+		\item Use SQL to answer common administration questions, native database tools for backup
+		\item Migration of a `normal' Tier2 should take less than a day
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
 \frametitle{From PNFS to Chimera (F. Hu)}
 \begin{itemize}
 	\item Lots of limitations and problems with PNFS; no longer actively developed
