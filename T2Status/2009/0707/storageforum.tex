@@ -91,7 +91,25 @@
 \end{itemize}
 \end{frame}
 
-% billingrep (W. Maier)
+\begin{frame}
+\frametitle{Replication}
+\begin{itemize}
+	\item pcache (C. Waldman)
+	\begin{itemize}
+		\item Hardlinks files (PNFSID to LFN), providing fast access to files already stored on disk
+		\item In use at some ATLAS sites (MWT2/University of Chicago)
+	\end{itemize}
+	\item {\tt billingrep} (W. Maier)
+	\begin{itemize}
+		\item \url{http://code.hep.wisc.edu/dcache-tools}
+		\item Fast, first-order replication of files as they're written (within seconds)
+		\item Complements the PFM
+		\item Watches billing log for new files and runs {\tt pp get file} on a random pool
+		\item Doesn't know about replicas that become unavailable (that's PFM's job)
+		\item Allows PFM to run at a leisurely pace while keeping files (relatively) safe
+	\end{itemize}
+\end{itemize}
+\end{frame}
 
 % site talks
 % development plans
