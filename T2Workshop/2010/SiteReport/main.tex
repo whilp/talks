@@ -67,9 +67,9 @@
 	Component	 	&	 Software \\
 	\midrule
 	OS					&	 Scientific Linux 5.3 \\
-	Batch			 	&	 Condor 7.0.5 \\ % XXX
-	Storage		 	&	 dCache 1.9.5-8 \\ % XXX
-	Grid				&	 VDT 1.10.1r \\ % XXX
+	Batch			 	&	 Condor 7.4.0 \\
+	Storage		 	&	 dCache 1.9.5-8 \\
+	Grid				&	 VDT 2.0.0p10 \\
 	\bottomrule
 \end{tabular}
 \caption{2010 Software Status}
@@ -86,23 +86,23 @@
 
 \subsection{Batch}
 \begin{frame}
-% XXX: Use the following to generate N slots:
+% Use the following to generate N slots:
 % condor_status -pool glow.cs.wisc.edu \
 %   -constraint 'regexp("g[4-7]n\d+\.hep\.wisc\.edu", Machine)' \
 %   -format '%s\n' Machine | wc -l
 \begin{table}
 \begin{tabular}{lrr}
 	\toprule
-	CPU Class							&	 HS06	 	&	 Slots \\
+	CPU Class							&	 HS06		&	Slots \\
 	\midrule
-	2 x 2.80 GHz Xeon			&	 210		&	 110 \\	% g4-g7
-	2 x 3.00 GHz Xeon			&	 10			&	 10 \\	 % g8
-	4 x 1.80 GHz Opteron	&	 170	 	&	 240 \\	% g9-g10
-	8 x 2.66 GHz Xeon			&	 180	 	&	 120 \\	% g12
-	8 x 3.00 GHz Xeon			&	 250		&	 260 \\	% g14
+	2 x 2.80 GHz Xeon			&	 840		&	 86 \\	% g4-g7, 42 x 20
+	2 x 3.00 GHz Xeon			&	 125		&	 10 \\	% g8, 5 x 25
+	4 x 1.80 GHz Opteron	&	 1710	 	&	 240 \\	% g9-g10, 57 x 30
+	8 x 2.66 GHz Xeon			&	 1976	 	&	 120 \\	% g12, 32 * 61.78
+	8 x 3.00 GHz Xeon			&	 2229		&	 260 \\	% g14, 32 * 69.67
 	\midrule
-	Dedicated							&	 820		&	 740 \\
-	Opportunistic					&	 -			&	 2460 \\
+	Dedicated							&	 6880		&	 716 \\
+	Opportunistic					&	 -			&	 2952 \\
 	\bottomrule
 \end{tabular}
 \caption{2010 Batch Status}
@@ -111,9 +111,9 @@
 
 Since last workshop:
 \begin{itemize}
-	\item Added more opportunistic resources (g16)
-	\item Improved CPU efficiency XXX (dan)
-	\item % XXX Condor
+	\item Added more opportunistic resources (g16, \ca{}4000 HS06)
+	\item Worked to minimize efficiency cost of preemption policies on opportunistic resources
+	\item More work on Condor scaling, glide-ins (Dan Bradley)
 \end{itemize}
 \end{frame}
 
@@ -134,7 +134,7 @@ Since last workshop:
 	Dual-purpose	&	 200 TB \\	 % rest
 	\midrule
 	Raw						&	 480 TB \\
-	Replicated		&	 240 TB \\
+	Writable			&	 240 TB \\
 	\bottomrule
 \end{tabular}
 \caption{2010 Storage Status}
@@ -143,18 +143,19 @@ Since last workshop:
 
 Since last workshop:
 \begin{itemize}
-	\item Purchased \ca{}480 TB of dedicated storage; burning in now
+	\item Purchased 480 TB of dedicated storage; burning in now (online next week)
+	\item Upgraded PNFS server hardware, faster RAID (200\% performance improvement)
 	\item Developed near real-time dCache replicator ({\tt billingrep})
 	\begin{itemize}
-		\item No file loss since XXX 
+		\item No file loss since Summer 2009
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \begin{figure}
-    % XXX: hacked from makeplot.py in nod's (broken) ganglia webui stuff
-    \includegraphics[width=\textwidth]{Graphics/dcache-usage-1yr.png}
+		% http://myosg.grid.iu.edu/wizardse/index?datasource=se&summary_attrs_showservice=on&summary_attrs_showrsvstatus=on&summary_attrs_showfqdn=on&gip_status_attrs_showtestresults=on&gip_status_attrs_showfqdn=on&account_type=daily_hours_byusername&ce_account_type=gip_vo&se_account_type=se_space_free&start_type=specific&start_date=04%2F08%2F2009&end_type=now&end_date=04%2F15%2F2009&facility_10017=on&site_10026=on&r=on&r_24=on&r_27=on&gridtype=on&gridtype_1=on&voown_3=on&active_value=1&disable_value=1
+    \includegraphics[width=\textwidth]{Graphics/se_space_free.png}
     \caption{dCache usage, 2009-2010}
 \end{figure}
 \end{frame}
@@ -180,9 +181,9 @@ Since last workshop:
 \subsection{Network and Facilities}
 \begin{frame}
 \begin{figure}
-	% XXX: http://stats.net.wisc.edu/cgi-bin/genstatspage.pl?db=r-csscplat-b380-3-core_vl369_bytes&time=1y
+	% http://stats.net.wisc.edu/cgi-bin/genstatspage.pl?db=r-csscplat-b380-3-core_vl369_bytes&time=1y
 	\includegraphics[width=\textwidth]{Graphics/network-1yr.png}
-	\caption{WAN usage, 2009-2010}
+	\caption{Campus WAN usage, 2009-2010}
 \end{figure}
 
 \begin{itemize}
@@ -194,18 +195,20 @@ Since last workshop:
 \end{frame}
 
 \section{2010 Deployment Plans}
-\subsection{Batch and storage systems}
+\subsection{Batch, storage and software}
 \begin{frame}
 \begin{table}
 \begin{tabular}{lrrr}
 	\toprule
-	Month					 	&	 Storage (TB)		&	 Slots	& HS06 \\
+	Month					 	&	Storage (raw/writable TB)	&	Slots		& HS06 \\
 	\midrule
-	March					 	&	 480						&	 - 			& - \\
-	June						&	 XXX						&	 XXX		& XXX \\
+	March					 	&	480/240										& - 			& - \\
+	June						&	256/128										& 256			& 2400 \\
+	July						&	Chimera?									&	-				&	- \\
 	\midrule
-	New in 2010			&	 XXX						&	 XXX 		& XXX \\
-	Total in 2010		&	 XXX						&	 XXX 		& XXX \\
+	Current					& 480/240										& 716			& 6880 \\
+	New in 2010			&	720/360										& 256 		& 2400 \\
+	Total in 2010		&	1200/600									& 972 		& 9280 \\
 	\bottomrule
 \end{tabular}
 \caption{2010 Hardware Deployment Plan}
@@ -215,8 +218,8 @@ Since last workshop:
 \begin{itemize}
 	\item Already close to 2010 milestones
 	\item Delay summer purchases to take advantage of 3 TB disks?
-	\item Dedicated storage: 8 x XXX GHz Xeon (XXX HS06), XXX GB RAM, 24 x 2 TB disk, LSI RAID
-	\item Dual-purpose: 8 x XXX GHz Xeon (XXX HS06), XXX GB RAM, 4 x 2-3 TB disk
+	\item Dedicated storage: 8 x E5430 2.66 GHz Xeon, 8 GB RAM, 24 x 2 TB disk, LSI RAID
+	\item Dual-purpose: 8 x E5520 2.26 GHz Xeon (\ca{}75 HS06), 24 GB RAM, 4 x 2-3 TB disk
 \end{itemize}
 
 \end{frame}
@@ -225,7 +228,7 @@ Since last workshop:
 \subsection{dCache is dead, long live dCache?}
 \begin{frame}
 \begin{itemize}
-	\item Participated in early look at Hadoop
+	\item 2009: Participated in early look at Hadoop
 	\begin{itemize}
 		\item Hardware failures and dCache bugs forced us to switch focus back
 	\end{itemize}
@@ -244,6 +247,7 @@ Since last workshop:
 	\item Now that dCache is mostly stable, we have an opportunity to take another look 
 	\begin{itemize}
 		\item Plan to resurrect small Hadoop test stand Summer 2010
+		\item Still need to move to Chimera
 		\item Long term? Whatever works
 	\end{itemize}
 \end{itemize}
@@ -252,11 +256,15 @@ Since last workshop:
 \section{Analysis at Wisconsin}
 \begin{frame}
 \begin{itemize}
-	\item Our PG: XXX
-	\item Has it worked well?
-	\item EWK
-	\item Support XXX users on local platform, XXX via grid
-	\item {\tt farmout} scripts make local analysis easy (Dan Bradley) 
+	\item Affiliated with: FWD, TSG (EWK)
+	\item Positive feedback from groups, regular use of site for analysis
+	\item October Exercise (2009)
+	\begin{itemize}
+		\item EWK Electron group produced skims at Wisconsin and published data to other T2s
+		\item Hosted other Electron data for analysis at Wisconsin; no problems
+	\end{itemize}
+	\item Quickly find batch problems when supporting global MC production (Ajit Mohapatra)
+	\item {\tt farmout} scripts support local analysis (Dan Bradley) 
 \end{itemize}
 \end{frame}
 
