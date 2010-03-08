@@ -114,7 +114,7 @@
 
 Since last workshop:
 \begin{itemize}
-	\item Added more opportunistic resources (g16, \ca{}4000 HS06)
+	\item Added more opportunistic resources (\ca{}4000 HS06)
 	\item Worked to minimize efficiency cost of preemption policies on opportunistic resources
 	\item More work on Condor scaling, glide-ins (Dan Bradley)
 \end{itemize}
@@ -161,24 +161,6 @@ Since last workshop:
     \includegraphics[width=.8\textwidth]{Graphics/se_space_free.png}
     \caption{dCache usage, 2009-2010}
 \end{figure}
-\end{frame}
-
-\subsection{Storage tools}
-\begin{frame}
-\begin{itemize}
-	\item Developed many tools to manage dCache
-	\begin{itemize}
-		\item All code available at \url{http://code.hep.wisc.edu/dcache-tools/}
-		\item Includes {\tt dcache\_billingrep} (replication service), monitoring scripts
-	\end{itemize}
-	\item Developed generic Python package to support command line tools
-	\begin{itemize}
-		\item Documentation and code at \url{http://packages.python.org/pyCLI/}
-		\item Used in {\tt dcache-tools}; intended for reuse elsewhere
-		\item Provides argument/config parsing, logging, daemonizing, unit/functional test support, etc
-		\item ({\tt dcache-tools} uses it)
-	\end{itemize}
-\end{itemize}
 \end{frame}
 
 \subsection{Network and Facilities}
@@ -234,7 +216,25 @@ Since last workshop:
 
 \end{frame}
 
-\section{Storage Plans}
+\section{Storage development and Plans}
+\subsection{Storage tools}
+\begin{frame}
+\begin{itemize}
+	\item Developed many tools to manage dCache
+	\begin{itemize}
+		\item All code available at \url{http://code.hep.wisc.edu/dcache-tools/}
+		\item Includes {\tt dcache\_billingrep} (replication service), monitoring scripts
+	\end{itemize}
+	\item Developed generic Python package to support command line tools
+	\begin{itemize}
+		\item Documentation and code at \url{http://packages.python.org/pyCLI/}
+		\item Used in {\tt dcache-tools}; intended for reuse elsewhere
+		\item Provides argument/config parsing, logging, daemonizing, unit/functional test support, etc
+		\item ({\tt dcache-tools} uses it)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
 \subsection{dCache is dead, long live dCache?}
 \begin{frame}
 \begin{itemize}
