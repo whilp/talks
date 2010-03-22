@@ -1,0 +1,90 @@
+% vim: set tw=0:
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{pdfborder={0 0 0 0}}
+
+% Reasonable themes:
+% Antibes Bergen Berkeley Berlin Frankfurt Goettingen Ilmenau Luebeck Malmoe
+% Montpellier PaloAlto Rochester Singapore Szeged Warsaw bars boxes
+% compatibility default lined plain shadow sidebar split tree
+% And these ones include the author's name on every slide:
+% Berkeley
+
+% Declare themes.
+\mode<presentation>
+\usetheme{UWHEP}
+
+% Personal macros.
+\newcommand{\email}[1]{{\texttt #1}}
+\newcommand{\newframe}[1]{\section{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\subframe}[1]{\subsection{#1}
+    \frametitle{\sc{#1}}}
+\newcommand{\supers}[1]{\ensuremath{^\textrm{#1}}}
+\newcommand{\subs}[1]{\ensuremath{_\textrm{#1}}}
+\newcommand{\ca}{\ensuremath{\sim}}
+\renewcommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+
+% Author information.
+\title{T2 Status}
+\author[Maier, Mohapatra]{
+    Will Maier \and Ajit Mohapatra\\
+    {\tt wcmaier@hep.wisc.edu}\\
+    {\tt ajit@hep.wisc.edu}}
+\institute[Wisconsin]{University of Wisconsin - High Energy Physics}
+\date{2010.03.02}
+\logo{\includegraphics[height=0.6cm]{../../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics[height=0.75cm]{../../../Graphics/UW_logo.png}}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%\section{Overview}
+%\begin{frame}
+%    \tableofcontents
+%\end{frame}
+
+\section{Facilities}
+\subsection{Software and Storage}
+\begin{frame}
+\frametitle{}
+
+\begin{itemize}
+	\item Deploying new storage (10 x 48 TB)
+	\item Debugged a few hung user jobs
+	\begin{itemize}
+		\item All waiting on files stored on pools with temporary hardware problems
+	\end{itemize}
+	\item 2010.02.20: PNFS and other daemons crashed
+	\begin{itemize}
+		\item Attempts to look up files in PNFS did not respond
+		\item Had to restart SRM, dcap and PNFS
+		\item Nothing obvious in the logs
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Production and Monitoring}
+\begin{frame}
+\frametitle{}
+
+\begin{itemize}
+	\item JobRobot: OK
+	\item SAM: OK
+	\item RSV: OK
+	\item PhEDEx:
+	\begin{itemize}
+		\item No news
+	\end{itemize}
+	\item MC Production:
+	\begin{itemize}
+		\item Ajit's CMS registration expired while he was away; Mike is now running production using his own proxy
+		\item Ajit will return next week (and will be at the OSG All Hands meeting)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}
