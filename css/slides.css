@@ -19,7 +19,7 @@
                  Brad Neuberg
 */
 body {
-  font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+  font: 20px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -50,6 +50,13 @@ body {
   -moz-transition: -moz-transform 1s ease-in-out;
   -o-transition: -o-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
+  
+  /* so it's visible in the iframe. */
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+  
 }
 
 .slide {
@@ -65,10 +72,14 @@ body {
   background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
   background: -moz-linear-gradient(bottom, #bbd, #fff);
   background: linear-gradient(bottom, #bbd, #fff);
-  -webkit-transition: margin 0.25s ease-in-out;
-  -moz-transition: margin 0.25s ease-in-out;
-  -o-transition: margin 0.25s ease-in-out;
-  transition: margin 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
 }
 
 .slide:nth-child(even) {
@@ -86,26 +97,26 @@ body {
   -webkit-border-top-right-radius: 20px;
   -webkit-border-bottom-left-radius: 20px;
 }
-
+ 
 .slide p, .slide textarea {
-  font-size: 20px;
+  font-size: 120%;
 }
-
+ 
 .slide .counter {
   color: #999999;
   position: absolute;
   left: 20px;
   bottom: 20px;
   display: block;
-  font-size: 12px;
+  font-size: 70%;
 }
-
+ 
 .slide.title > .counter,
 .slide.segue > .counter,
 .slide.mainTitle > .counter {
   display: none;
 }
-
+ 
 .force-render {
   display: block;
   visibility: hidden;
@@ -139,10 +150,6 @@ body {
   margin-left: 1500px;
 }
 
-body.three-d div.presentation {
-  /*background: -webkit-gradient(radial, 50% 50%, 10, 50% 50%, 1000, from(#333), to(#000));        */
-}
-
 body.three-d div.slides {
   -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
   -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
@@ -151,12 +158,6 @@ body.three-d div.slides {
 }
 
 /* Content */
-/*
-  Font sizes:
-  header h1 - 50px
-  h2, p - 20px
-  default, pre, input - 16px
-*/
 
 @font-face { font-family: 'Junction'; src: url(src/Junction02.otf); }
 @font-face { font-family: 'LeagueGothic'; src: url(src/LeagueGothic.otf); }
@@ -165,18 +166,16 @@ header {
   font-family: 'Droid Sans';
   font-weight: normal;
   letter-spacing: -.05em;
-  color: black;
   text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
-  position: absolute;
   left: 30px;
   top: 25px;
   margin: 0;
   padding: 0;
-  font-size: 50px;
+  font-size: 140%;
 }
 
 h1 {
-  font-size: 100%;
+  font-size: 140%;
   display: inline;
 	font-weight: normal;
 	padding: 0;
@@ -186,15 +185,15 @@ h1 {
 h2 {
   font-family: 'Droid Sans';
   color: black;
-  font-size: 20px;
+  font-size: 120%;
   padding: 0;
-  margin: 15px 0 5px 0;
+  margin: 20px 0;
 }
       
 h2:first-child {
   margin-top: 0;
 }
-
+ 
 section, footer {
   font-family: 'Droid Sans';
   color: #3f3f3f;
@@ -205,10 +204,10 @@ section, footer {
 }
 
 footer {
-  font-size: 12px;
+  font-size: 100%;
   margin: 20px 0 0 30px;
 }
-
+ 
 a {
   color: inherit;
   display: inline-block;
@@ -216,31 +215,18 @@ a {
   line-height: 110%;
   border-bottom: 2px solid #3f3f3f;
 }
-
-.gmap a {
-  line-height: 100%;
-  border-bottom: none;
+ 
+ul {
+  margin: 0;
+  padding: 0;
 }
-
-li {
-  list-style: none;
-  padding: 10px 0;
-}
-
+ 
 button {
-  font-size: 20px;
+  font-size: 100%;
 }
 
 pre button {
   margin: 2px;
-}
-
-.summary {
-  font-size: 30px;
-}
-
-.bullets {
-  font-size: 40px;
 }
 
 section.left {
@@ -262,7 +248,7 @@ section.small li {
 }
       
 section.middle {
-  line-height: 68px;
+  line-height: 2em;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
@@ -272,7 +258,8 @@ section.middle {
 
 pre {
   text-align: left;
-  font-family: 'Droid Sans Mono', Courier;        
+  font-family: 'Droid Sans Mono', Courier;
+  font-size: 80%;
   padding: 10px 20px;
   background: rgba(255, 0, 0, 0.05);
   -webkit-border-radius: 8px;
@@ -288,7 +275,7 @@ pre select {
 }
   
 input {
-  font-size: 16px;
+  font-size: 100%;
   margin-right: 10px;
   font-family: Helvetica;
   padding: 3px;
@@ -345,15 +332,12 @@ video {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.css,
-.js,
-.html,
 .key {
   font-family: 'Droid Sans';
   color: black;
   display: inline-block;
   padding: 6px 10px 3px 10px;
-  font-size: 25px;
+  font-size: 100%;
   line-height: 30px;
   text-shadow: none;
   letter-spacing: 0;
@@ -372,40 +356,17 @@ video {
 
 .key { font-family: Arial; }
 
-:not(header) > .css,
-:not(header) > .js,
-:not(header) > .html,
 :not(header) > .key {
   margin: 0 5px;
   bottom: 4px;
 }
-
-.css {
-  background: -webkit-gradient(linear, left top, left bottom, from(#ff4), to(#ffa));
-  background-color: #ff4;
-  background: -moz-linear-gradient(left top, #ff4, #ffa);
-}
-.js {
-  background: -webkit-gradient(linear, left top, left bottom, from(#4f4), to(#afa));
-  background-color: #4f4;
-  background: -moz-linear-gradient(left top, #4f4, #afa);
-}
-.html {
-  background: -webkit-gradient(linear, left top, left bottom, from(#e88), to(#fee));
-  background-color: #e88;
-  background: -moz-linear-gradient(left top, #e88, #fee);
-}
-
+ 
 .two-column {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
 }
-
-.summary li::before, .bullets li::before {
-  content: '· ';
-}
-
+ 
 .stroke {
   -webkit-text-stroke-color: red;
   -webkit-text-stroke-width: 1px;
@@ -415,13 +376,9 @@ video {
   text-align: center;
 }
 
-.formula {
-  font-size: 50px;
-}
-
 #presentation-counter {
   color: #ccc;
-  font-size: 100px;
+  font-size: 70%;
   letter-spacing: 1px;
   position: absolute;
   top: 40%;
@@ -430,7 +387,25 @@ video {
   text-align: center;
 }
 
-.hsl-value {
-  display: inline-block;
-  width: 50px;
+div:not(.current).reduced {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+} 
+
+.no-transitions {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+ 
+.no-gradients {
+  background: none;
+  background-color: #fff;
+}
+
+ul.bulleted {
+  padding-left: 30px;
 }
