@@ -5,7 +5,6 @@
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
 
-     http://www.apache.org/licenses/LICENSE-2.0
 
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +18,6 @@
                  Brad Neuberg
 */
 body {
-  font: 20px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -36,7 +34,6 @@ body {
   top: 0px;
   display: block;
   overflow: hidden;
-  background: #778;
 }
 
 .slides {
@@ -46,16 +43,8 @@ body {
   top: 0;
   position: absolute;
   display: block;
-  -webkit-transition: -webkit-transform 1s ease-in-out;
-  -moz-transition: -moz-transform 1s ease-in-out;
-  -o-transition: -o-transform 1s ease-in-out;
-  transition: transform 1s ease-in-out;
   
   /* so it's visible in the iframe. */
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  transform: scale(0.8);
   
 }
 
@@ -69,33 +58,12 @@ body {
   top: 50%;
   margin-top: -350px;
   background-color: #eee;
-  background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
-  background: -moz-linear-gradient(bottom, #bbd, #fff);
-  background: linear-gradient(bottom, #bbd, #fff);
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
 }
 
 .slide:nth-child(even) {
-  -moz-border-radius: 20px 0;
-  -khtml-border-radius: 20px 0;
-  border-radius: 20px 0; /* includes Opera 10.5+ */
-  -webkit-border-top-left-radius: 20px;
-  -webkit-border-bottom-right-radius: 20px;
 }
 
 .slide:nth-child(odd) {
-  -moz-border-radius: 0 20px;
-  -khtml-border-radius: 0 20px;
-  border-radius: 0 20px;
-  -webkit-border-top-right-radius: 20px;
-  -webkit-border-bottom-left-radius: 20px;
 }
  
 .slide p, .slide textarea {
@@ -150,23 +118,11 @@ body {
   margin-left: 1500px;
 }
 
-body.three-d div.slides {
-  -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
-  -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
-  -o-transform: translateX(50px) scale(0.8) rotateY(10deg);
-  transform: translateX(50px) scale(0.8) rotateY(10deg);
-}
-
 /* Content */
 
-@font-face { font-family: 'Junction'; src: url(src/Junction02.otf); }
-@font-face { font-family: 'LeagueGothic'; src: url(src/LeagueGothic.otf); }
-
 header {
-  font-family: 'Droid Sans';
   font-weight: normal;
   letter-spacing: -.05em;
-  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
   left: 30px;
   top: 25px;
   margin: 0;
@@ -183,7 +139,6 @@ h1 {
 }
 
 h2 {
-  font-family: 'Droid Sans';
   color: black;
   font-size: 120%;
   padding: 0;
@@ -195,9 +150,7 @@ h2:first-child {
 }
  
 section, footer {
-  font-family: 'Droid Sans';
   color: #3f3f3f;
-  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
   margin: 100px 30px 0;
   display: block;
   overflow: hidden;
@@ -258,26 +211,19 @@ section.middle {
 
 pre {
   text-align: left;
-  font-family: 'Droid Sans Mono', Courier;
   font-size: 80%;
   padding: 10px 20px;
   background: rgba(255, 0, 0, 0.05);
-  -webkit-border-radius: 8px;
-  -khtml-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
   border: 1px solid rgba(255, 0, 0, 0.2);
 }
 
 pre select {
-  font-family: Monaco, Courier;
   border: 1px solid #c61800;
 }
   
 input {
   font-size: 100%;
   margin-right: 10px;
-  font-family: Helvetica;
   padding: 3px;
 }
 input[type="range"] {
@@ -286,7 +232,6 @@ input[type="range"] {
 
 button {
   margin: 20px 10px 0 0;
-  font-family: Verdana;
 }
 
 button.large {
@@ -316,24 +261,15 @@ div.example {
   padding: 10px 20px;
   color: black;
   background: rgba(255, 255, 255, 0.4);
-  -webkit-border-radius: 8px;
-  -khtml-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
   margin-bottom: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 video {
-  -moz-border-radius: 8px;
-  -khtml-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .key {
-  font-family: 'Droid Sans';
   color: black;
   display: inline-block;
   padding: 6px 10px 3px 10px;
@@ -343,15 +279,7 @@ video {
   letter-spacing: 0;
   bottom: 10px;
   position: relative;
-  -moz-border-radius: 10px;
-  -khtml-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
   background: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
-  -o-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
 }
 
 .key { font-family: Arial; }
@@ -359,12 +287,6 @@ video {
 :not(header) > .key {
   margin: 0 5px;
   bottom: 4px;
-}
- 
-.two-column {
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2;
 }
  
 .stroke {
@@ -388,17 +310,9 @@ video {
 }
 
 div:not(.current).reduced {
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  transform: scale(0.8);
 } 
 
 .no-transitions {
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  transition: none;
 }
  
 .no-gradients {
