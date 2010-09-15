@@ -355,10 +355,18 @@
   
   
   
-  document.querySelector('#toggle-counter').addEventListener('click', toggleCounter, false);
-  document.querySelector('#toggle-size').addEventListener('click', toggleSize, false);
-  document.querySelector('#toggle-transitions').addEventListener('click', toggleTransitions, false);
-  document.querySelector('#toggle-gradients').addEventListener('click', toggleGradients, false);
+  var tc = document.querySelector('#toggle-counter'),
+    ts = document.querySelector('#toggle-size'),
+    tt = document.querySelector('#toggle-transitions'),
+    tg = document.querySelector('#toggle-gradients');
+  if (tc)
+    tc.addEventListener('click', toggleCounter, false);
+  if (ts)
+    ts.addEventListener('click', toggleSize, false);
+  if (tt)
+    tt.addEventListener('click', toggleTransitions, false);
+  if (tg)
+    tg.addEventListener('click', toggleGradients, false);
  
  
   var counters = document.querySelectorAll('.counter');
