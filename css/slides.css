@@ -96,7 +96,7 @@ body {
 }
 
 .slide.past {
-  visibility: visible;
+  visibility: hidden;
   display: block;
   margin-left: -1400px;
 }
@@ -108,7 +108,7 @@ body {
 }
 
 .slide.future {
-  visibility: visible;
+  visibility: hidden;
   display: block;
   margin-left: 500px;
 }
