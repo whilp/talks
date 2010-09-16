@@ -53,7 +53,12 @@ body {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  font-size: 70%;
+}
+
+#presentation-counter {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 #presentation-footer div {
@@ -69,7 +74,7 @@ body {
   left: 50%;
   top: 50%;
   margin-top: -350px;
-  background-color: #eee;
+  background-color: #fff;
 }
 
 .slide p, .slide textarea {
@@ -136,9 +141,9 @@ header {
 h1 {
   font-size: 140%;
   display: inline;
-	font-weight: normal;
-	padding: 0;
-	margin: 0;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
