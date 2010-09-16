@@ -306,17 +306,6 @@ div.example {
   text-align: center;
 }
 
-#presentation-counter {
-  color: #ccc;
-  font-size: 70%;
-  letter-spacing: 1px;
-  position: absolute;
-  top: 40%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-}
-
 .no-gradients {
   background: none;
   background-color: #fff;

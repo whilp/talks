@@ -253,7 +253,6 @@
   SlideShow.prototype = {
     _slides: [],
     _update: function(dontPush) {
-      document.querySelector('#presentation-counter').innerText = this.current;
       if (history.pushState) {
         if (!dontPush) {
           history.pushState(this.current, 'Slide ' + this.current, '#slide' + this.current);
