@@ -131,7 +131,6 @@
     if (this._node) {
       addClass(this._node, 'slide distant-slide');
     }
-    this._makeCounter();
     this._makeBuildList();
   };
  
@@ -152,6 +151,7 @@
         this._visited = true;
         this._makeBuildList();
       }
+      if (state == 'current') { this._makeFooter(); };
       removeClass(this._node, this._states);
       addClass(this._node, state);
       this._currentState = state;
@@ -163,12 +163,22 @@
       var _t = this;
       setTimeout(function(){ _t._runAutos(); } , 400);
     },
-    _makeCounter: function() {
+    _makeFooter: function() {
       if(!this._count || !this._node) { return; }
-      var c = doc.createElement('span');
+      var f = query('#presentation-footer');
+      if (f.length == 0) { return; }
+      f = f[0];
+      var c = query('#presentation-counter');
+      if (c.length == 0) {
+        c = doc.createElement('span');
+        c.id = 'presentation-counter';
+      } else {
+        c = c[0];
+      }
       c.innerHTML = this._count;
       c.className = 'counter';
-      this._node.appendChild(c);
+      f.appendChild(c);
+      this._node.appendChild(f);
     },
     _makeBuildList: function() {
       this._buildList = [];
