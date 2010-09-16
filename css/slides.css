@@ -78,17 +78,9 @@ body {
  
 .slide .counter {
   color: #999999;
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
+  float: left;
   display: block;
   font-size: 70%;
-}
- 
-.slide.title > .counter,
-.slide.segue > .counter,
-.slide.mainTitle > .counter {
-  display: none;
 }
  
 .force-render {
