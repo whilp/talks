@@ -18,6 +18,7 @@
                  Brad Neuberg
 */
 body {
+  font: 20px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -34,6 +35,7 @@ body {
   top: 0px;
   display: block;
   overflow: hidden;
+  background: #778;
 }
 
 .slides {
@@ -43,8 +45,6 @@ body {
   top: 0;
   position: absolute;
   display: block;
-  
-  /* so it's visible in the iframe. */
   
 }
 
@@ -60,12 +60,6 @@ body {
   background-color: #eee;
 }
 
-.slide:nth-child(even) {
-}
-
-.slide:nth-child(odd) {
-}
- 
 .slide p, .slide textarea {
   font-size: 120%;
 }
@@ -120,9 +114,14 @@ body {
 
 /* Content */
 
+@font-face { font-family: 'Junction'; src: url(src/Junction02.otf); }
+@font-face { font-family: 'LeagueGothic'; src: url(src/LeagueGothic.otf); }
+
 header {
+  font-family: 'Droid Sans';
   font-weight: normal;
   letter-spacing: -.05em;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
   left: 30px;
   top: 25px;
   margin: 0;
@@ -139,6 +138,7 @@ h1 {
 }
 
 h2 {
+  font-family: 'Droid Sans';
   color: black;
   font-size: 120%;
   padding: 0;
@@ -150,6 +150,7 @@ h2:first-child {
 }
  
 section, footer {
+  font-family: 'Droid Sans';
   color: #3f3f3f;
   margin: 100px 30px 0;
   display: block;
@@ -211,6 +212,7 @@ section.middle {
 
 pre {
   text-align: left;
+  font-family: 'Droid Sans Mono', Courier;
   font-size: 80%;
   padding: 10px 20px;
   background: rgba(255, 0, 0, 0.05);
@@ -218,12 +220,14 @@ pre {
 }
 
 pre select {
+  font-family: Monaco, Courier;
   border: 1px solid #c61800;
 }
   
 input {
   font-size: 100%;
   margin-right: 10px;
+  font-family: Helvetica;
   padding: 3px;
 }
 input[type="range"] {
@@ -232,6 +236,7 @@ input[type="range"] {
 
 button {
   margin: 20px 10px 0 0;
+  font-family: Verdana;
 }
 
 button.large {
@@ -265,11 +270,8 @@ div.example {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-video {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
 .key {
+  font-family: 'Droid Sans';
   color: black;
   display: inline-block;
   padding: 6px 10px 3px 10px;
@@ -287,6 +289,12 @@ video {
 :not(header) > .key {
   margin: 0 5px;
   bottom: 4px;
+}
+ 
+.two-column {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
 }
  
 .stroke {
@@ -309,12 +317,6 @@ video {
   text-align: center;
 }
 
-div:not(.current).reduced {
-} 
-
-.no-transitions {
-}
- 
 .no-gradients {
   background: none;
   background-color: #fff;
