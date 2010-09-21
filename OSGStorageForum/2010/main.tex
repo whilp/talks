@@ -139,25 +139,38 @@
 \end{itemize}
 \end{frame}
 
-\subsection{Trends} % tsar
+\section{Evaluation}
+\subsection{What Works}
 \begin{frame}
 \begin{itemize}
-	\item 
+	\item Co-locating storage and compute services on commodity hardware
+	\item Close network collaboration with University
+	\item dCache (stability, throughput)
+	\item Increasingly centralized monitoring and reporting
 \end{itemize}
 \end{frame}
 
-\section{Evaluation}
-\subsection{What Works}
 \subsection{What Doesn't}
 % dcache hotspots
+\begin{frame}
+\begin{itemize}
+	\item Monitoring fragmentation
+	\item dCache (hotspots, replication, commodity data servers)
+	\item Disks
+	\item VDT (for us, with caveats)
+\end{itemize}
+\end{frame}
 
 \section{Plans}
 \begin{frame}
 \begin{itemize}
 	\item Centralize dCache logging
 	\item Scale tsar
+	\item Transition to alerting based on trends (instead of binary checks)
 	\item Explore HDFS w/ xrootd frontend (to support jobs on local opportunistic resources)
 	\item PNFS $\rightarrow$ Chimera? dCache $\rightarrow$ HDFS?
+	\item Cfengine 2 $\rightarrow$ Cfengine 3/Puppet/Chef/\ldots{}?
+	\item Expand use of RPMs (for improved atomicity?)
 \end{itemize}
 \end{frame}
 
