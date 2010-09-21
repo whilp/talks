@@ -79,29 +79,41 @@
 \begin{itemize}
 	\item \ca{}50\% dedicated, \ca{}50\% shared with compute resources
 	\item Dedicated nodes: mix of RAID6, RAID0 with 1 - 2 TB SATA disks
-	\item Shared nodes: no RAID, .5 - 2 TB SATA disks (4 - 16 slots, 2 - 48 GB RAM)
-	\item 908(ish) pools on 210 nodes (one pool per disk, mostly)
-	\item Redundant 2x10 Gbps network (and several stacks of Cisco 3750s) managed by campus
+	\item Shared nodes: no RAID, .5 - 2 TB SATA disks
+	\begin{itemize}
+		\item Co-located with 4 - 16 slots and 2 - 48 GB RAM for computing
+	\end{itemize}
+	\item 908(ish) pools, \ca{}950 raw TB, \ca{}450 writable TB, 210 nodes
+	\begin{itemize}
+		\item One pool per disk, mostly
+		\item 100\% increase over 2009
+	\end{itemize}
+	\item Redundant 2x10 Gbps uplink (and several stacks of Cisco 3750s)
+	\begin{itemize}
+		\item Managed by campus
+		\item Eliminated a few Etherchannels connecting racks
+		\item Upgraded rest to 10 Gbps bundles
+	\end{itemize}
 	% XXX: plot: TB/time
 \end{itemize}
 \end{frame}
 
 \section{Management}
-\subsection{Administration} % cli, dcache_tools, dcache info provider
+\subsection{Administration}
 \begin{frame}
 \begin{itemize}
-	\item Install nodes with kickstart, manage live configuration with Cfengine (v2)
+	\item Install nodes with kickstart, manage live configuration with Cfengine
 	\item Management scripts written with dcache-tools~\footnote{\url{http://code.hep.wisc.edu/dcache-tools}}, based on CLI~\footnote{\url{http://packages.python.org/pyCLI}}
 	\begin{itemize}
 		\item {\tt dcache\_absent}: List absent and offline pools
-		\item {\tt dcache\_billingrep}: Watch billing log and initiate replications of new files
+		\item {\tt dcache\_billingrep}: Watch billing log and replicate new files
 		\item {\tt dcache\_clean}: Remove invalid/unlinked files directly from pools
 		\item {\tt dcache\_df}: {\tt df(1)}-like overview of cluster storage
 		\item etc\ldots{}
 	\end{itemize}
 	\item Less web scraping, more dCache info provider
 	\begin{itemize}
-		\item Previously, most monitors/checks polled dCache web pages and scraped HTML
+		\item Previously, monitors/checks polled dCache web pages and scraped HTML
 		\item Info provider allows simple XML parsing (and exposes lots of detail)
 		\item Can request subsets of data (ie for {\tt dcache\_df})
 	\end{itemize}
@@ -129,21 +141,26 @@
 \subsection{What Works}
 \begin{frame}
 \begin{itemize}
-	\item Co-locating storage and compute services on commodity hardware
 	\item Close network collaboration with University
+	\item Co-locating storage and compute services on commodity hardware
 	\item dCache (stability, throughput)
 	\item Increasingly centralized monitoring and reporting
 \end{itemize}
 \end{frame}
 
 \subsection{What Doesn't}
-% dcache hotspots
 \begin{frame}
 \begin{itemize}
-	\item Monitoring fragmentation
-	\item dCache (hotspots, replication, commodity data servers)
 	\item Disks
-	\item VDT (for us, with caveats)
+	\item Monitoring fragmentation
+	\begin{itemize}
+		\item Takes Firefox nearly two minutes to load them all on a netbook
+	\end{itemize}
+	\item dCache (hotspots, replication, commodity data servers)
+	\begin{itemize}
+		\item Model mismatch: small precious storage with large tape backend vs precious storage (no tape)
+		\item We've written thousands of lines of code to make running dCache at our T2 livable
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
