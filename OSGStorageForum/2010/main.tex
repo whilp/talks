@@ -33,7 +33,7 @@
     {\tt wcmaier@hep.wisc.edu}}
 \institute[Wisconsin]{University of Wisconsin - High Energy Physics}
 \date[2010.09.22]{OSG Storage Forum, U. Chicago}
-\logo{\includegraphics[height=0.6cm]{../../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics[height=0.75cm]{../../../Graphics/UW_logo.png}}
+\logo{\includegraphics[height=0.6cm]{../../Graphics/USCMS_logo.png}\hspace{.1cm}\includegraphics[height=0.75cm]{../../Graphics/UW_logo.png}}
 
 \begin{document}
 
@@ -100,24 +100,26 @@
 \end{frame}
 
 \section{Management}
-\subsection{Management} % cli, dcache_tools, dcache info provider
+\subsection{Administration} % cli, dcache_tools, dcache info provider
 \begin{frame}
+\begin{itemize}
 	\item Install nodes with kickstart, manage live configuration with Cfengine (v2)
 	\item Management scripts written with dcache-tools~\footnote{\url{http://code.hep.wisc.edu/dcache-tools}}, based on CLI~\footnote{\url{http://packages.python.org/pyCLI}}
 	\begin{itemize}
-		\item {\tt dcache_absent}: List absent and offline pools
-		\item {\tt dcache_billingrep}: Watch billing log and initiate replications of new files
-		\item {\tt dcache_clean}: Remove invalid/unlinked files directly from pools
-		\item {\tt dcache_df}: {\tt df(1)}-like overview of cluster storage
+		\item {\tt dcache\_absent}: List absent and offline pools
+		\item {\tt dcache\_billingrep}: Watch billing log and initiate replications of new files
+		\item {\tt dcache\_clean}: Remove invalid/unlinked files directly from pools
+		\item {\tt dcache\_df}: {\tt df(1)}-like overview of cluster storage
 		\item etc\ldots{}
 	\end{itemize}
 	\item Less web scraping, more dCache info provider
 	\begin{itemize}
 		\item Previously, most monitors/checks polled dCache web pages and scraped HTML
 		\item Info provider allows simple XML parsing (and exposes lots of detail)
-		\item Can request subsets of data (ie for {\tt dcache_df})
+		\item Can request subsets of data (ie for {\tt dcache\_df})
 		% XXX: output?
 	\end{itemize}
+\end{itemize}
 \end{frame}
 
 \subsection{Alerts and Trends} % nagios
