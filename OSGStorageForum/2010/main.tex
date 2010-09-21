@@ -55,7 +55,6 @@
 \end{frame}
 
 \section{Hardware}
-\subsection{Summary}
 \subsection{Core}
 \begin{frame}
 \begin{itemize}
@@ -81,21 +80,9 @@
 	\item \ca{}50\% dedicated, \ca{}50\% shared with compute resources
 	\item Dedicated nodes: mix of RAID6, RAID0 with 1 - 2 TB SATA disks
 	\item Shared nodes: no RAID, .5 - 2 TB SATA disks (4 - 16 slots, 2 - 48 GB RAM)
-	\item XXX pools on XXX nodes
-	\item XXX Gbps network managed by campus
-	% plot: TB/time
-\end{itemize}
-\end{frame}
-
-\section{Software}
-\subsection{Platform}
-\begin{frame}
-\begin{itemize}
-	\item Scientific Linux 5.3/kickstart
-	\item dCache v XXX
-	\item SRM v XXX, gsiftp v XXX
-	\item xrootd redirector thingy XXX
-	% plot XXX
+	\item 908(ish) pools on 210 nodes (one pool per disk, mostly)
+	\item Redundant 2x10 Gbps network (and several stacks of Cisco 3750s) managed by campus
+	% XXX: plot: TB/time
 \end{itemize}
 \end{frame}
 
@@ -117,7 +104,6 @@
 		\item Previously, most monitors/checks polled dCache web pages and scraped HTML
 		\item Info provider allows simple XML parsing (and exposes lots of detail)
 		\item Can request subsets of data (ie for {\tt dcache\_df})
-		% XXX: output?
 	\end{itemize}
 \end{itemize}
 \end{frame}
