@@ -128,8 +128,14 @@
 	\item Nagios checks for all servers in both the core and cluster
 	\item Some Nagios protocol checks (GridFTP, SSH admin interface)
 	\item Functional tests via cron jobs (SRM/dcap/GridFTP read/write)
-	\item External monitoring (CMS SAM/JobRobot/Dashboard/SiteView/PhEDEx, OSG RSV, MyOSG, Gratia, \ldots{})
-	\item Aggregate local monitoring in tsar
+	\item External monitoring (CMS SAM, JobRobot, Dashboard, SiteView, PhEDEx; OSG RSV, MyOSG, Gratia; \ldots{})
+	\item Aggregate local monitoring in tsar~\footnote{\url{http://code.hep.wisc.edu/tsar}}
+	\begin{itemize}
+		\item Ingest time series data from simple collectors
+		\item Supports HTTP, other submission/query protocols to come
+		\item Data in memory for fast writes/reads (Redis~\footnote{\url{http://redis.io}} backend)
+		\item JavaScript, Python clients for visualization~\footnote{\url{http://tsar.hep.wisc.edu/plots/dcache}}
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
