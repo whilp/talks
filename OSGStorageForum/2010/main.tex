@@ -54,7 +54,20 @@
     \tableofcontents
 \end{frame}
 
-\section{Hardware}
+\section{Facilities}
+\subsection{Configuration}
+\begin{frame}
+\begin{itemize}
+	\item dCache 1.9.5-8 (Golden Release)
+	\begin{itemize}
+		\item Configuration available online~\footnote{\url{http://code.hep.wisc.edu/dcache-cftree}}
+	\end{itemize}
+	\item dCache SRM/GridFTP/dcap doors
+	\item Xrootd Demonstrator instance
+	\item Scientific Linux 5.3
+\end{itemize}
+\end{frame}
+
 \subsection{Core}
 \begin{frame}
 \begin{itemize}
@@ -94,8 +107,25 @@
 		\item Eliminated a few Etherchannels connecting racks
 		\item Upgraded rest to 10 Gbps bundles
 	\end{itemize}
+	\item Burn in new hardware using stressapptest~\footnote{~\url{http://code.google.com/p/stressapptest/}}
 	% XXX: plot: TB/time
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+	% http://myosg.grid.iu.edu/wizardse/index?datasource=se&summary_attrs_showservice=on&summary_attrs_showrsvstatus=on&summary_attrs_showfqdn=on&gip_status_attrs_showtestresults=on&gip_status_attrs_showfqdn=on&account_type=daily_hours_byusername&ce_account_type=gip_vo&se_account_type=se_space&start_type=specific&start_date=09/22/2009&end_type=now&end_date=04/15/2009&facility_10017=on&site_10026=on&r=on&r_24=on&r_27=on&gridtype=on&gridtype_1=on&voown_3=on&active_value=1&disable_value=1
+    \includegraphics[width=.8\textwidth]{Graphics/sespace.png}
+    \caption{Total dCache (TB), 2009-2010}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+	% http://www.hep.wisc.edu/~ajit/phedex_prod_xfer_rates_Dec2009.png
+	\includegraphics[width=\textwidth]{Graphics/phedex_prod_xfer_rates_Dec2009.png}
+	\caption{PhEDEx peak transfers, late 2009}
+\end{figure}
 \end{frame}
 
 \section{Management}
@@ -135,6 +165,14 @@
 		\item JavaScript, Python clients for visualization~\footnote{\url{http://tsar.hep.wisc.edu/plots/dcache}}
 	\end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+	% http://tsar.hep.wisc.edu/plots/dcache
+	\includegraphics[width=.6\textwidth]{Graphics/tsar.png}
+	\caption{24 hours of dCache latency checks in tsar, 2010.09.22}
+\end{figure}
 \end{frame}
 
 \section{Evaluation}
