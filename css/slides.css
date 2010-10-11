@@ -264,23 +264,6 @@ div.example {
   margin-bottom: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
-
-.key {
-  color: black;
-  display: inline-block;
-  padding: 6px 10px 3px 10px;
-  font-size: 100%;
-  line-height: 30px;
-  letter-spacing: 0;
-  bottom: 10px;
-  position: relative;
-  background: white;
-}
-
-:not(header) > .key {
-  margin: 0 5px;
-  bottom: 4px;
-}
  
 .two-column {
   -webkit-column-count: 2;
