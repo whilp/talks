@@ -146,13 +146,6 @@ h2:first-child {
   margin-top: 0;
 }
  
-section {
-  color: #3f3f3f;
-  margin: 100px 30px 0;
-  display: block;
-  overflow: hidden;
-}
- 
 a {
   color: inherit;
   display: inline-block;
@@ -164,19 +157,6 @@ a {
 ul {
   margin-left: 5%;
   padding: 0;
-}
- 
-button {
-  font-size: 100%;
-}
-
-pre button {
-  margin: 2px;
-}
-
-.presentation > .left {
-  float: left;
-  width: 390px;
 }
       
 .presentation > .middle {
