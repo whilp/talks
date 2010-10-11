@@ -146,6 +146,13 @@ h2:first-child {
   margin-top: 0;
 }
 
+ul.institutes li {
+  list-type: none;
+}
+ul.authors li {
+  display: inline;
+}
+
 p,
 li { 
   font-size: 140%;
