@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>T2_US_Wisconsin Status - 2010.10.12</title>
+    <link rel=stylesheet href=../../../../css/slides.css>
+    <link rel=stylesheet href=../../../../css/uw-cms.css>
+</head>
+<body>
+
+<article class="presentation">
+
+  <header class="intro middle center">
+    <h1>T2_US_Wisconsin Facilities Status</h1>
+
+    <ul class="authors">
+      <li><a href="mailto:wcmaier@hep.wisc.edu" class="author">Will Maier</a></li>,
+      <li><a href="mailto:ajit@hep.wisc.edu" class="author">Ajit Mohapatra</a></li>
+    </ul>
+
+    <ul class="institutes">
+      <li><a href="http://hep.wisc.edu/" class="institute">
+        University of Wisconsin - High Energy Physics
+      </a></li>
+    </ul>
+
+    <p class="date">2010.10.12</p>
+
+  </header>
+
+  <section>
+    <header>
+      <h1>Software and Storage</h1>
+    </header>
+
+    <ul>
+      <li>New rack of storage and compute nodes should ship in the next two weeks</li>
+      <li>Testing custom kernels to reduce soft lock frequency
+        <ul>
+          <li>Applying recommendations from ATLAS AGLT2</li>
+          <li><code>CONFIG_PREEMPT_NONE</code>, <code>CONFIG_BOOTPARAM_HUNG_TASK_PANIC</code></li>
+          <li>Next step: mainline kernel?
+        </ul>
+      </li>
+      <li>Debugging high load on CMS gatekeeper
+        <ul>
+          <li>Job managers pile up, machine starts soft locking</li>
+          <li>Now running with an optimized <code>setup.sh</code></li>
+        </ul>
+      </li>
+      <li>CRAB won't send to our site if one gatekeeper is overloaded
+        <ul>
+          <li>We have two; shouldn't CRAB still send here?
+        </ul>
+      </li>
+      <li>Debugged large numbers of held jobs
+        <ul>
+          <li>Race between Condor memory monitoring and 4.5 GB <code>srmcp</code> processes</li>
+          <li>Did not affect CRAB</li>
+        </ul>
+      <li>Testing non-blocking Condor negotiation on gatekeepers (7.5.5 pre-release)</li>
+      <li>Last gLExec caught and fixed on opportunistic resources</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h1>Production and Monitoring</h1>
+    </header>
+    <ul>
+      <li>JobRobot: </li>
+      <li>SAM: </li>
+      <li>RSV: </li>
+      <li>PhEDEx: 
+        <ul>
+          <li>Set campus speed record: 10 Gbps over 8 hours of PhEDEx transfers</li>
+        </ul>
+      </li>
+      <li>MC Production:
+        <ul>
+          <li>Upgraded production server memory</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  
+  <footer>
+    <div>
+      <img src=../../../../img/logo-uw.svg class="logo">
+    </div>
+  </footer>
+
+</article>
+  
+<script src=../../../../js/slides.js></script>
+</body>
+</html>
