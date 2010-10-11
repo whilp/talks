@@ -61,15 +61,15 @@ body {
 }
 
 .presentation footer div {
-	float: right;
+  float: right;
 }
 
 #presentation-counter {
   position: absolute;
   left: 0;
   bottom: 0;
-	float: left;
-	padding: 0;
+  float: left;
+  padding: 0;
 }
  
 .presentation .counter {
@@ -114,27 +114,27 @@ body {
 
 /* Content */
 header {
-	width: 800%;
-	margin: 0 0 2em 0;
+  width: 800%;
+  margin: 0 0 2em 0;
 }
 h1 {
   font-size: 140%;
   font-weight: normal;
   padding: 0;
-	width: 100%;
+  width: 100%;
   display: block;
   background: #d0113f;
   color: #FFFFFF;
   padding: .5em;
   font-weight: bold;
-	margin: 0;
+  margin: 0;
 }
 
 header.intro > h1 {
-	padding-left: 10%;
-	margin: 30% 0 5% 0;
-	font-size: 200%;
-	width: 80%;
+  padding-left: 10%;
+  margin: 30% 0 5% 0;
+  font-size: 200%;
+  width: 80%;
 }
 
 h2 {
@@ -149,13 +149,13 @@ h2:first-child {
 }
 
 img.logo {
-	height: 60px;
+  height: 60px;
 }
 
 p,
 li { 
-	font-size: 140%;
-	font-weight: 100;
+  font-size: 140%;
+  font-weight: 100;
 }
  
 a {
