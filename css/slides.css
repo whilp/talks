@@ -115,7 +115,7 @@ body {
 /* Content */
 header {
   width: 800%;
-  margin: 0 0 2em 0;
+  margin: 0 0 4em 0;
 }
 h1 {
   font-size: 140%;
@@ -150,6 +150,7 @@ p,
 li { 
   font-size: 140%;
   font-weight: 100;
+  line-height: 2em;
 }
  
 a {
