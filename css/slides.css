@@ -270,19 +270,9 @@ div.example {
   -moz-column-count: 2;
   column-count: 2;
 }
- 
-.stroke {
-  -webkit-text-stroke-color: red;
-  -webkit-text-stroke-width: 1px;
-} /* currently webkit-only */
 
 .center {
   text-align: center;
-}
-
-.no-gradients {
-  background: none;
-  background-color: #fff;
 }
 
 ul.bulleted {
