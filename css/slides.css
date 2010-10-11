@@ -126,7 +126,6 @@ body {
 header {
   font-weight: normal;
   letter-spacing: -.05em;
-  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
   left: 30px;
   top: 25px;
   margin: 0;
@@ -244,14 +243,12 @@ button.large {
 pre b {
   font-weight: normal;
   color: #c61800;
-  text-shadow: #c61800 0 0 1px;
   /*letter-spacing: -1px;*/
 }
 pre em {
   font-weight: normal;
   font-style: normal;
   color: #18a600;
-  text-shadow: #18a600 0 0 1px;
 }
 pre input[type="range"] {
   height: 6px;
@@ -274,7 +271,6 @@ div.example {
   padding: 6px 10px 3px 10px;
   font-size: 100%;
   line-height: 30px;
-  text-shadow: none;
   letter-spacing: 0;
   bottom: 10px;
   position: relative;
