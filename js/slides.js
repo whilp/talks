@@ -331,8 +331,12 @@
       if (/^(input|textarea)$/i.test(e.target.nodeName)) return;
       
       switch (e.keyCode) {
+        case 80: // p
+        case 66: // b
         case 37: // left arrow
           this.prev(); break;
+        case 70: // f
+        case 78: // n
         case 39: // right arrow
         case 32: // space
           this.next(); break;
