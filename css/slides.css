@@ -146,18 +146,27 @@ h2:first-child {
   margin-top: 0;
 }
 
-ul.institutes li {
-  list-type: none;
+ul.institutes {
+  list-style-type: none;
 }
 ul.authors li {
   display: inline;
 }
+ul li {
+  font-size: 140%;
+}
+li li {
+  font-size: 90%;
+}
 
-p,
-li { 
+p, li { 
   font-size: 140%;
   font-weight: 100;
-  line-height: 2em;
+  line-height: 1.5em;
+}
+
+code {
+  font-size: 125%;
 }
  
 a {
