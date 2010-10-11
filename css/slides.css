@@ -123,8 +123,6 @@ h1 {
   padding: 0;
   width: 100%;
   display: block;
-  background: #d0113f;
-  color: #FFFFFF;
   padding: .5em;
   font-weight: bold;
   margin: 0;
@@ -148,10 +146,6 @@ h2:first-child {
   margin-top: 0;
 }
 
-img.logo {
-  height: 60px;
-}
-
 p,
 li { 
   font-size: 140%;
@@ -161,9 +155,6 @@ li {
 a {
   color: inherit;
   display: inline-block;
-  text-decoration: none;
-  line-height: 110%;
-  border-bottom: 2px solid #3f3f3f;
 }
  
 ul {
