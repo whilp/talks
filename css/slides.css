@@ -178,19 +178,6 @@ pre button {
   float: left;
   width: 390px;
 }
-
-.presentation > .small {
-  font-size: 24px;
-}
-
-.presentation > .small ul {
-  margin: 0 0 0 15px;
-  padding: 0;
-}
-
-.presentation > .small li {
-  padding-bottom: 0;
-}
       
 .presentation > .middle {
   text-align: center;
