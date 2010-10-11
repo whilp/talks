@@ -54,7 +54,6 @@ body {
 .presentation footer {
   position: absolute;
   left: 20px;
-	line-height: 1em;
   right: 20px;
   bottom: 20px;
   float: right;
@@ -71,11 +70,6 @@ body {
   bottom: 0;
 	float: left;
 	padding: 0;
-}
-
-.presentation p,
-.presentation textarea {
-  font-size: 120%;
 }
  
 .presentation .counter {
@@ -119,14 +113,6 @@ body {
 }
 
 /* Content */
-
-.presentation > .intro {
-  font-size: 140%;
-  left: 30px;
-  top: 25px;
-  letter-spacing: -.05em;
-}
-
 h1 {
   font-size: 140%;
   font-weight: normal;
@@ -137,6 +123,16 @@ h1 {
   color: #FFFFFF;
   padding: .5em;
   font-weight: bold;
+}
+
+header.intro > h1 {
+	margin-top: 30%;
+}
+
+header {
+	margin: 0;
+	position: absolute;
+	top: 0;
 }
 
 h2 {
@@ -166,7 +162,7 @@ a {
 }
  
 ul {
-  margin: 0;
+  margin-left: 5%;
   padding: 0;
 }
  
@@ -197,57 +193,11 @@ pre button {
 }
       
 .presentation > .middle {
-  line-height: 2em;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
   height: 700px;
   width: 900px;
-}
-
-pre {
-  text-align: left;
-  font-size: 80%;
-  padding: 10px 20px;
-  background: rgba(255, 0, 0, 0.05);
-  border: 1px solid rgba(255, 0, 0, 0.2);
-}
-
-pre select {
-  border: 1px solid #c61800;
-}
-  
-input {
-  font-size: 100%;
-  margin-right: 10px;
-  padding: 3px;
-}
-input[type="range"] {
-  width: 100%;
-}
-
-button {
-  margin: 20px 10px 0 0;
-}
-
-button.large {
-  font-size: 32px;
-}
-  
-pre b {
-  font-weight: normal;
-  color: #c61800;
-  /*letter-spacing: -1px;*/
-}
-pre em {
-  font-weight: normal;
-  font-style: normal;
-  color: #18a600;
-}
-pre input[type="range"] {
-  height: 6px;
-  cursor: pointer;
-  width: auto;
 }
  
 .two-column {
