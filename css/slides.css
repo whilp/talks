@@ -38,36 +38,10 @@ body {
   background: #778;
 }
 
-.slides {
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
+.presentation > header,
+.presentation > section {
   position: absolute;
-  display: block;
-  
-}
-
-#presentation-footer {
-  position: absolute;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-}
-
-#presentation-counter {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-
-#presentation-footer div {
-  float: right;
-}
-
-.slide {
   display: none;
-  position: absolute;
   overflow: hidden;
   width: 900px;
   height: 700px;
@@ -77,11 +51,34 @@ body {
   background-color: #fff;
 }
 
-.slide p, .slide textarea {
+.presentation footer {
+  position: absolute;
+  left: 20px;
+	line-height: 1em;
+  right: 20px;
+  bottom: 20px;
+  float: right;
+  text-align: right;
+}
+
+.presentation footer div {
+	float: right;
+}
+
+#presentation-counter {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+	float: left;
+	padding: 0;
+}
+
+.presentation p,
+.presentation textarea {
   font-size: 120%;
 }
  
-.slide .counter {
+.presentation .counter {
   color: #999999;
   float: left;
   display: block;
@@ -93,44 +90,41 @@ body {
   visibility: hidden;
 }
 
-.slide.far-past {
+.presentation .far-past {
   display: block;
   margin-left: -2400px;
 }
 
-.slide.past {
+.presentation .past {
   visibility: hidden;
   display: block;
   margin-left: -1400px;
 }
 
-.slide.current {
+.presentation .current {
   visibility: visible;
   display: block;
   margin-left: -450px;
 }
 
-.slide.future {
+.presentation .future {
   visibility: hidden;
   display: block;
   margin-left: 500px;
 }
 
-.slide.far-future {
+.presentation .far-future {
   display: block;
   margin-left: 1500px;
 }
 
 /* Content */
 
-header {
-  font-weight: normal;
-  letter-spacing: -.05em;
+.presentation > .intro {
+  font-size: 140%;
   left: 30px;
   top: 25px;
-  margin: 0;
-  padding: 0;
-  font-size: 140%;
+  letter-spacing: -.05em;
 }
 
 h1 {
@@ -184,25 +178,25 @@ pre button {
   margin: 2px;
 }
 
-section.left {
+.presentation > .left {
   float: left;
   width: 390px;
 }
 
-section.small {
+.presentation > .small {
   font-size: 24px;
 }
 
-section.small ul {
+.presentation > .small ul {
   margin: 0 0 0 15px;
   padding: 0;
 }
 
-section.small li {
+.presentation > .small li {
   padding-bottom: 0;
 }
       
-section.middle {
+.presentation > .middle {
   line-height: 2em;
   text-align: center;
   display: table-cell;
@@ -254,15 +248,6 @@ pre input[type="range"] {
   height: 6px;
   cursor: pointer;
   width: auto;
-}
-
-div.example {
-  display: block;
-  padding: 10px 20px;
-  color: black;
-  background: rgba(255, 255, 255, 0.4);
-  margin-bottom: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
  
 .two-column {
