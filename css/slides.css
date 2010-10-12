@@ -196,3 +196,9 @@ ul {
 ul.bulleted {
   padding-left: 30px;
 }
+footer .logos {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  float: right;
+}
