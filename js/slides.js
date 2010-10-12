@@ -338,11 +338,15 @@
         case 80: // p
         case 66: // b
         case 37: // left arrow
+        case 33: // page up
+        case 38: // up arrow
           this.prev(); break;
         case 70: // f
         case 78: // n
         case 39: // right arrow
         case 32: // space
+        case 34: // page down
+        case 40: // up arrow
           this.next(); break;
         case 50: // 2
           this.showNotes(); break;
