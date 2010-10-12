@@ -183,7 +183,6 @@
       c.innerHTML = this._count;
       c.className = 'counter';
       f.appendChild(c);
-      this._node.appendChild(f);
     },
     _makeBuildList: function() {
       this._buildList = [];

@@ -39,7 +39,9 @@ body {
 }
 
 .presentation > header,
-.presentation > section {
+.presentation > section,
+.presentation > footer,
+.presentation-footer {
   position: absolute;
   display: none;
   overflow: hidden;
@@ -51,23 +53,17 @@ body {
   background-color: #fff;
 }
 
-.presentation footer {
-  position: absolute;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  float: right;
-  text-align: right;
-}
-
-.presentation footer div {
-  float: right;
+.presentation > footer,
+.presentation-footer {
+  margin-left: -450px;
+  display: block;
+  background: transparent;
 }
 
 #presentation-counter {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 20px;
+  bottom: 20px;
   float: left;
   padding: 0;
 }
