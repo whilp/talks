@@ -202,3 +202,22 @@ footer .logos {
   right: 20px;
   float: right;
 }
+
+footer .help {
+  opacity: .05;
+  position: absolute;
+  bottom: 10px;
+  left: 40px;
+  font-size: 70%;
+  padding: 0;
+  margin-bottom: 10px;
+}
+footer .help:hover {
+  opacity: .5;
+}
+footer .help dd,
+footer .help dt {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
