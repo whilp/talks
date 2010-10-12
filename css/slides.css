@@ -203,8 +203,8 @@ footer .logos {
   float: right;
 }
 
-footer .help {
-  opacity: .05;
+.presentation-help {
+  opacity: .1;
   position: absolute;
   bottom: 10px;
   left: 40px;
@@ -212,11 +212,11 @@ footer .help {
   padding: 0;
   margin-bottom: 10px;
 }
-footer .help:hover {
+.presentation-help:hover {
   opacity: .5;
 }
-footer .help dd,
-footer .help dt {
+.presentation-help dd,
+.presentation-help dt {
   display: inline;
   padding: 0;
   margin: 0;
