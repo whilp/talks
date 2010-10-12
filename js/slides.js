@@ -165,8 +165,13 @@
     },
     _makeFooter: function() {
       if(!this._count || !this._node) { return; }
-      var f = query('.presentation footer');
-      if (f.length == 0) { return; }
+      var f = query('footer.presentation-footer');
+      if (f.length == 0) { 
+        var f = query('.presentation > footer');
+        if (f.length == 0)
+          return;
+        addClass(f[0], 'presentation-footer');
+      }
       f = f[0];
       var c = query('#presentation-counter');
       if (c.length == 0) {
