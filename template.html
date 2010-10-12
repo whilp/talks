@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+    <link rel=stylesheet href={{root}}css/slides.css>
+</head>
+<body>
+
+<article class="presentation">
+
+  <header class="intro middle center">
+    <h1>{{title}}</h1>
+
+    <ul class="authors">
+    {{#author}}
+      <li><a href="mailto:{{email}}" class="author">{{name}}</a></li>,
+    {{/author}}
+    </ul>
+
+    <ul class="institutes">
+    {{#institute}}
+      <li><a href="{{url}}" class="institute">{{name}}</a></li>
+    {{/institute}}
+    </ul>
+
+    <p class="date">{{date}}</p>
+
+  </header>
+
+  {{#slide}
+  <section>
+    <header>
+      <h1>{{title}}</h1>
+    </header>
+
+    <ul>
+      <li>...</li>
+      <li>...</li>
+    </ul>
+  </section>
+  {{/slide}}
+  
+  <footer>
+    <div class="logos">
+    {{#logo}}
+      <object data={{root}}img/{{logo}}.svg height={{height}} width={{width}}></object>
+    {{/logo}}
+    </div>
+
+    <dl class="presentation-help">
+      <dt>Backward:</dt>
+      <dd><kbd>&#8592;</kbd>, <kbd>page up</kbd>, <kbd>p</kbd></dd>
+      <dt>Forward:</dt>
+      <dd><kbd>&#8594;</kbd>, <kbd>space</kbd>, <kbd>page down</kbd>, <kbd>n</kbd></dd>
+    </dl>
+  </footer>
+
+</article>
+  
+<script src={{root}}js/slides.js></script>
+</body>
+</html>
