@@ -115,7 +115,6 @@ header {
 }
 h1 {
   font-size: 140%;
-  font-weight: normal;
   padding: 0;
   width: 100%;
   display: block;
@@ -149,7 +148,7 @@ ul.authors li {
   display: inline;
 }
 ul li {
-  font-size: 140%;
+  font-size: 130%;
 }
 li li {
   font-size: 90%;
@@ -157,7 +156,6 @@ li li {
 
 p, li { 
   font-size: 140%;
-  font-weight: 100;
   line-height: 1.5em;
 }
 
