@@ -186,7 +186,8 @@ ul {
   column-count: 2;
 }
 
-.center {
+.center,
+.center * {
   text-align: center;
 }
 
