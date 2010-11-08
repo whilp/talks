@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>T2_US_Wisconsin Status - 2010.10.12</title>
+    <title>T2_US_Wisconsin Status - 2010.10.26</title>
     <link rel=stylesheet href=../../../../css/keys.css>
     <link rel=stylesheet href=../../../../css/typography.css>
     <link rel=stylesheet href=../../../../css/slides.css>
@@ -26,7 +26,7 @@
       </a></li>
     </ul>
 
-    <p class="date">2010.10.12</p>
+    <p class="date">2010.10.26</p>
 
 
   </header>
@@ -37,33 +37,29 @@
     </header>
 
     <ul>
-      <li>New rack of storage and compute nodes should ship in the next two weeks</li>
-      <li>Testing custom kernels to reduce soft lock frequency
+      <li>Hardware for next compute/storage deployment just arrived
         <ul>
-          <li>Applying recommendations from ATLAS AGLT2</li>
-          <li><code>CONFIG_PREEMPT_NONE</code>, <code>CONFIG_BOOTPARAM_HUNG_TASK_PANIC</code></li>
-          <li>Next step: mainline kernel?
+          <li>Test/deploy this week</li>
         </ul>
       </li>
-      <li>Debugging high load on CMS gatekeeper
+      <li>High load on gatekeepers
         <ul>
-          <li>Job managers pile up, machine starts soft locking</li>
-          <li>Now running with an optimized <code>setup.sh</code></li>
+          <li>Both gatekeepers had several periods of very high load in the last two weeks</li>
+          <li>Performing well since upgrade to latest OSG (1.2.15)</li>
         </ul>
       </li>
-      <li>CRAB won't send to our site if one gatekeeper is overloaded
+      <li><code>SRM_PATH</code> in Glite environment broke SRM stageout via local submission
         <ul>
-          <li>We have two; shouldn't CRAB still send here?
+          <li>Local users increasingly sourcing Glite environment for CRAB</li>
+          <li>Glite sets <code>SRM_PATH</code>; worker node client respects it and breaks SRM clients</li>
+          <li>Local submission tool uses <code>GetEnv=True</code>, so environment leaked to jobs</li>
+          <li>Added hook to worker node client <code>setup.sh</code> to unset <code>SRM_PATH</code></li>
         </ul>
       </li>
-      <li>Debugged large numbers of held jobs
-        <ul>
-          <li>Race between Condor memory monitoring and 4.5 GB <code>srmcp</code> processes</li>
-          <li>Did not affect CRAB</li>
-        </ul>
-      <li>Testing non-blocking Condor negotiation on gatekeepers (7.5.5 pre-release)</li>
-      <li>Last gLExec bug caught and fixed on opportunistic resources</li>
+      <li>Added second gatekeeper to SiteDB, fixing asymmetric distribution of CRAB jobs</li>
+      <li>Testing possible replacements for Cfengine</li>
     </ul>
+
   </section>
 
   <section>
@@ -75,22 +71,21 @@
       <li>SAM: OK</li>
       <li>RSV:
         <ul>
-          <li>RSV proxy expired on cmsgrid02 2010.10.10; fixed check script</li>
+          <li>Some hiccups due to OSG upgrades</li>
         </ul>
       </li>
       <li>PhEDEx: 
         <ul>
-          <li>Prod and Debug instances running Ok</li>
-          <li>Lots of data transfers, storage cleanups, etc; no serious issues</li>
-          <li>Set campus speed record: 10 Gbps over 8 hours of PhEDEx transfers</li>
+          <li>Prod and Debug instances running OK</li>
+          <li>No major transfer issues; usual LoadTest and data transfers ongoing</li>
         </ul>
       </li>
       <li>MC Production:
         <ul>
-          <li>Upgraded production server memory</li>
-          <li>Fall10 continues; produced 800M events so far with another 300M in the queue</li>
-          <li>Production going well so far at the LCG/OSG sites</li>
-          <li>Some HI production squeezed in the gaps</li>
+          <li>Fall10 production continues: 1B events produced in last 3 months</li>
+          <li>Another 200M request received, some leftover Summer10 (45M), too</li>
+          <li>Current batch is mostly LHE; handled some workflow and site issues</li>
+          <li>Make sure the <code>hiproduction</code> role is in place before the next HI production round</li>
         </ul>
       </li>
     </ul>
