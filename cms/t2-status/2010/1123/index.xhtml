@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>T2_US_Wisconsin Status &#8211; 2010.11.23</title>
+<link rel="stylesheet" href="../../../../css/keys.css" />
+<link rel="stylesheet" href="../../../../css/typography.css" />
+<link rel="stylesheet" href="../../../../css/slides.css" />
+<link rel="stylesheet" href="../../../../css/uw-cms.css" />
+</head>
+<body>
+
+<article class="presentation">
+
+<header class="intro middle center">
+<h1>T2_US_Wisconsin Facilities Status</h1>
+
+<ul class="authors">
+<li><a href="mailto:wcmaier@hep.wisc.edu" class="author">Will Maier</a>,</li>
+<li><a href="mailto:ajit@hep.wisc.edu" class="author">Ajit Mohapatra</a></li>
+</ul>
+
+<ul class="institutes">
+<li><a href="http://hep.wisc.edu/" class="institute">
+University of Wisconsin - High Energy Physics
+</a></li>
+</ul>
+
+<p class="date">2010.11.23</p>
+
+
+</header>
+
+<section>
+<header>
+<h1>Software and Storage</h1>
+</header>
+
+<ul>
+
+<li>2010.11.16: PNFS queues backed up</li>
+<ul>
+<li>Two queues accumulated &#x223C; 8000 messages</li>
+<li>Could not determine source of backlog</li>
+<li><code>oprofile</code> showed that <code>pnfsd</code> and <code>dbserver</code> were using most of the CPU</li>
+<li>Increased size of <code>/var</code> partition and problem went away (?!?!)</li>
+<li>AFS <code>klog</code> shim caused high load on gatekeepers; removed</li>
+</ul>
+
+<li>Cleaned up dead/stale nodes</li>
+
+<li>Expanded centralized syslog configuration</li>
+
+<li>Purchased third OSG CE server</li>
+
+<li>Working with campus networking to prepare DYNES proposal</li>
+<ul>
+<li>Deadline extended to 15 December</li>
+</ul>
+
+</ul>
+
+</section>
+
+<section>
+<header>
+<h1>Production and Monitoring</h1>
+</header>
+<ul>
+
+<li>JobRobot: OK</li>
+
+<li>SAM: OK</li>
+
+<li>RSV: OK</li>
+
+<li>PhEDEx:</li>
+<ul>
+<li>Prod and Debug instances OK</li>
+<li>Lots of Fall10 data and MC transfers and old Summer10/Spring10 MC/data cleanups</li>
+</ul>
+
+<li>MC Production:</li>
+<ul>
+<li>Fall10 MC prod continues</li>
+<li>Some high prio HeavyIon MC samples produced and delivered in between</li>
+</ul>
+
+</ul>
+</section>
+
+<footer>
+<div class="logos">
+<object data="../../../../img/logo-uscms.svg" height="85" width="105"></object>
+<object data="../../../../img/logo-uw.svg" height="75" width="180"></object>
+</div>
+
+<dl class="presentation-help">
+<dt>Backward:</dt>
+<dd><kbd>&#8592;</kbd>, <kbd>page up</kbd>, <kbd>p</kbd></dd>
+<dt>Forward:</dt>
+<dd><kbd>&#8594;</kbd>, <kbd>space</kbd>, <kbd>page down</kbd>, <kbd>n</kbd></dd>
+</dl>
+</footer>
+
+</article>
+
+<script src="../../../../js/slides.js"></script>
+</body>
+</html>
