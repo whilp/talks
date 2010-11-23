@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>T2_US_Wisconsin Status - 2010.10.26</title>
+<link rel=stylesheet href=../../../../css/keys.css>
+<link rel=stylesheet href=../../../../css/typography.css>
+<link rel=stylesheet href=../../../../css/slides.css>
+<link rel=stylesheet href=../../../../css/uw-cms.css>
+</head>
+<body>
+
+<article class="presentation">
+
+<header class="intro middle center">
+<h1>T2_US_Wisconsin Facilities Status</h1>
+
+<ul class="authors">
+<li><a href="mailto:wcmaier@hep.wisc.edu" class="author">Will Maier</a>,</li>
+<li><a href="mailto:ajit@hep.wisc.edu" class="author">Ajit Mohapatra</a></li>
+</ul>
+
+<ul class="institutes">
+<li><a href="http://hep.wisc.edu/" class="institute">
+University of Wisconsin - High Energy Physics
+</a></li>
+</ul>
+
+<p class="date">2010.10.26</p>
+
+
+</header>
+
+<section>
+<header>
+<h1>Software and Storage</h1>
+</header>
+
+<ul>
+<li>Hardware for next compute/storage deployment just arrived
+<ul>
+<li>Test/deploy this week</li>
+</ul>
+</li>
+<li>High load on gatekeepers
+<ul>
+<li>Both gatekeepers had several periods of very high load in the last two weeks</li>
+<li>Performing well since upgrade to latest OSG (1.2.15)</li>
+</ul>
+</li>
+<li><code>SRM_PATH</code> in Glite environment broke SRM stageout via local submission
+<ul>
+<li>Local users increasingly sourcing Glite environment for CRAB</li>
+<li>Glite sets <code>SRM_PATH</code>; worker node client respects it and breaks SRM clients</li>
+<li>Local submission tool uses <code>GetEnv=True</code>, so environment leaked to jobs</li>
+<li>Added hook to worker node client <code>setup.sh</code> to unset <code>SRM_PATH</code></li>
+</ul>
+</li>
+<li>Added second gatekeeper to SiteDB, fixing asymmetric distribution of CRAB jobs</li>
+<li>Testing possible replacements for Cfengine</li>
+</ul>
+
+</section>
+
+<section>
+<header>
+<h1>Production and Monitoring</h1>
+</header>
+<ul>
+<li>JobRobot: OK</li>
+<li>SAM: OK</li>
+<li>RSV:
+<ul>
+<li>Some hiccups due to OSG upgrades</li>
+</ul>
+</li>
+<li>PhEDEx:
+<ul>
+<li>Prod and Debug instances running OK</li>
+<li>No major transfer issues; usual LoadTest and data transfers ongoing</li>
+</ul>
+</li>
+<li>MC Production:
+<ul>
+<li>Fall10 production continues: 1B events produced in last 3 months</li>
+<li>Another 200M request received, some leftover Summer10 (45M), too</li>
+<li>Current batch is mostly LHE; handled some workflow and site issues</li>
+<li>Make sure the <code>hiproduction</code> role is in place before the next HI production round</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<footer>
+<div class="logos">
+<object data=../../../../img/logo-uscms.svg height=85 width=105></object>
+<object data=../../../../img/logo-uw.svg height=75 width=180></object>
+</div>
+
+<dl class="presentation-help">
+<dt>Backward:</dt>
+<dd><kbd>&#8592;</kbd>, <kbd>page up</kbd>, <kbd>p</kbd></dd>
+<dt>Forward:</dt>
+<dd><kbd>&#8594;</kbd>, <kbd>space</kbd>, <kbd>page down</kbd>, <kbd>n</kbd></dd>
+</dl>
+</footer>
+
+</article>
+
+<script src=../../../../js/slides.js></script>
+</body>
+</html>
