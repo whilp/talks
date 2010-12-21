@@ -156,6 +156,7 @@ li li {
 p, li { 
   font-size: 140%;
   line-height: 1.5em;
+  width: 98%;
 }
 
 code {
