@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="UTF-8" />
-<title>T2_US_Wisconsin Status – 2010.11.23</title>
+<title>T2_US_Wisconsin Status – 2010.12.21</title>
 <link rel="stylesheet" href="../../../../css/keys.css" />
 <link rel="stylesheet" href="../../../../css/typography.css" />
 <link rel="stylesheet" href="../../../../css/slides.css" />
@@ -26,7 +26,7 @@ University of Wisconsin - High Energy Physics
 </a></li>
 </ul>
 
-<p class="date">2010.11.23</p>
+<p class="date">2010.12.21</p>
 
 
 </header>
@@ -38,29 +38,28 @@ University of Wisconsin - High Energy Physics
 
 <ul>
 
-<li>Burning in new server to add to OSG CE pool</li>
+<li>Deployed new OSG CE dedicated to non-CMS VOs</li>
 
 <ul>
-<li>Dedicated to non-CMS VOs</li>
+<li>Reduces load on two dedicated CMS CEs</li>
 </ul>
 
-<li>Package updates got stuck; fixed and pushed</li>
-
-<li>2010.11.24-27: PNFS cleaner got stuck</li>
+<li>Scheduled (and then postponed) Chimera conversion</li>
 
 <ul>
-<li>Backlog of 34,000 deletions</li>
-
-<li>Processed backlog in spurts of 500</li>
-
-<li><code>oprofile</code>, <code>gcc</code> profiling didn't reveal much</li>
+<li><code>pnfsDump</code> won't run</li>
+<li>DESY, FNAL trying to understand why</li>
 </ul>
 
-<li>2010.11.24: PNFS went nuts</li>
+<li>Debugged SAM Prod/MC test jobs that got stuck in the queue</li>
+
+<li>Resurrected HDFS test cluster</li>
 
 <ul>
-<li>After much flailing about, reassociated each PNFS database with the root <a href="http://www-pnfs.desy.de/worms.html">wormhole</a></li>
-<li>Minor config parsing bug in PoolManager delayed recovery a bit</li>
+<li>Namenode on production hardware, grid services co-located for testing</li>
+<li>Installation/configuration went well, upgrading to pre-release</li>
+<li>Will use xrootd interface for job access (requird on opportunstic resources)</li>
+<li>New storage hardware will join HDFS test cluster; scale tests in January?</li>
 </ul>
 
 <li>Lots of node cleanups</li>
@@ -77,26 +76,27 @@ University of Wisconsin - High Energy Physics
 
 <li>JobRobot: OK</li>
 
-<li>SAM: OK</li>
+<li>SAM: Prod/MC tests stuck in the queue</li>
 
 <li>RSV: OK</li>
 
 <li>PhEDEx:</li>
 
 <ul>
-<li>Running stably, no major issues except some intermittent transfer errors to a few sites</li>
-
-<li>Lots of MC/data transfers followed up with storage space cleanups</li>
+<li>Prod/Debug instances running Ok</li>
+<li>No major transfer issues</li>
+<li>Usual MC/data transfers for local/CMS users and storage space management</li>
 </ul>
+
+Misc : The pool accounts for cmsprod and cmsprio roles are successfully implemented.
 
 <li>MC Production:</li>
 
 <ul>
-<li>Fall10 7TeV production in the tails with more than 1.3B events produced so far</li>
-
-<li>Expected to finish within this month, unless there are very late requests</li>
-
-<li>News about 8 TeV production, but no details yet</li>
+<li>Fall10 is in the tails</li>
+<li>No new requests, but still dealing with some problematic ones which had to be reproduced</li>
+<li>The last few set of workflows are in the queue</li>
+<li>The 8 TeV Spring11 MC production is expected to continue during Christmas with CMSSW_3_10_0, which is expected sometime this week</li>
 </ul>
 
 </ul>
