@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8" />
+<meta charset="utf-8" />
 <title>{{title}}</title>
-<link rel="stylesheet" href="{{root}}css/slides.css" />
+<link rel="stylesheet" type="text/css" href="css/slides.css" />
 <link rel="stylesheet" href="{{root}}css/keys.css" />
 <link rel="stylesheet" href="{{root}}css/typography.css" />
 <link rel="stylesheet" href="{{root}}css/{{theme}}.css" />
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="js/jquery-1.4.4.min.js"></script>
+<script src="js/jquery-hashchange-1.3.min.js"></script>
 </head>
 <body>
 
-<article class="presentation">
+<article>
 
 <header class="intro middle center">
 <h1>{{title}}</h1>
+</header>
+
+<section>
+
+<header>
+<h1>This is a pedantic presenter</h1>
 
 <ul class="authors">
 {{#author}}
@@ -31,7 +42,7 @@
 
 </header>
 
-{{#slide}
+{{#slide}}
 <section>
 <header>
 <h1>{{title}}</h1>
@@ -61,6 +72,11 @@
 
 </article>
 
-<script src="{{root}}js/slides.js"></script>
+<script src="js/slides.js"></script>
+<script>
+/* <![CDATA[ */
+$("article").slides();
+/* ]]> */
+</script>
 </body>
 </html>
