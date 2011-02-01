@@ -6,6 +6,13 @@ footer p {
     background: none;
 }
 
+body {
+    background: #ddd;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
 .slides > header,
 .slides > footer,
 .slides > section,
@@ -78,13 +85,14 @@ p, ul, pre {
     vertical-align: middle;
 }
 
-.flash {
+#flash {
+    display: none;
     text-align: center;
     padding: 5px 0 5px 0;
     margin: 0;
     z-index: 1000;
     display: block;
-    background: #ccc;
+    background: #555;
     opacity: .8;
     font-size: .9em;
 }

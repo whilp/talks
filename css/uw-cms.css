@@ -3,8 +3,17 @@ h1 {
   color: #FFFFFF;
 }
 
+#flash {
+  background: #d0113f;
+}
+
 a {
   text-decoration: none;
+  color: #d0113f;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 p.date,
