@@ -12,10 +12,13 @@
 
 body {
   font-family: "LatinModernSans10Regular", Arial, serif;
+  font-size: 100%;
+  line-height: 1.125em;
 }
 
 p, li, dt, dd, time {
-  line-height: 1.5;
+  font-size: 1.5em;
+  line-height: 1.5em;
   text-align: justify;
 }
 
@@ -35,6 +38,7 @@ cite {
 .bold,
 h1, h2, h3, h4, h5, h6 {
   font-family: "LatinModernSans10Bold", Arial, serif;
+  line-height: 2em;
 }
 
 .sans {
