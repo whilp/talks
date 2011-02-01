@@ -2,6 +2,30 @@ h1 {
   background: #d0113f;
   color: #FFFFFF;
 }
+
 a {
   text-decoration: none;
+}
+
+p.date,
+ul.authors,
+ul.institutes {
+    clear: both;
+    display: block;
+    width: 100%;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+ul.authors,
+ul.institutes {
+    margin: 2em 0 0 0;
+    list-style-type: none;
+}
+
+ul.authors li,
+ul.institutes li {
+    display: inline;
 }
