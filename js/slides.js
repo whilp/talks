@@ -14,17 +14,12 @@
     $.fn.slides.defaults = {
         duration: 0,
         bindings: {
-            8:  "prev", // backspace
             37: "prev", // left
             38: "prev", // up
             39: "next", // right
             40: "next", // down
-            72: "prev", // h
             75: "prev", // k
             74: "next", // j
-            76: "next", // l
-            78: "next", // n
-            80: "prev", // p
             32: "next", // space
         },
     };
@@ -42,6 +37,7 @@
         $.each(slides.slice(1), function () {
             $(this).hide();
         });
+        $.fn.slides.gotohash();
     };
 
     $.fn.slides.goto = function (index) {
@@ -72,6 +68,12 @@
         slide.hide($.fn.slides.settings.duration);
     };
 
+    $.fn.slides.gotohash = function (hash) {
+        var hash = hash || location.hash || "slide1",
+            slide = hash.replace(/^#slide/, "");
+        $.fn.slides.goto(parseInt(slide, 10) - 1);
+    };
+
     $(document).keydown(function (event) {
         var key = (event.keyCode ? event.keyCode : event.which);
         var fnname = $.fn.slides.settings.bindings[key],
@@ -84,9 +86,7 @@
 
     if ("hashchange" in $(window)) {
         $(window).hashchange(function () {
-            var hash = location.hash || "slide1",
-                slide = hash.replace(/^#slide/, "");
-            $.fn.slides.goto(parseInt(slide, 10) - 1);
+            $.fn.slides.gotohash();
         });
     };
 })(jQuery);
