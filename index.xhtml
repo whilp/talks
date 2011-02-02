@@ -2,153 +2,86 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8" />
-<title>A pedantic presenter</title>
-<link rel="stylesheet" type="text/css" href="css/slides.css" />
+<title>Sideshow — XHTML5/JS/CSS presentations</title>
+<link rel="stylesheet" type="text/css" href="css/sideshow.css" />
 <!--[if IE]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="js/html5.js"></script>
 <![endif]-->
-<script src="js/jquery-1.4.4.min.js"></script>
-<script src="js/jquery-hashchange-1.3.min.js"></script>
 </head>
 <body>
 
 <article>
 
-<header>
-<h1>pedantic presenter</h1>
-</header>
-
 <section>
-
 <header>
-<h1>This is a pedantic presenter</h1>
+<h1>Sideshow — XHTML5/JS/CSS presentations</h1>
 </header>
 
 <ul>
-<li>Write an (X)HTML5 document and call <code>$.slides("rootelement")</code></li>
-<li>The root's <code>header</code> and <code>footer</code> tags are on every slide</li>
-<li><code>section</code> tags become slides</li>
-<li>Each <code>section</code>'s <code>header</code> and <code>footer</code> show up, too</li>
-<li>Simple keybindings for navigation: left/up/h/k/p/backspace go back, right/down/j/l/n/space go forward</li>
+<li>Sideshow turns webpages into presentations</li>
+<li>You can use it to write presentations, too</li>
+<li>You can find/fork the code on github (BSD/MIT/X11 license):</li>
+<li><a href="http://github.com/wcmaier/sideshow/">http://github.com/wcmaier/sideshow/</a></li>
 <li>See the next slide for an example</li>
 </ul>
 
-<p>You can find/fork the code on github (BSD/MIT/X11 license):</p>
-<p><a href="http://github.com/wcmaier/pedantic-presenter/">http://github.com/wcmaier/pedantic-presenter/</a></p>
-
-<footer>
-<p>(A slide's footer goes here.)</p>
-</footer>
-
 </section>
 
 <section>
 
 <header>
-<h1>An example</h1>
-</header>
-
-<code><pre><![CDATA[
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset="utf-8" />
-<title>An example!</title>
-<link rel="stylesheet" type="text/css" href="css/slides.css" />
-<script src="js/jquery-1.4.4.min.js"></script>
-</head>
-<body>
-<article>
-<!-- your slides go here -->
-</article>
-</body>
-</html>
-]]></pre></code>
-
-<p>Continue onward to see an example slide.</p>
-
-</section>
-
-<section>
-
-<header>
-<h1>An example</h1>
-</header>
-
-<p>A simple slide.</p>
-
-<code><pre><![CDATA[
-<section>
-<header>
-<h1>Here's the slide header</h1>
+<h1>Getting started</h1>
 </header>
 
 <ul>
-<li>Bullets!</li>
+<li>Start with a (X)HTML5 document with <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> tags</li>
+<li>Load <a href="https://github.com/wcmaier/sideshow/blob/master/css/sideshow.css">sideshow.css</a></li>
+<li>Load <a href="http://jquery.com/">jQuery</a>, <a href="http://benalman.com/projects/jquery-hashchange-plugin/">jQuery-hashchange</a> and <a href="https://github.com/wcmaier/sideshow/blob/master/js/sideshow.js">sideshow.js</a></li>
+<li>Add a <code>&lt;script&gt;</code> at the end and call <code>$("article").sideshow()</code></li>
+<li>The <code>&lt;article&gt;</code> becomes the presentation</li>
+<ul>
+<li>Each <code>&lt;section&gt;</code> within the <code>&lt;article&gt;</code> will become a slide</li>
+<li>If the <code>&lt;article&gt;</code> has a <code>&lt;header&gt;</code> and/or <code>&lt;footer&gt;</code>, they'll show up on each slide</li>
+<li>If a <code>&lt;section&gt;</code> has a <code>&lt;header&gt;</code> and/or <code>&lt;footer&gt;</code>, they'll only show up on that slide</li>
 </ul>
 
-<p>Other stuff!</p>
-
-<footer>
-<p>A slide-specific footer (like footnotes).</p>
-</footer>
-</section>
-]]></pre></code>
+</ul>
 
 </section>
 
 <section>
-
 <header>
-<h1>Call the javascript</h1>
+<h1>Other stuff</h1>
 </header>
 
-<p>Set headers and footers on all the slides.</p>
-
-<code><pre><![CDATA[
-<article>
-<!-- slides go here -->
-</article>
-<script src="js/slides.js"></script>
-<script>
-$("article").slides();
-</script>
-]]></pre></code>
+<ul>
+<li>Theme your presentation with CSS</li>
+<ul>
+<li>The presentation root will be tagged with a <code>sideshow</code> class</li>
+<li>Useful selectors:</li>
+<ul>
+<li><code>.sideshow &gt; header</code> — the presentation header</li>
+<li><code>.sideshow &gt; footer</code> — the presentation footer</li>
+<li><code>.sideshow &gt; section</code> — the slides</li>
+<li><code>.sideshow &gt; section &gt; header</code> — the slide headers</li>
+<li><code>.sideshow &gt; section &gt; footer</code> — the slide footers</li>
+</ul>
+</ul>
+<li>Extend Sideshow</li>
+<ul>
+<li>There are lots of points to hook in; see <a href="https://github.com/wcmaier/sideshow/blob/master/js/sideshow.js">sideshow.js</a></li>
+</ul>
+</ul>
 </section>
 
-<section>
-
-<header>
-<h1>Presentation header/footer</h1>
-</header>
-
-<p>Set headers and footers on all the slides.</p>
-
-<code><pre><![CDATA[
-<article>
-<header>
-<h1>A header on every slide (above the slide header)</h1>
-</header>
-
-<footer>
-<p>A footer on every slide (below the slide footer)</p>
-</footer>
-</article>
-]]></pre></code>
-
-</section>
-
-
-<footer>
-<p>This is the talk footer.</p>
-</footer>
-
 </article>
 
-<script src="js/slides.js"></script>
+<script src="js/jquery-1.4.4.min.js"></script>
+<script src="js/jquery-hashchange-1.3.min.js"></script>
+<script src="js/sideshow.js"></script>
 <script>
 /* <![CDATA[ */
-$("article").slides();
+$("article").sideshow();
 /* ]]> */
 </script>
 </body>
