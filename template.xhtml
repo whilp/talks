@@ -3,22 +3,18 @@
 <head>
 <meta charset="utf-8" />
 <title>{{title}}</title>
-<link rel="stylesheet" type="text/css" href="css/slides.css" />
-<link rel="stylesheet" href="{{root}}css/keys.css" />
+<link rel="stylesheet" type="text/css" href="css/sideshow.css" />
 <link rel="stylesheet" href="{{root}}css/typography.css" />
 <link rel="stylesheet" href="{{root}}css/{{theme}}.css" />
-<!--[if IE]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<script src="js/jquery-1.4.4.min.js"></script>
-<script src="js/jquery-hashchange-1.3.min.js"></script>
 </head>
 <body>
 
 <article>
 
-<header class="intro middle center">
+<section class="intro middle center">
+<header>
 <h1>{{title}}</h1>
+</header>
 
 <ul class="authors">
 {{#author}}
@@ -34,7 +30,7 @@
 
 <p class="date">{{date}}</p>
 
-</header>
+</section>
 
 {{#slide}}
 <section>
@@ -55,21 +51,19 @@
 <object data="{{root}}img/{{logo}}.svg" height="{{height}}" width="{{width}}"></object>
 {{/logo}}
 </div>
-
-<dl class="presentation-help">
-<dt>Backward:</dt>
-<dd><kbd>←</kbd>, <kbd>page up</kbd>, <kbd>p</kbd></dd>
-<dt>Forward:</dt>
-<dd><kbd>→</kbd>, <kbd>space</kbd>, <kbd>page down</kbd>, <kbd>n</kbd></dd>
-</dl>
 </footer>
 
 </article>
 
-<script src="js/slides.js"></script>
+<!--[if IE]>
+<script src="js/html5.js"></script>
+<![endif]-->
+<script src="js/jquery-1.4.4.min.js"></script>
+<script src="js/jquery-hashchange-1.3.min.js"></script>
+<script src="js/sideshow.js"></script>
 <script>
 /* <![CDATA[ */
-$("article").slides();
+$("article").sideshow();
 /* ]]> */
 </script>
 </body>
